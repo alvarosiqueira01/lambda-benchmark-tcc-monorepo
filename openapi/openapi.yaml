@@ -1,0 +1,435 @@
+openapi: 3.0.3
+info:
+  title: Document API Benchmark
+  version: 1.0.0
+  description: |
+    API HTTP REST para a entidade Document.
+    Contrato com exatamente cinco endpoints.
+
+    Observação: conforme a documentação anexa, a entidade Document possui
+    apenas os campos `id`, `body`, `language` e `tags`.
+    Campos de timestamp (createdAt/updatedAt) não fazem parte deste contrato.
+tags:
+  - name: Documents
+    description: Operações sobre documentos
+  - name: Analysis
+    description: Análise de documentos
+
+paths:
+  /documents:
+    post:
+      tags:
+        - Documents
+      summary: Criar documento
+      operationId: createDocument
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentCreate'
+            examples:
+              default:
+                value:
+                  body: "Este é um documento de teste."
+                  language: "pt"
+                  tags: ["teste", "benchmark"]
+      responses:
+        '201':
+          description: Documento criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+              examples:
+                created:
+                  value:
+                    id: "123e4567-e89b-12d3-a456-426614174000"
+                    body: "Este é um documento de teste."
+                    language: "pt"
+                    tags: ["teste", "benchmark"]
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /documents/{id}:
+    parameters:
+      - $ref: '#/components/parameters/DocumentId'
+    get:
+      tags:
+        - Documents
+      summary: Recuperar documento
+      operationId: getDocument
+      responses:
+        '200':
+          description: Documento encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+              examples:
+                found:
+                  value:
+                    id: "123e4567-e89b-12d3-a456-426614174000"
+                    body: "Este é um documento de teste."
+                    language: "pt"
+                    tags: ["teste", "benchmark"]
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - Documents
+      summary: Atualizar documento
+      operationId: updateDocument
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentUpdate'
+            examples:
+              default:
+                value:
+                  body: "Conteúdo atualizado."
+                  language: "pt"
+                  tags: ["atualizado", "benchmark"]
+      responses:
+        '200':
+          description: Documento atualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+              examples:
+                updated:
+                  value:
+                    id: "123e4567-e89b-12d3-a456-426614174000"
+                    body: "Conteúdo atualizado."
+                    language: "pt"
+                    tags: ["atualizado", "benchmark"]
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - Documents
+      summary: Excluir documento
+      operationId: deleteDocument
+      responses:
+        '204':
+          description: Documento excluído
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /documents/{id}/analysis:
+    parameters:
+      - $ref: '#/components/parameters/DocumentId'
+    get:
+      tags:
+        - Analysis
+      summary: Executar análises
+      operationId: analyzeDocument
+      responses:
+        '200':
+          description: Análise executada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResponse'
+              examples:
+                default:
+                  value:
+                    lexical:
+                      wordCount: 5
+                      uniqueWordCount: 5
+                      characterCount: 31
+                      averageWordLength: 5.2
+                      frequencyDistribution:
+                        este: 1
+                        é: 1
+                        um: 1
+                        documento: 1
+                        teste: 1
+                    readability:
+                      sentenceCount: 1
+                      averageSentenceLength: 5
+                      averageWordLength: 5.2
+                      readabilityIndex: 72.4
+                    keywords:
+                      topKeywords:
+                        - documento
+                        - teste
+                      keywordFrequencies:
+                        documento: 1
+                        teste: 1
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: '#/components/responses/AnalysisError'
+
+components:
+  parameters:
+    DocumentId:
+      name: id
+      in: path
+      required: true
+      description: Identificador único do documento (UUID).
+      schema:
+        type: string
+        format: uuid
+      example: "123e4567-e89b-12d3-a456-426614174000"
+
+  responses:
+    BadRequest:
+      description: Requisição inválida
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            badRequest:
+              value:
+                error: "VALIDATION_ERROR"
+                message: "Invalid request"
+    NotFound:
+      description: Documento não encontrado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            notFound:
+              value:
+                error: "DOCUMENT_NOT_FOUND"
+                message: "document not found"
+    UnprocessableEntity:
+      description: Dados semanticamente inválidos
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            validationError:
+              value:
+                error: "VALIDATION_ERROR"
+                message: "body must not be empty"
+    InternalServerError:
+      description: Falha interna
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            internalError:
+              value:
+                error: "INTERNAL_ERROR"
+                message: "internal server error"
+    AnalysisError:
+      description: Falha durante o processamento da análise
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            analysisError:
+              value:
+                error: "ANALYSIS_ERROR"
+                message: "document analysis failed"
+
+  schemas:
+    DocumentCreate:
+      type: object
+      required:
+        - body
+        - language
+        - tags
+      properties:
+        body:
+          type: string
+          description: Conteúdo do documento. Não pode ser vazio ou somente whitespace.
+          minLength: 1
+          example: "Este é um documento de teste."
+        language:
+          type: string
+          description: Código do idioma suportado.
+          example: "pt"
+        tags:
+          type: array
+          description: Lista de tags. Pode ser vazia. Cada tag deve ser string não vazia.
+          items:
+            type: string
+            minLength: 1
+          example: ["teste", "benchmark"]
+      additionalProperties: false
+
+    DocumentUpdate:
+      type: object
+      required:
+        - body
+        - language
+        - tags
+      properties:
+        body:
+          type: string
+          description: Conteúdo do documento. Não pode ser vazio ou somente whitespace.
+          minLength: 1
+          example: "Conteúdo atualizado."
+        language:
+          type: string
+          description: Código do idioma suportado.
+          example: "pt"
+        tags:
+          type: array
+          description: Lista de tags. Pode ser vazia. Cada tag deve ser string não vazia.
+          items:
+            type: string
+            minLength: 1
+          example: ["atualizado", "benchmark"]
+      additionalProperties: false
+
+    DocumentResponse:
+      type: object
+      required:
+        - id
+        - body
+        - language
+        - tags
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identificador único do documento.
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        body:
+          type: string
+          example: "Este é um documento de teste."
+        language:
+          type: string
+          example: "pt"
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["teste", "benchmark"]
+      additionalProperties: false
+
+    Error:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Código do erro.
+          example: "VALIDATION_ERROR"
+        message:
+          type: string
+          description: Descrição legível do erro.
+          example: "body must not be empty"
+      additionalProperties: false
+
+    AnalysisResponse:
+      type: object
+      required:
+        - lexical
+        - readability
+        - keywords
+      properties:
+        lexical:
+          type: object
+          required:
+            - wordCount
+            - uniqueWordCount
+            - characterCount
+            - averageWordLength
+            - frequencyDistribution
+          properties:
+            wordCount:
+              type: integer
+              example: 5
+            uniqueWordCount:
+              type: integer
+              example: 5
+            characterCount:
+              type: integer
+              example: 31
+            averageWordLength:
+              type: number
+              format: float
+              example: 5.2
+            frequencyDistribution:
+              type: object
+              additionalProperties:
+                type: integer
+              example:
+                este: 1
+                é: 1
+                um: 1
+                documento: 1
+                teste: 1
+          additionalProperties: false
+        readability:
+          type: object
+          required:
+            - sentenceCount
+            - averageSentenceLength
+            - averageWordLength
+            - readabilityIndex
+          properties:
+            sentenceCount:
+              type: integer
+              example: 1
+            averageSentenceLength:
+              type: number
+              format: float
+              example: 5
+            averageWordLength:
+              type: number
+              format: float
+              example: 5.2
+            readabilityIndex:
+              type: number
+              format: float
+              example: 72.4
+          additionalProperties: false
+        keywords:
+          type: object
+          required:
+            - topKeywords
+            - keywordFrequencies
+          properties:
+            topKeywords:
+              type: array
+              items:
+                type: string
+              example: ["documento", "teste"]
+            keywordFrequencies:
+              type: object
+              additionalProperties:
+                type: integer
+              example:
+                documento: 1
+                teste: 1
+          additionalProperties: false
+      additionalProperties: false
