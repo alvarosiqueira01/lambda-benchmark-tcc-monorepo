@@ -1,0 +1,1302 @@
+[
+  {
+    "id": "43fe47b6-52fb-5a4c-857f-47f94310d3d5",
+    "title": "Documento de benchmark 0000",
+    "body": "O experimento registra latência, duração e quantidade de invocações. O tema desempenho aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema documento aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema custo aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema custo aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema documento aparece no experimento. A orquestração combina as respostas das análises independentes. O tema memoria aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema analise aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema memoria aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema custo aparece no experimento. A orquestração combina as respostas das análises independentes. O tema serverless ap",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "d24d1688-8070-57c9-b4a3-b514f63acf38",
+    "title": "Benchmark document 0001",
+    "body": "Larger documents increase the amount of real processing work. The topic memory appears in the experiment. Serverless applications can vary resources according to load. The topic architecture appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic performance appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic performance appears in the experiment. The experiment records latency, duration, and invocation counts. The topic memory appears in the experiment. The orchestrator combines the results of independent analyses. The topic serverless appears in the experiment. The experiment records latency, duration, and invocation counts. The topic lambda appears in the experiment. Text analysis measures properties of a document body. The topic analysis appears in the experiment. Storage preserves the original document content. The topic memory appears in the experiment. Larger documents increase the amount o",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "cbdc5650-5b92-54ec-80fb-7625ca4b1296",
+    "title": "Documento de benchmark 0002",
+    "body": "A análise textual mede propriedades do conteúdo de um documento. O tema arquitetura aparece no experimento. A orquestração combina as respostas das análises independentes. O tema custo aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema custo aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema arquitetura aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema latencia aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema analise aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema serverless aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema arquitetura aparece no experimento. Resultados determinísticos facilitam a comparação entre execuç",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "fef6efe5-4258-5474-945a-df387e64eeee",
+    "title": "Benchmark document 0003",
+    "body": "Deterministic results make repeated executions easier to compare. The topic architecture appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic serverless appears in the experiment. The experiment records latency, duration, and invocation counts. The topic backend appears in the experiment. A function receives data, applies rules, and produces a result. The topic lambda appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic analysis appears in the experiment. The orchestrator combines the results of independent analyses. The topic architecture appears in the experiment. The orchestrator combines the results of independent analyses. The topic latency appears in the experiment. A function receives data, applies rules, and produces a result. The topic serverless appears in the experiment. Distributed systems process tasks in an efficient way. The topic lambda appears in the experiment. Distributed syst",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "2b394c61-bcd7-581b-9516-16e6c19857ad",
+    "title": "Documento de benchmark 0004",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema backend aparece no experimento. A orquestração combina as respostas das análises independentes. O tema documento aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema latencia aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema custo aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema documento aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema serverless aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema desempenho aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema latencia aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema arquitetura aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema memoria apare",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "3012a633-9885-5c3b-806f-4cdd16c316c5",
+    "title": "Benchmark document 0005",
+    "body": "Storage preserves the original document content. The topic backend appears in the experiment. Text analysis measures properties of a document body. The topic lambda appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic backend appears in the experiment. The experiment records latency, duration, and invocation counts. The topic performance appears in the experiment. The experiment records latency, duration, and invocation counts. The topic backend appears in the experiment. Storage preserves the original document content. The topic lambda appears in the experiment. Distributed systems process tasks in an efficient way. The topic document appears in the experiment. A function receives data, applies rules, and produces a result. The topic serverless appears in the experiment. Larger documents increase the amount of real processing work. The topic memory appears in the experiment. Text analysis measures properties of a document body. The ",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "537b2e76-dd70-5cc2-a25e-452933c91125",
+    "title": "Documento de benchmark 0006",
+    "body": "Memória e tempo de execução influenciam o custo de uma função. O tema desempenho aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema custo aparece no experimento. A orquestração combina as respostas das análises independentes. O tema latencia aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema memoria aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema documento aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. A orquestração combina as respostas das análises independentes. O tema desempenho aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema backend aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema desempenho aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema analise apar",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "bca8cb29-3aa0-5d95-9416-a552ca352439",
+    "title": "Benchmark document 0007",
+    "body": "Deterministic results make repeated executions easier to compare. The topic architecture appears in the experiment. A function receives data, applies rules, and produces a result. The topic backend appears in the experiment. The orchestrator combines the results of independent analyses. The topic document appears in the experiment. The experiment records latency, duration, and invocation counts. The topic performance appears in the experiment. A function receives data, applies rules, and produces a result. The topic serverless appears in the experiment. Text analysis measures properties of a document body. The topic document appears in the experiment. Deterministic results make repeated executions easier to compare. The topic architecture appears in the experiment. Distributed systems process tasks in an efficient way. The topic serverless appears in the experiment. The experiment records latency, duration, and invocation counts. The topic analysis appears in the experiment. A simple A",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "02a68bae-fff8-56c7-9b74-2a8ab667bc6f",
+    "title": "Documento de benchmark 0008",
+    "body": "Uma função recebe dados, executa regras e produz um resultado. O tema lambda aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema lambda aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema arquitetura aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema documento aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema arquitetura aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema memoria aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema latencia aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema latencia aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema analise aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema latencia ap",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "a831e11e-72cc-550c-bbfa-04c59560a3f2",
+    "title": "Benchmark document 0009",
+    "body": "Larger documents increase the amount of real processing work. The topic memory appears in the experiment. Storage preserves the original document content. The topic memory appears in the experiment. Storage preserves the original document content. The topic latency appears in the experiment. Memory and execution time influence the cost of a function. The topic lambda appears in the experiment. Text analysis measures properties of a document body. The topic architecture appears in the experiment. Text analysis measures properties of a document body. The topic architecture appears in the experiment. A function receives data, applies rules, and produces a result. The topic architecture appears in the experiment. Deterministic results make repeated executions easier to compare. The topic serverless appears in the experiment. A function receives data, applies rules, and produces a result. The topic cost appears in the experiment. Storage preserves the original document content. The topic la",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "b1e55f31-5b2c-518d-a210-d599172b9d84",
+    "title": "Documento de benchmark 0010",
+    "body": "A decomposição separa responsabilidades em funções especializadas. O tema latencia aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema custo aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema memoria aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema custo aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema documento aparece no experimento. A orquestração combina as respostas das análises independentes. O tema analise aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema serverless aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema arquitetura aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema backend aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "771703b0-952c-5fc1-83b4-15dcf5645fb7",
+    "title": "Benchmark document 0011",
+    "body": "The experiment records latency, duration, and invocation counts. The topic analysis appears in the experiment. Distributed systems process tasks in an efficient way. The topic serverless appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic serverless appears in the experiment. Deterministic results make repeated executions easier to compare. The topic latency appears in the experiment. The orchestrator combines the results of independent analyses. The topic backend appears in the experiment. Larger documents increase the amount of real processing work. The topic backend appears in the experiment. Larger documents increase the amount of real processing work. The topic document appears in the experiment. Memory and execution time influence the cost of a function. The topic document appears in the experiment. Text analysis measures properties of a document body. The topic performance appears in the experiment. Serverless applications ca",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "470a5d00-dd65-503c-8fdf-edf9cc123403",
+    "title": "Documento de benchmark 0012",
+    "body": "Uma API simples reduz variáveis desnecessárias no experimento. O tema memoria aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema lambda aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema memoria aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema desempenho aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema latencia aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema desempenho aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema documento aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema serverless aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema backend a",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "257246d5-78ba-522c-889c-7529bd9d1a94",
+    "title": "Benchmark document 0013",
+    "body": "Deterministic results make repeated executions easier to compare. The topic lambda appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic document appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic document appears in the experiment. Serverless applications can vary resources according to load. The topic memory appears in the experiment. Distributed systems process tasks in an efficient way. The topic lambda appears in the experiment. A function receives data, applies rules, and produces a result. The topic performance appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic latency appears in the experiment. Memory and execution time influence the cost of a function. The topic document appears in the experiment. A function receives data, applies rules, and produces a result. The topic architecture appears in the experiment. Serverless application",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "5501e4f2-a56d-569c-a07b-afe6a28353a3",
+    "title": "Documento de benchmark 0014",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema analise aparece no experimento. A orquestração combina as respostas das análises independentes. O tema custo aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema lambda aparece no experimento. A orquestração combina as respostas das análises independentes. O tema backend aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema custo aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema latencia aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema lambda aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema serverless aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema backend aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema analise a",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "d05d2950-0f0d-5a13-9f56-62c4f153406d",
+    "title": "Benchmark document 0015",
+    "body": "Larger documents increase the amount of real processing work. The topic performance appears in the experiment. Storage preserves the original document content. The topic lambda appears in the experiment. Larger documents increase the amount of real processing work. The topic backend appears in the experiment. The experiment records latency, duration, and invocation counts. The topic cost appears in the experiment. Distributed systems process tasks in an efficient way. The topic lambda appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic architecture appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic architecture appears in the experiment. Memory and execution time influence the cost of a function. The topic analysis appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic architecture appears in the experiment. The orchestrator combines t",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "22e80f06-33d8-5876-9a3b-e0ec27e9532d",
+    "title": "Documento de benchmark 0016",
+    "body": "O armazenamento mantém o conteúdo original do documento. O tema serverless aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema lambda aparece no experimento. A orquestração combina as respostas das análises independentes. O tema backend aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema serverless aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema analise aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema arquitetura aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema memoria aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema documento aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema custo aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O t",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "51149d51-8be0-56b7-ad8d-aabb08912644",
+    "title": "Benchmark document 0017",
+    "body": "Decomposition separates responsibilities into specialized functions. The topic serverless appears in the experiment. Deterministic results make repeated executions easier to compare. The topic document appears in the experiment. Storage preserves the original document content. The topic architecture appears in the experiment. Distributed systems process tasks in an efficient way. The topic memory appears in the experiment. Storage preserves the original document content. The topic memory appears in the experiment. Deterministic results make repeated executions easier to compare. The topic performance appears in the experiment. The orchestrator combines the results of independent analyses. The topic backend appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic analysis appears in the experiment. Text analysis measures properties of a document body. The topic performance appears in the experiment. Text analysis measures properties of a ",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "451d1514-494e-52c0-b809-b378eb401877",
+    "title": "Documento de benchmark 0018",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema backend aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema memoria aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema analise aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema documento aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema serverless aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema custo aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema custo aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema desempenho aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema documento aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema docu",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "ce1618bd-dc3b-5eea-9635-65bb6caa550b",
+    "title": "Benchmark document 0019",
+    "body": "Larger documents increase the amount of real processing work. The topic memory appears in the experiment. The orchestrator combines the results of independent analyses. The topic document appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic backend appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic performance appears in the experiment. Storage preserves the original document content. The topic analysis appears in the experiment. Memory and execution time influence the cost of a function. The topic latency appears in the experiment. Distributed systems process tasks in an efficient way. The topic latency appears in the experiment. Memory and execution time influence the cost of a function. The topic document appears in the experiment. A function receives data, applies rules, and produces a result. The topic cost appears in the experiment. A simple API reduces unnecessary variables in th",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "46835ee7-939d-560b-9356-622a39d9dcaa",
+    "title": "Documento de benchmark 0020",
+    "body": "Uma API simples reduz variáveis desnecessárias no experimento. O tema backend aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema desempenho aparece no experimento. A orquestração combina as respostas das análises independentes. O tema lambda aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema serverless aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema memoria aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema analise aparece no experimento. A orquestração combina as respostas das análises independentes. O tema custo aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema analise aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema analise aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "03c0ed9c-e936-543b-98fe-57b3401ef851",
+    "title": "Benchmark document 0021",
+    "body": "Decomposition separates responsibilities into specialized functions. The topic latency appears in the experiment. Deterministic results make repeated executions easier to compare. The topic cost appears in the experiment. The orchestrator combines the results of independent analyses. The topic backend appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic latency appears in the experiment. Larger documents increase the amount of real processing work. The topic analysis appears in the experiment. Storage preserves the original document content. The topic serverless appears in the experiment. Serverless applications can vary resources according to load. The topic architecture appears in the experiment. The experiment records latency, duration, and invocation counts. The topic lambda appears in the experiment. The orchestrator combines the results of independent analyses. The topic document appears in the experiment. Text analysis measure",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "eb3200cd-6147-53d6-ad86-cae3d2db5bdd",
+    "title": "Documento de benchmark 0022",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema latencia aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema lambda aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema documento aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema desempenho aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema backend aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema custo aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema analise aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema desempenho aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema latencia aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema memori",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "d2546256-dbcd-576c-8de3-d1c19c7efd36",
+    "title": "Benchmark document 0023",
+    "body": "Memory and execution time influence the cost of a function. The topic serverless appears in the experiment. Distributed systems process tasks in an efficient way. The topic serverless appears in the experiment. Larger documents increase the amount of real processing work. The topic performance appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic analysis appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic latency appears in the experiment. Memory and execution time influence the cost of a function. The topic backend appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic document appears in the experiment. Memory and execution time influence the cost of a function. The topic serverless appears in the experiment. Memory and execution time influence the cost of a function. The topic backend appears in the experiment. A function receives dat",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "577a28fd-d277-5197-9c43-4270050cafdc",
+    "title": "Documento de benchmark 0024",
+    "body": "Documentos maiores aumentam o trabalho real de processamento. O tema latencia aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema arquitetura aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema desempenho aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema backend aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema latencia aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema documento aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema backend aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema arquitetura aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema memoria aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema analise ",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "09bc5066-4b2c-552d-925b-f6ad77b6ec7d",
+    "title": "Benchmark document 0025",
+    "body": "A simple API reduces unnecessary variables in the experiment. The topic cost appears in the experiment. Serverless applications can vary resources according to load. The topic backend appears in the experiment. Memory and execution time influence the cost of a function. The topic lambda appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic analysis appears in the experiment. The experiment records latency, duration, and invocation counts. The topic performance appears in the experiment. Storage preserves the original document content. The topic document appears in the experiment. Serverless applications can vary resources according to load. The topic analysis appears in the experiment. A function receives data, applies rules, and produces a result. The topic analysis appears in the experiment. Memory and execution time influence the cost of a function. The topic document appears in the experiment. Memory and execution time influence the cost",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "b480e84c-8b1e-50dd-acc1-eab16aa1aba6",
+    "title": "Documento de benchmark 0026",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema serverless aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema analise aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema documento aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema desempenho aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema analise aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema analise aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema latencia aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema desempenho aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema analise aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema serverless",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "aea2ad7b-da0d-5376-a334-f26d9f5b90fc",
+    "title": "Benchmark document 0027",
+    "body": "Serverless applications can vary resources according to load. The topic architecture appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic memory appears in the experiment. Storage preserves the original document content. The topic backend appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic latency appears in the experiment. Storage preserves the original document content. The topic serverless appears in the experiment. Larger documents increase the amount of real processing work. The topic backend appears in the experiment. Distributed systems process tasks in an efficient way. The topic cost appears in the experiment. Serverless applications can vary resources according to load. The topic document appears in the experiment. Text analysis measures properties of a document body. The topic lambda appears in the experiment. Memory and execution time influence the cost of a function. ",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "aacfa998-39fd-5e7f-aa2e-93258acad094",
+    "title": "Documento de benchmark 0028",
+    "body": "Documentos maiores aumentam o trabalho real de processamento. O tema documento aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema custo aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema desempenho aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema custo aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema desempenho aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema desempenho aparece no experimento. A orquestração combina as respostas das análises independentes. O tema memoria aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema arquitetura aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema documento aparece no experimento. O armazenamento mantém o conteúdo original do documento. O ",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "043da61c-bdfc-514c-a72a-84ef49b39ffb",
+    "title": "Benchmark document 0029",
+    "body": "A simple API reduces unnecessary variables in the experiment. The topic analysis appears in the experiment. Distributed systems process tasks in an efficient way. The topic memory appears in the experiment. Larger documents increase the amount of real processing work. The topic document appears in the experiment. The experiment records latency, duration, and invocation counts. The topic lambda appears in the experiment. Larger documents increase the amount of real processing work. The topic cost appears in the experiment. Distributed systems process tasks in an efficient way. The topic backend appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic cost appears in the experiment. Text analysis measures properties of a document body. The topic analysis appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic architecture appears in the experiment. The experiment records latency, duration, ",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "34450943-1b35-53b0-9fc9-bdaf506cfecf",
+    "title": "Documento de benchmark 0030",
+    "body": "A decomposição separa responsabilidades em funções especializadas. O tema desempenho aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema documento aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema desempenho aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema serverless aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema backend aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema serverless aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema custo aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema backend aparece no experimento. A orquestração combina as respostas das análises independentes. O tema arquitetura aparece no experimento. Resultados determinísticos facilitam a comparação entre ",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "892d2056-1a02-5bb8-b939-895a7c1e2660",
+    "title": "Benchmark document 0031",
+    "body": "Larger documents increase the amount of real processing work. The topic architecture appears in the experiment. Deterministic results make repeated executions easier to compare. The topic performance appears in the experiment. Memory and execution time influence the cost of a function. The topic document appears in the experiment. The orchestrator combines the results of independent analyses. The topic cost appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic analysis appears in the experiment. Memory and execution time influence the cost of a function. The topic cost appears in the experiment. A function receives data, applies rules, and produces a result. The topic performance appears in the experiment. Memory and execution time influence the cost of a function. The topic backend appears in the experiment. Storage preserves the original document content. The topic serverless appears in the experiment. A simple API reduces unnecessa",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "ed061f2b-ae52-5715-9d55-a3e620d1d13b",
+    "title": "Documento de benchmark 0032",
+    "body": "Uma API simples reduz variáveis desnecessárias no experimento. O tema desempenho aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema arquitetura aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema documento aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema memoria aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema desempenho aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema lambda aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema arquitetura aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente.",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "72f8c120-fb87-52e1-9704-e54bd0280752",
+    "title": "Benchmark document 0033",
+    "body": "Memory and execution time influence the cost of a function. The topic analysis appears in the experiment. Serverless applications can vary resources according to load. The topic backend appears in the experiment. Storage preserves the original document content. The topic analysis appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic architecture appears in the experiment. Storage preserves the original document content. The topic backend appears in the experiment. Memory and execution time influence the cost of a function. The topic serverless appears in the experiment. The experiment records latency, duration, and invocation counts. The topic lambda appears in the experiment. Text analysis measures properties of a document body. The topic backend appears in the experiment. Storage preserves the original document content. The topic serverless appears in the experiment. Serverless applications can vary resources according to load. The ",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "48078f94-dd72-57e0-b251-06ba30a9077e",
+    "title": "Documento de benchmark 0034",
+    "body": "Sistemas distribuídos processam tarefas de forma eficiente. O tema desempenho aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. A orquestração combina as respostas das análises independentes. O tema documento aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema latencia aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema documento aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema desempenho aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema desempenho aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema latencia aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema custo aparece no experimento. Uma função recebe dados, executa regras e produz um resul",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "daa446e4-4325-5a76-a03f-31ac23ec631b",
+    "title": "Benchmark document 0035",
+    "body": "Larger documents increase the amount of real processing work. The topic architecture appears in the experiment. Larger documents increase the amount of real processing work. The topic backend appears in the experiment. Text analysis measures properties of a document body. The topic serverless appears in the experiment. Larger documents increase the amount of real processing work. The topic latency appears in the experiment. Distributed systems process tasks in an efficient way. The topic document appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic latency appears in the experiment. Larger documents increase the amount of real processing work. The topic analysis appears in the experiment. The experiment records latency, duration, and invocation counts. The topic backend appears in the experiment. Serverless applications can vary resources according to load. The topic document appears in the experiment. The experiment records latency, durati",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "2d22e9bc-f372-5853-b684-6b84ebbaa567",
+    "title": "Documento de benchmark 0036",
+    "body": "Documentos maiores aumentam o trabalho real de processamento. O tema custo aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema analise aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema latencia aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema desempenho aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema serverless aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema backend aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema desempenho aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema serverless aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema serverless aparece no experimento. A análise textual mede propriedades do conteúdo de um docu",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "ecea8f7c-33a0-5fff-8dfc-0202524545bc",
+    "title": "Benchmark document 0037",
+    "body": "The orchestrator combines the results of independent analyses. The topic serverless appears in the experiment. Distributed systems process tasks in an efficient way. The topic cost appears in the experiment. Deterministic results make repeated executions easier to compare. The topic architecture appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic latency appears in the experiment. The orchestrator combines the results of independent analyses. The topic analysis appears in the experiment. Storage preserves the original document content. The topic memory appears in the experiment. Memory and execution time influence the cost of a function. The topic performance appears in the experiment. Deterministic results make repeated executions easier to compare. The topic analysis appears in the experiment. Serverless applications can vary resources according to load. The topic memory appears in the experiment. Storage preserves the original document ",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "9ffd8ba0-648d-5a2c-9cd1-1723d63f227b",
+    "title": "Documento de benchmark 0038",
+    "body": "O armazenamento mantém o conteúdo original do documento. O tema arquitetura aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema custo aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema latencia aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema analise aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema backend aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema memoria aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema arquitetura aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema documento aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema memoria aparece no",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "3c3c665f-d69c-5217-9494-9e57e05028e7",
+    "title": "Benchmark document 0039",
+    "body": "The experiment records latency, duration, and invocation counts. The topic lambda appears in the experiment. Serverless applications can vary resources according to load. The topic backend appears in the experiment. Memory and execution time influence the cost of a function. The topic lambda appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic document appears in the experiment. Text analysis measures properties of a document body. The topic cost appears in the experiment. Deterministic results make repeated executions easier to compare. The topic latency appears in the experiment. Text analysis measures properties of a document body. The topic latency appears in the experiment. Serverless applications can vary resources according to load. The topic document appears in the experiment. Serverless applications can vary resources according to load. The topic lambda appears in the experiment. Distributed systems process tasks in an efficient wa",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "438b61ca-086b-54aa-9aea-37ad7812d11e",
+    "title": "Documento de benchmark 0040",
+    "body": "O armazenamento mantém o conteúdo original do documento. O tema backend aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema desempenho aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema analise aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema desempenho aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema backend aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema serverless aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema backend aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema desempenho ",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "55657075-a3ed-52a4-8682-9505cecab983",
+    "title": "Benchmark document 0041",
+    "body": "A function receives data, applies rules, and produces a result. The topic document appears in the experiment. A function receives data, applies rules, and produces a result. The topic memory appears in the experiment. The orchestrator combines the results of independent analyses. The topic backend appears in the experiment. Text analysis measures properties of a document body. The topic architecture appears in the experiment. Text analysis measures properties of a document body. The topic backend appears in the experiment. A function receives data, applies rules, and produces a result. The topic lambda appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic performance appears in the experiment. Serverless applications can vary resources according to load. The topic lambda appears in the experiment. A function receives data, applies rules, and produces a result. The topic backend appears in the experiment. The experiment records latency",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "51151138-4f96-5113-b1fa-b9ea19681f53",
+    "title": "Documento de benchmark 0042",
+    "body": "Sistemas distribuídos processam tarefas de forma eficiente. O tema memoria aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema analise aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema memoria aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema documento aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema lambda aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema latencia aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema custo aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema custo aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema arquitetura aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema memo",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "07d9343a-12fc-53ca-868d-8326e0031ef6",
+    "title": "Benchmark document 0043",
+    "body": "A function receives data, applies rules, and produces a result. The topic backend appears in the experiment. Larger documents increase the amount of real processing work. The topic memory appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic serverless appears in the experiment. Text analysis measures properties of a document body. The topic latency appears in the experiment. The orchestrator combines the results of independent analyses. The topic performance appears in the experiment. Serverless applications can vary resources according to load. The topic serverless appears in the experiment. The experiment records latency, duration, and invocation counts. The topic architecture appears in the experiment. Distributed systems process tasks in an efficient way. The topic document appears in the experiment. Distributed systems process tasks in an efficient way. The topic lambda appears in the experiment. Text analysis measures properties of a ",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "ba7c07cd-7426-5b37-ab2a-99fbed70081b",
+    "title": "Documento de benchmark 0044",
+    "body": "A análise textual mede propriedades do conteúdo de um documento. O tema analise aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema serverless aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema arquitetura aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema desempenho aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema serverless aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema analise aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema arquitetura aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema arquitetura aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema custo aparece no experimento. Resultados determinísticos facilitam a comparação entre ex",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "ca7e3056-7916-5036-8bd3-07b2911bd30c",
+    "title": "Benchmark document 0045",
+    "body": "Deterministic results make repeated executions easier to compare. The topic latency appears in the experiment. Text analysis measures properties of a document body. The topic backend appears in the experiment. The orchestrator combines the results of independent analyses. The topic latency appears in the experiment. The orchestrator combines the results of independent analyses. The topic memory appears in the experiment. Serverless applications can vary resources according to load. The topic lambda appears in the experiment. Text analysis measures properties of a document body. The topic memory appears in the experiment. Distributed systems process tasks in an efficient way. The topic document appears in the experiment. Memory and execution time influence the cost of a function. The topic backend appears in the experiment. Distributed systems process tasks in an efficient way. The topic analysis appears in the experiment. Memory and execution time influence the cost of a function. The ",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "1a631632-e43f-50ff-be81-219d70f1e803",
+    "title": "Documento de benchmark 0046",
+    "body": "Resultados determinísticos facilitam a comparação entre execuções. O tema custo aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema latencia aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema memoria aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema lambda aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema documento aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema memoria aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema backend aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema serverless aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema backend aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tem",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "cb151ccb-1ed3-542b-a730-50d019fa6cb7",
+    "title": "Benchmark document 0047",
+    "body": "Text analysis measures properties of a document body. The topic latency appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic analysis appears in the experiment. A function receives data, applies rules, and produces a result. The topic architecture appears in the experiment. The orchestrator combines the results of independent analyses. The topic performance appears in the experiment. Larger documents increase the amount of real processing work. The topic architecture appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic latency appears in the experiment. The experiment records latency, duration, and invocation counts. The topic performance appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic memory appears in the experiment. Larger documents increase the amount of real processing work. The topic backend appears in the experiment. The experiment",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "0a6e6c5b-7d3f-5aa5-9d17-312bb74b8461",
+    "title": "Documento de benchmark 0048",
+    "body": "O armazenamento mantém o conteúdo original do documento. O tema custo aparece no experimento. A orquestração combina as respostas das análises independentes. O tema serverless aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema custo aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema serverless aparece no experimento. A orquestração combina as respostas das análises independentes. O tema desempenho aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema analise aparece no experimento. A orquestração combina as respostas das análises independentes. O tema custo aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema desempenho aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema latencia aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema memoria",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "e1ea098f-8b5e-54e9-ad22-a9abe13ee9a5",
+    "title": "Benchmark document 0049",
+    "body": "Larger documents increase the amount of real processing work. The topic serverless appears in the experiment. Larger documents increase the amount of real processing work. The topic architecture appears in the experiment. Storage preserves the original document content. The topic latency appears in the experiment. Text analysis measures properties of a document body. The topic performance appears in the experiment. Larger documents increase the amount of real processing work. The topic performance appears in the experiment. Serverless applications can vary resources according to load. The topic architecture appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic lambda appears in the experiment. The experiment records latency, duration, and invocation counts. The topic lambda appears in the experiment. A function receives data, applies rules, and produces a result. The topic latency appears in the experiment. The experiment records latency, du",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "109929fb-8cc9-5997-9db1-ef74bcc0508e",
+    "title": "Documento de benchmark 0050",
+    "body": "Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. A orquestração combina as respostas das análises independentes. O tema analise aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema latencia aparece no experimento. A orquestração combina as respostas das análises independentes. O tema lambda aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema memoria aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema custo aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema analise aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema arquitetura aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema serverless aparece no experimento. A orquestração combina as respostas das análises independentes. O tema custo aparece",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "af793fa3-923d-59fe-9209-28112255379a",
+    "title": "Benchmark document 0051",
+    "body": "A simple API reduces unnecessary variables in the experiment. The topic latency appears in the experiment. Storage preserves the original document content. The topic latency appears in the experiment. Storage preserves the original document content. The topic serverless appears in the experiment. Distributed systems process tasks in an efficient way. The topic lambda appears in the experiment. The orchestrator combines the results of independent analyses. The topic architecture appears in the experiment. Text analysis measures properties of a document body. The topic architecture appears in the experiment. Serverless applications can vary resources according to load. The topic document appears in the experiment. Distributed systems process tasks in an efficient way. The topic memory appears in the experiment. Deterministic results make repeated executions easier to compare. The topic serverless appears in the experiment. The orchestrator combines the results of independent analyses. Th",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "dc4799c9-7eb2-56ba-867a-766451476705",
+    "title": "Documento de benchmark 0052",
+    "body": "A decomposição separa responsabilidades em funções especializadas. O tema backend aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema latencia aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema memoria aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema desempenho aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema serverless aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema documento aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema custo aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema memoria aparece no experimento. A orquestração combina as respostas das análises independentes. O tema serverless aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. ",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "1f9be135-c679-5e9e-983f-743b7518179f",
+    "title": "Benchmark document 0053",
+    "body": "The experiment records latency, duration, and invocation counts. The topic backend appears in the experiment. A function receives data, applies rules, and produces a result. The topic architecture appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic analysis appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic memory appears in the experiment. Deterministic results make repeated executions easier to compare. The topic analysis appears in the experiment. Storage preserves the original document content. The topic latency appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic analysis appears in the experiment. Storage preserves the original document content. The topic serverless appears in the experiment. A function receives data, applies rules, and produces a result. The topic latency appears in the experiment. Storage preserves the origin",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "5c71fb9e-2d51-5a3e-8a98-2bc46acb8f9a",
+    "title": "Documento de benchmark 0054",
+    "body": "A análise textual mede propriedades do conteúdo de um documento. O tema custo aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema latencia aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema custo aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema desempenho aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema custo aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema memoria aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema latencia aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema latencia aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema serverless aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema arquitetu",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "70ffcfc8-84c7-5708-894a-92fdd95919ed",
+    "title": "Benchmark document 0055",
+    "body": "Storage preserves the original document content. The topic analysis appears in the experiment. Memory and execution time influence the cost of a function. The topic memory appears in the experiment. Larger documents increase the amount of real processing work. The topic performance appears in the experiment. Storage preserves the original document content. The topic backend appears in the experiment. Larger documents increase the amount of real processing work. The topic lambda appears in the experiment. Text analysis measures properties of a document body. The topic analysis appears in the experiment. The experiment records latency, duration, and invocation counts. The topic backend appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic document appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic cost appears in the experiment. Serverless applications can vary resources according to load. The to",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "24b143e0-d696-5926-9981-02af05da93dc",
+    "title": "Documento de benchmark 0056",
+    "body": "O experimento registra latência, duração e quantidade de invocações. O tema documento aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema backend aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema arquitetura aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema backend aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema custo aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema analise aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema custo aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema analise apare",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "02bbffff-a726-5edc-bacd-966a6bc27ded",
+    "title": "Benchmark document 0057",
+    "body": "Memory and execution time influence the cost of a function. The topic memory appears in the experiment. Larger documents increase the amount of real processing work. The topic lambda appears in the experiment. Memory and execution time influence the cost of a function. The topic analysis appears in the experiment. Serverless applications can vary resources according to load. The topic backend appears in the experiment. Distributed systems process tasks in an efficient way. The topic latency appears in the experiment. Memory and execution time influence the cost of a function. The topic serverless appears in the experiment. Serverless applications can vary resources according to load. The topic memory appears in the experiment. Text analysis measures properties of a document body. The topic latency appears in the experiment. Deterministic results make repeated executions easier to compare. The topic latency appears in the experiment. The orchestrator combines the results of independent ",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "49fd7c49-d0be-5168-97a3-51baa198ee16",
+    "title": "Documento de benchmark 0058",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema documento aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema documento aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema documento aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema arquitetura aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema custo aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema documento aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema analise aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema lambda aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema desempenho aparece no experimento. Memória e tempo de execução influenciam o custo de uma fu",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "690f62dd-56f8-5f3a-903e-020b10d3f99d",
+    "title": "Benchmark document 0059",
+    "body": "Serverless applications can vary resources according to load. The topic serverless appears in the experiment. The orchestrator combines the results of independent analyses. The topic lambda appears in the experiment. Serverless applications can vary resources according to load. The topic latency appears in the experiment. Larger documents increase the amount of real processing work. The topic architecture appears in the experiment. Larger documents increase the amount of real processing work. The topic document appears in the experiment. Storage preserves the original document content. The topic analysis appears in the experiment. Storage preserves the original document content. The topic cost appears in the experiment. The experiment records latency, duration, and invocation counts. The topic lambda appears in the experiment. Larger documents increase the amount of real processing work. The topic backend appears in the experiment. A function receives data, applies rules, and produces ",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "736d02b5-8e23-5935-8d08-5b7b1b045ac6",
+    "title": "Documento de benchmark 0060",
+    "body": "O experimento registra latência, duração e quantidade de invocações. O tema serverless aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema desempenho aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema arquitetura aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema backend aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema backend aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema lambda aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema arquitetura aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema serverless aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema lambda aparece no experimento. O armazenamento mantém o conteúdo original do documento.",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "6d6f0375-6939-5e4e-99f2-af39d757c6bb",
+    "title": "Benchmark document 0061",
+    "body": "Serverless applications can vary resources according to load. The topic analysis appears in the experiment. The orchestrator combines the results of independent analyses. The topic performance appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic serverless appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic lambda appears in the experiment. A function receives data, applies rules, and produces a result. The topic lambda appears in the experiment. The orchestrator combines the results of independent analyses. The topic cost appears in the experiment. Text analysis measures properties of a document body. The topic latency appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic cost appears in the experiment. Serverless applications can vary resources according to load. The topic architecture appears in the experiment. Distributed systems process t",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "65fbca9e-fe67-50a3-881a-8a0fb6790108",
+    "title": "Documento de benchmark 0062",
+    "body": "Resultados determinísticos facilitam a comparação entre execuções. O tema serverless aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema desempenho aparece no experimento. A orquestração combina as respostas das análises independentes. O tema analise aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema latencia aparece no experimento. A orquestração combina as respostas das análises independentes. O tema serverless aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema custo aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema documento aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema documento aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema latencia aparece no experimento. Aplicações serverless podem variar recursos conforme",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "e2a6cdbc-9641-5b3d-9404-01cc75550a7b",
+    "title": "Benchmark document 0063",
+    "body": "Decomposition separates responsibilities into specialized functions. The topic latency appears in the experiment. Distributed systems process tasks in an efficient way. The topic backend appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic cost appears in the experiment. Serverless applications can vary resources according to load. The topic latency appears in the experiment. Storage preserves the original document content. The topic performance appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic performance appears in the experiment. Distributed systems process tasks in an efficient way. The topic analysis appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic document appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic serverless appears in the experiment. A function receives data, applies rules,",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "abf9997e-873b-5128-a80b-5b1966283978",
+    "title": "Documento de benchmark 0064",
+    "body": "Memória e tempo de execução influenciam o custo de uma função. O tema latencia aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema serverless aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema desempenho aparece no experimento. A orquestração combina as respostas das análises independentes. O tema desempenho aparece no experimento. A orquestração combina as respostas das análises independentes. O tema latencia aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema arquitetura aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema arquitetura aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema custo aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O ",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "75116724-96e1-567f-b065-1e12fc99eed4",
+    "title": "Benchmark document 0065",
+    "body": "The experiment records latency, duration, and invocation counts. The topic memory appears in the experiment. A function receives data, applies rules, and produces a result. The topic serverless appears in the experiment. Serverless applications can vary resources according to load. The topic analysis appears in the experiment. Serverless applications can vary resources according to load. The topic analysis appears in the experiment. The orchestrator combines the results of independent analyses. The topic lambda appears in the experiment. The orchestrator combines the results of independent analyses. The topic serverless appears in the experiment. Distributed systems process tasks in an efficient way. The topic analysis appears in the experiment. Deterministic results make repeated executions easier to compare. The topic performance appears in the experiment. Memory and execution time influence the cost of a function. The topic document appears in the experiment. Text analysis measures ",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "b1f72217-786b-5143-a820-a388e0ca442f",
+    "title": "Documento de benchmark 0066",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema lambda aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema custo aparece no experimento. A orquestração combina as respostas das análises independentes. O tema memoria aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema arquitetura aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema analise aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema analise aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema desempenho aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema custo aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema memoria aparece no experimento. A orquestração combina as respostas das análises independentes. O tema desempenho aparece no expe",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "a8d6438e-d380-5067-8a26-2544ac9c9965",
+    "title": "Benchmark document 0067",
+    "body": "A simple API reduces unnecessary variables in the experiment. The topic performance appears in the experiment. The experiment records latency, duration, and invocation counts. The topic memory appears in the experiment. Storage preserves the original document content. The topic latency appears in the experiment. Deterministic results make repeated executions easier to compare. The topic architecture appears in the experiment. Memory and execution time influence the cost of a function. The topic serverless appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic performance appears in the experiment. Text analysis measures properties of a document body. The topic document appears in the experiment. Text analysis measures properties of a document body. The topic latency appears in the experiment. Distributed systems process tasks in an efficient way. The topic architecture appears in the experiment. Distributed systems process tasks in an ",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "be698864-96a8-5082-bc96-25419cd941d9",
+    "title": "Documento de benchmark 0068",
+    "body": "Resultados determinísticos facilitam a comparação entre execuções. O tema documento aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema custo aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema memoria aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema latencia aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema custo aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema backend aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema latencia aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema memoria aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema arquitetura aparece no experimento. Resultados determinísticos facilitam a comparação entre execuçõe",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "56e69ffe-bc17-5372-8a9b-6711725c0273",
+    "title": "Benchmark document 0069",
+    "body": "Storage preserves the original document content. The topic serverless appears in the experiment. Memory and execution time influence the cost of a function. The topic document appears in the experiment. The experiment records latency, duration, and invocation counts. The topic analysis appears in the experiment. A function receives data, applies rules, and produces a result. The topic memory appears in the experiment. The experiment records latency, duration, and invocation counts. The topic serverless appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic performance appears in the experiment. The orchestrator combines the results of independent analyses. The topic latency appears in the experiment. Distributed systems process tasks in an efficient way. The topic serverless appears in the experiment. Serverless applications can vary resources according to load. The topic backend appears in the experiment. Memory and execution time inf",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "34236b71-6cbd-5634-a496-a3d717a03c89",
+    "title": "Documento de benchmark 0070",
+    "body": "Resultados determinísticos facilitam a comparação entre execuções. O tema memoria aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema lambda aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema custo aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema desempenho aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema memoria aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema desempenho aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema backend aparece no experimento. A orquestração combina as respostas das análises independentes. O tema desempenho aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema analise aparece no experimento. O experimento registra latência, duração e quantidade de invocaçõe",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "b4f181db-b426-5e59-8950-8584fa548f82",
+    "title": "Benchmark document 0071",
+    "body": "A function receives data, applies rules, and produces a result. The topic lambda appears in the experiment. Deterministic results make repeated executions easier to compare. The topic cost appears in the experiment. Storage preserves the original document content. The topic document appears in the experiment. Larger documents increase the amount of real processing work. The topic analysis appears in the experiment. Text analysis measures properties of a document body. The topic cost appears in the experiment. A function receives data, applies rules, and produces a result. The topic latency appears in the experiment. Distributed systems process tasks in an efficient way. The topic backend appears in the experiment. Serverless applications can vary resources according to load. The topic serverless appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic analysis appears in the experiment. Deterministic results make repeated executions easier to c",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "4ae8e9ae-da83-512e-807e-1fcd4cd05228",
+    "title": "Documento de benchmark 0072",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema documento aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema arquitetura aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema serverless aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema arquitetura aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema arquitetura aparece no experimento. A orquestração combina as respostas das análises independentes. O tema documento aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema serverless aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema memoria aparece no experimento. A decomposição separa responsabilidades em funções es",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "843ce72a-dbd4-5d0e-becc-7372dd8c98c3",
+    "title": "Benchmark document 0073",
+    "body": "Decomposition separates responsibilities into specialized functions. The topic latency appears in the experiment. A function receives data, applies rules, and produces a result. The topic analysis appears in the experiment. Serverless applications can vary resources according to load. The topic performance appears in the experiment. The orchestrator combines the results of independent analyses. The topic serverless appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic serverless appears in the experiment. Text analysis measures properties of a document body. The topic lambda appears in the experiment. Distributed systems process tasks in an efficient way. The topic lambda appears in the experiment. Memory and execution time influence the cost of a function. The topic memory appears in the experiment. Memory and execution time influence the cost of a function. The topic cost appears in the experiment. A simple API reduces unnecessary variable",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "612e649b-1b09-5369-ae5e-f8eec3bedb97",
+    "title": "Documento de benchmark 0074",
+    "body": "Resultados determinísticos facilitam a comparação entre execuções. O tema lambda aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema custo aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema documento aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema memoria aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema latencia aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema latencia aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema custo aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema desempen",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "8d2427d0-379e-58dc-b511-c94ef6cad187",
+    "title": "Benchmark document 0075",
+    "body": "Distributed systems process tasks in an efficient way. The topic serverless appears in the experiment. The orchestrator combines the results of independent analyses. The topic lambda appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic serverless appears in the experiment. Memory and execution time influence the cost of a function. The topic performance appears in the experiment. The experiment records latency, duration, and invocation counts. The topic performance appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic document appears in the experiment. Storage preserves the original document content. The topic performance appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic architecture appears in the experiment. A function receives data, applies rules, and produces a result. The topic analysis appears in the experiment. Distributed systems pr",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "521cdd5d-f935-5d6f-99f9-a2634e528f30",
+    "title": "Documento de benchmark 0076",
+    "body": "Resultados determinísticos facilitam a comparação entre execuções. O tema custo aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema custo aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema analise aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema lambda aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema documento aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema memoria aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema arquitetura aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema documento aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema backend aparece no experimento. Aplicações serverless podem variar recursos conforme a carg",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "2d36c680-2592-5903-abfb-7ae39772eb87",
+    "title": "Benchmark document 0077",
+    "body": "Decomposition separates responsibilities into specialized functions. The topic analysis appears in the experiment. Larger documents increase the amount of real processing work. The topic lambda appears in the experiment. A function receives data, applies rules, and produces a result. The topic document appears in the experiment. A function receives data, applies rules, and produces a result. The topic backend appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic memory appears in the experiment. Deterministic results make repeated executions easier to compare. The topic cost appears in the experiment. Memory and execution time influence the cost of a function. The topic lambda appears in the experiment. Deterministic results make repeated executions easier to compare. The topic memory appears in the experiment. Deterministic results make repeated executions easier to compare. The topic architecture appears in the experiment. Serverless appli",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "bd259b43-c781-5651-b818-0fb0f96cbff9",
+    "title": "Documento de benchmark 0078",
+    "body": "Uma função recebe dados, executa regras e produz um resultado. O tema custo aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema backend aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema serverless aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema analise aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema latencia aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema custo aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema analise aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema backend aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema analise aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema ",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "cd049257-64b4-5029-badf-88645e6ba3b9",
+    "title": "Benchmark document 0079",
+    "body": "Storage preserves the original document content. The topic lambda appears in the experiment. Serverless applications can vary resources according to load. The topic cost appears in the experiment. The orchestrator combines the results of independent analyses. The topic performance appears in the experiment. The experiment records latency, duration, and invocation counts. The topic cost appears in the experiment. Memory and execution time influence the cost of a function. The topic analysis appears in the experiment. Deterministic results make repeated executions easier to compare. The topic latency appears in the experiment. Larger documents increase the amount of real processing work. The topic architecture appears in the experiment. Larger documents increase the amount of real processing work. The topic backend appears in the experiment. The experiment records latency, duration, and invocation counts. The topic analysis appears in the experiment. Memory and execution time influence t",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "bb77db09-6523-5e24-a5af-50ee336e6dc2",
+    "title": "Documento de benchmark 0080",
+    "body": "A orquestração combina as respostas das análises independentes. O tema documento aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema analise aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema arquitetura aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema desempenho aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema backend aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema serverless aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema latencia aparece no experimento. A orquestração combina as respostas das análises independentes. O tema memoria aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema memoria aparece no experimento. O experimento registra latência, duração e quantidad",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "02bf04d3-7bd5-5819-805c-27747fb56c57",
+    "title": "Benchmark document 0081",
+    "body": "Larger documents increase the amount of real processing work. The topic document appears in the experiment. Memory and execution time influence the cost of a function. The topic backend appears in the experiment. Distributed systems process tasks in an efficient way. The topic memory appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic performance appears in the experiment. Storage preserves the original document content. The topic cost appears in the experiment. Larger documents increase the amount of real processing work. The topic memory appears in the experiment. Larger documents increase the amount of real processing work. The topic lambda appears in the experiment. The experiment records latency, duration, and invocation counts. The topic analysis appears in the experiment. Memory and execution time influence the cost of a function. The topic performance appears in the experiment. Distributed systems process tasks in an efficient way.",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "da544849-fdf4-59ce-a327-638d31ebc51f",
+    "title": "Documento de benchmark 0082",
+    "body": "Sistemas distribuídos processam tarefas de forma eficiente. O tema lambda aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema arquitetura aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema serverless aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema backend aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema latencia aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema documento aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema backend aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema latencia aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema backend aparece no experimento. Resultados determinísticos facilitam a comparação entr",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "f52b610f-e35b-5256-8ec2-be074bdf23f6",
+    "title": "Benchmark document 0083",
+    "body": "Distributed systems process tasks in an efficient way. The topic architecture appears in the experiment. A function receives data, applies rules, and produces a result. The topic cost appears in the experiment. Deterministic results make repeated executions easier to compare. The topic document appears in the experiment. The orchestrator combines the results of independent analyses. The topic performance appears in the experiment. Memory and execution time influence the cost of a function. The topic cost appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic performance appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic memory appears in the experiment. Deterministic results make repeated executions easier to compare. The topic performance appears in the experiment. The orchestrator combines the results of independent analyses. The topic memory appears in the experiment. Text analy",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "099eb695-e2b7-5ed1-8e3c-c8e0bf5d845c",
+    "title": "Documento de benchmark 0084",
+    "body": "Sistemas distribuídos processam tarefas de forma eficiente. O tema arquitetura aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema serverless aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema analise aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema backend aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema analise aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema memoria aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema desempenho aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema lambda aparece no experimento. A orquestração combina as respostas das análises independentes. O tema arquitetura aparece no experimento. A orquestração combina as respostas das análises independentes.",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "153a4780-9de6-5db6-ac75-a42413b4fe6d",
+    "title": "Benchmark document 0085",
+    "body": "Memory and execution time influence the cost of a function. The topic lambda appears in the experiment. Serverless applications can vary resources according to load. The topic memory appears in the experiment. Storage preserves the original document content. The topic architecture appears in the experiment. Larger documents increase the amount of real processing work. The topic memory appears in the experiment. A function receives data, applies rules, and produces a result. The topic document appears in the experiment. Storage preserves the original document content. The topic memory appears in the experiment. Memory and execution time influence the cost of a function. The topic cost appears in the experiment. Larger documents increase the amount of real processing work. The topic serverless appears in the experiment. The experiment records latency, duration, and invocation counts. The topic lambda appears in the experiment. A simple API reduces unnecessary variables in the experiment.",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "ad22b098-3756-59bc-880a-dd1cd617eb88",
+    "title": "Documento de benchmark 0086",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema serverless aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema serverless aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema desempenho aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema arquitetura aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema serverless aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema arquitetura aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema custo aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema analise aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema memoria aparece no experimento. Uma função recebe dados, executa regras e produz um r",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "23645c31-af3a-53b7-867b-911122726b6f",
+    "title": "Benchmark document 0087",
+    "body": "Memory and execution time influence the cost of a function. The topic analysis appears in the experiment. Storage preserves the original document content. The topic document appears in the experiment. Larger documents increase the amount of real processing work. The topic memory appears in the experiment. A function receives data, applies rules, and produces a result. The topic lambda appears in the experiment. A function receives data, applies rules, and produces a result. The topic serverless appears in the experiment. The orchestrator combines the results of independent analyses. The topic document appears in the experiment. Serverless applications can vary resources according to load. The topic analysis appears in the experiment. Larger documents increase the amount of real processing work. The topic cost appears in the experiment. Distributed systems process tasks in an efficient way. The topic lambda appears in the experiment. Decomposition separates responsibilities into special",
+    "tags": [
+      "document",
+      "analysis",
+      "api"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "9853d0b8-8662-5ac0-bd74-6ef9b54234aa",
+    "title": "Documento de benchmark 0088",
+    "body": "O armazenamento mantém o conteúdo original do documento. O tema latencia aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema analise aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema serverless aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema custo aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema analise aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema backend aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema arquitetura aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema desempenho aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema latencia aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema doc",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "abdb0210-7862-516f-bd84-91c88ae6537c",
+    "title": "Benchmark document 0089",
+    "body": "Deterministic results make repeated executions easier to compare. The topic latency appears in the experiment. Memory and execution time influence the cost of a function. The topic document appears in the experiment. Memory and execution time influence the cost of a function. The topic memory appears in the experiment. Serverless applications can vary resources according to load. The topic analysis appears in the experiment. The orchestrator combines the results of independent analyses. The topic analysis appears in the experiment. A function receives data, applies rules, and produces a result. The topic backend appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic backend appears in the experiment. The orchestrator combines the results of independent analyses. The topic analysis appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic latency appears in the experiment. Larger documents increa",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "fedcacd9-a612-5985-8680-54228c0cee65",
+    "title": "Documento de benchmark 0090",
+    "body": "O armazenamento mantém o conteúdo original do documento. O tema custo aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema serverless aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema latencia aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema desempenho aparece no experimento. A orquestração combina as respostas das análises independentes. O tema arquitetura aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema memoria aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema latencia aparece no experimento. O experimento registra latência, duração e quantidade de invocações. O tema arquitetura aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema desempenho aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "3f3896c5-03ad-5344-8bef-8e281e4f06db",
+    "title": "Benchmark document 0091",
+    "body": "Decomposition separates responsibilities into specialized functions. The topic cost appears in the experiment. Storage preserves the original document content. The topic architecture appears in the experiment. Storage preserves the original document content. The topic memory appears in the experiment. Serverless applications can vary resources according to load. The topic performance appears in the experiment. The orchestrator combines the results of independent analyses. The topic serverless appears in the experiment. Memory and execution time influence the cost of a function. The topic cost appears in the experiment. A function receives data, applies rules, and produces a result. The topic document appears in the experiment. Storage preserves the original document content. The topic document appears in the experiment. Text analysis measures properties of a document body. The topic memory appears in the experiment. Larger documents increase the amount of real processing work. The topi",
+    "tags": [
+      "lambda",
+      "performance",
+      "benchmark"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "e845809a-acfb-586f-b187-71616c93ae97",
+    "title": "Documento de benchmark 0092",
+    "body": "O armazenamento mantém o conteúdo original do documento. O tema latencia aparece no experimento. A orquestração combina as respostas das análises independentes. O tema lambda aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema analise aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema desempenho aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema backend aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema latencia aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema lambda aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema lambda aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema serverless aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema custo aparece n",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "2ed5c24c-9247-51d1-a077-dd541f87f666",
+    "title": "Benchmark document 0093",
+    "body": "A simple API reduces unnecessary variables in the experiment. The topic analysis appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic lambda appears in the experiment. Deterministic results make repeated executions easier to compare. The topic lambda appears in the experiment. Serverless applications can vary resources according to load. The topic analysis appears in the experiment. Distributed systems process tasks in an efficient way. The topic lambda appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic lambda appears in the experiment. Distributed systems process tasks in an efficient way. The topic serverless appears in the experiment. Storage preserves the original document content. The topic lambda appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic backend appears in the experiment. Deterministic results make repeated exe",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "856bb9a2-74b9-5336-bce6-7cae5dea1307",
+    "title": "Documento de benchmark 0094",
+    "body": "Aplicações serverless podem variar recursos conforme a carga. O tema analise aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema backend aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema desempenho aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema latencia aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema desempenho aparece no experimento. Uma função recebe dados, executa regras e produz um resultado. O tema desempenho aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema analise aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema arquitetura aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema lambda aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema desempenho",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "f7681075-e3bc-5e36-b5b8-70a33ae7cfac",
+    "title": "Benchmark document 0095",
+    "body": "The orchestrator combines the results of independent analyses. The topic memory appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic backend appears in the experiment. Text analysis measures properties of a document body. The topic cost appears in the experiment. A function receives data, applies rules, and produces a result. The topic latency appears in the experiment. Memory and execution time influence the cost of a function. The topic analysis appears in the experiment. The experiment records latency, duration, and invocation counts. The topic cost appears in the experiment. Storage preserves the original document content. The topic serverless appears in the experiment. Memory and execution time influence the cost of a function. The topic lambda appears in the experiment. The orchestrator combines the results of independent analyses. The topic cost appears in the experiment. The experiment records latency, duration, and invocation count",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "50d98d61-26b5-53f3-bc97-69eb186f5871",
+    "title": "Documento de benchmark 0096",
+    "body": "A análise textual mede propriedades do conteúdo de um documento. O tema backend aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema latencia aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O tema custo aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tema desempenho aparece no experimento. A orquestração combina as respostas das análises independentes. O tema memoria aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema backend aparece no experimento. A orquestração combina as respostas das análises independentes. O tema arquitetura aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema memoria aparece no experimento. A orquestração combina as respostas das análises independentes. O tema lambda aparece no experimento. A decomposição separa responsabilidades em funções especializadas. O tem",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "8209de4e-75ee-57e8-9171-228c36640d00",
+    "title": "Benchmark document 0097",
+    "body": "Deterministic results make repeated executions easier to compare. The topic serverless appears in the experiment. Storage preserves the original document content. The topic lambda appears in the experiment. The experiment records latency, duration, and invocation counts. The topic cost appears in the experiment. The experiment records latency, duration, and invocation counts. The topic memory appears in the experiment. The orchestrator combines the results of independent analyses. The topic analysis appears in the experiment. Larger documents increase the amount of real processing work. The topic latency appears in the experiment. Storage preserves the original document content. The topic cost appears in the experiment. Storage preserves the original document content. The topic serverless appears in the experiment. Distributed systems process tasks in an efficient way. The topic analysis appears in the experiment. Deterministic results make repeated executions easier to compare. The to",
+    "tags": [
+      "latency",
+      "cost",
+      "memory"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "0145160f-f2e7-54f1-b371-a0ffc2cbd9a4",
+    "title": "Documento de benchmark 0098",
+    "body": "Uma função recebe dados, executa regras e produz um resultado. O tema desempenho aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema serverless aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema desempenho aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema arquitetura aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema lambda aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema documento aparece no experimento. A orquestração combina as respostas das análises independentes. O tema analise aparece no experimento. Aplicações serverless podem variar recursos conforme a carga. O tema latencia aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema memoria aparece no experimento. Memória e tempo de execução influenciam o custo de uma função. O",
+    "tags": [
+      "serverless",
+      "backend",
+      "aws"
+    ],
+    "language": "pt",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "f9d9823d-b7bb-5d77-9d74-8f70ad90f9f2",
+    "title": "Benchmark document 0099",
+    "body": "Distributed systems process tasks in an efficient way. The topic memory appears in the experiment. Distributed systems process tasks in an efficient way. The topic architecture appears in the experiment. Deterministic results make repeated executions easier to compare. The topic backend appears in the experiment. A function receives data, applies rules, and produces a result. The topic cost appears in the experiment. Storage preserves the original document content. The topic analysis appears in the experiment. Memory and execution time influence the cost of a function. The topic backend appears in the experiment. Decomposition separates responsibilities into specialized functions. The topic lambda appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic lambda appears in the experiment. A simple API reduces unnecessary variables in the experiment. The topic analysis appears in the experiment. A simple API reduces unnecessary variables in the ex",
+    "tags": [
+      "architecture",
+      "decomposition",
+      "experiment"
+    ],
+    "language": "en",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  }
+]

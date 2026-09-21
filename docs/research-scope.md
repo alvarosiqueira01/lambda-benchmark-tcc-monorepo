@@ -90,6 +90,7 @@ Cada documento deverá possuir, no mínimo:
 ```text
 Document
 ├── id
+├── title
 ├── body
 ├── language
 └── tags
@@ -98,6 +99,10 @@ Document
 ### `id`
 
 Identificador único do documento.
+
+### `title`
+
+Título do documento, armazenado e devolvido pela API. Não participa das análises.
 
 ### `body`
 

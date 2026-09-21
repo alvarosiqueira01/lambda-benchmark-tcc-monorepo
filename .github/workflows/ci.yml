@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  qualidade-e-testes:
+    name: Qualidade e testes
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Instalar uv (pinned ao lockfile)
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.12.17"
+          python-version: "3.12"
+          enable-cache: true
+
+      - name: Sincronizar dependencias
+        run: uv sync --locked --dev
+
+      - name: Lint (ruff)
+        run: uv run ruff check src tests
+
+      # O dataset do experimento nao e versionado (so o generator).
+      # A regeneracao e deterministic a para o mesmo (version, seed, count, body_size).
+      - name: Gerar dataset do experimento (v1)
+        run: uv run python src/dataset/generated_dataset.py
+
+      # Se o dataset gerado for versionado, exige reproducibilidade exata.
+      - name: Garantir reproducibilidade do dataset v1
+        run: git diff --exit-code -- src/dataset/generated/v1
+
+      - name: Testes de equivalencia (monolitica x decomposta)
+        run: uv run pytest tests/test_equivalence.py -q
+
+      - name: Suite completa
+        run: uv run pytest tests -q

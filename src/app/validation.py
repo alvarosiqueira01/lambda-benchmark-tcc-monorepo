@@ -6,7 +6,7 @@ from collections.abc import Mapping
 
 SUPPORTED_LANGUAGES = frozenset({"pt", "en"})
 
-_ALLOWED_FIELDS = frozenset({"body", "language", "tags"})
+_ALLOWED_FIELDS = frozenset({"title", "body", "language", "tags"})
 
 
 class ValidationError(ValueError):
@@ -17,18 +17,30 @@ class ValidationError(ValueError):
         self.message = message
 
 
-def validate_payload(payload: Mapping) -> tuple[str, str, list[str]]:
-    """Valida body, language e tags de criacao/atualizacao.
+def validate_payload(payload: Mapping) -> tuple[str, str, str, list[str]]:
+    """Valida title, body, language e tags de criacao/atualizacao.
 
-    Retorna a tupla (body, language, tags) ou levanta ValidationError.
+    Retorna a tupla (title, body, language, tags) ou levanta ValidationError.
     """
     unknown = sorted(set(payload) - _ALLOWED_FIELDS)
     if unknown:
         raise ValidationError(f"unknown field: {unknown[0]}")
+    title = _validate_title(payload)
     body = _validate_body(payload)
     language = _validate_language(payload)
     tags = _validate_tags(payload)
-    return body, language, tags
+    return title, body, language, tags
+
+
+def _validate_title(payload: Mapping) -> str:
+    if "title" not in payload:
+        raise ValidationError("title is required")
+    title = payload["title"]
+    if not isinstance(title, str):
+        raise ValidationError("title must be a string")
+    if not title.strip():
+        raise ValidationError("title must not be empty")
+    return title
 
 
 def _validate_body(payload: Mapping) -> str:

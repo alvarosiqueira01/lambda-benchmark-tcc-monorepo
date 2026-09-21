@@ -51,6 +51,7 @@ O documento possui exatamente:
 ```text
 Document
 ├── id
+├── title
 ├── body
 ├── language
 └── tags
@@ -59,7 +60,6 @@ Document
 Não fazem parte do escopo:
 
 ```text
-title
 createdAt
 updatedAt
 wordCount
@@ -86,6 +86,7 @@ Item:
 ```json
 {
   "id":       { "S": "uuid" },
+  "title":    { "S": "Meu Documento" },
   "body":     { "S": "Texto original" },
   "language": { "S": "pt" },
   "tags":     { "L": [ { "S": "AWS" }, { "S": "aws" } ] }
@@ -117,16 +118,16 @@ O handler não conhece DynamoDB nem algoritmos de análise.
 Métodos principais:
 
 ```text
-create_document(body, language, tags) -> Document
+create_document(title, body, language, tags) -> Document
 get_document(id) -> Document
-update_document(id, body, language, tags) -> Document
+update_document(id, title, body, language, tags) -> Document
 delete_document(id) -> void
 analyze_document(id) -> AnalysisResponse
 ```
 
 Responsabilidades:
 
-- validar `body`, `language` e `tags`;
+- validar `title`, `body`, `language` e `tags`;
 - gerar `id` único na criação;
 - preservar `id` na atualização;
 - chamar `Repository` para persistência;
@@ -150,7 +151,7 @@ Operações DynamoDB:
 |---|---|
 | `PutItem` | Criar documento, com `attribute_not_exists(id)`. |
 | `GetItem` | Recuperar documento por `id`. |
-| `UpdateItem` | Atualizar `body`, `language`, `tags`, com `attribute_exists(id)`. |
+| `UpdateItem` | Atualizar `title`, `body`, `language`, `tags`, com `attribute_exists(id)`. |
 | `DeleteItem` | Excluir documento por `id`. |
 
 Sem `Scan`, sem `Query`, sem transações, sem índices.
@@ -192,7 +193,7 @@ Resposta composta:
 
 ```text
 Handler
-  → Service valida body, language, tags
+  → Service valida title, body, language, tags
   → Service gera id
   → Repository.put
   → DynamoDB PutItem

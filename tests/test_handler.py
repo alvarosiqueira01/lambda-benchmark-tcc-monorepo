@@ -10,7 +10,7 @@ from app.repositories.document_repository import DocumentRepository
 from app.services.document_service import DocumentService
 
 BODY = "Este é um documento de teste."
-VALID_PAYLOAD = {"body": BODY, "language": "pt", "tags": ["teste"]}
+VALID_PAYLOAD = {"title": "Meu Documento", "body": BODY, "language": "pt", "tags": ["teste"]}
 
 
 @pytest.fixture
@@ -47,7 +47,7 @@ def test_post_cria_documento(handler):
     response = handler(_event("POST", "/documents", VALID_PAYLOAD), None)
     assert response["statusCode"] == 201
     created = json.loads(response["body"])
-    assert set(created) == {"id", "body", "language", "tags"}
+    assert set(created) == {"id", "title", "body", "language", "tags"}
     assert created["body"] == BODY
 
 
@@ -65,7 +65,7 @@ def test_post_sem_corpo_retorna_400(handler):
 
 
 def test_post_dados_semanticamente_invalidos_retorna_422(handler):
-    response = handler(_event("POST", "/documents", {"body": "   ", "language": "pt", "tags": []}), None)
+    response = handler(_event("POST", "/documents", {"title": "T", "body": "   ", "language": "pt", "tags": []}), None)
     assert response["statusCode"] == 422
     assert json.loads(response["body"]) == {"error": "VALIDATION_ERROR", "message": "body must not be empty"}
 
@@ -85,7 +85,7 @@ def test_get_documento_inexistente_retorna_404(handler):
 
 def test_put_atualiza_documento_e_preserva_id(handler):
     document_id = _created_id(handler)
-    updated = {"body": "Conteúdo atualizado.", "language": "pt", "tags": ["atualizado"]}
+    updated = {"title": "Novo Título", "body": "Conteúdo atualizado.", "language": "pt", "tags": ["atualizado"]}
     response = handler(_event("PUT", f"/documents/{document_id}", updated), None)
     assert response["statusCode"] == 200
     body = json.loads(response["body"])

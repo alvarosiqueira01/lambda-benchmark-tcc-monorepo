@@ -21,16 +21,16 @@ class DocumentService:
         self._repository = repository
 
     def create_document(self, payload: Mapping) -> Document:
-        body, language, tags = validate_payload(payload)
-        document = Document(id=str(uuid4()), body=body, language=language, tags=tags)
+        title, body, language, tags = validate_payload(payload)
+        document = Document(id=str(uuid4()), title=title, body=body, language=language, tags=tags)
         return self._repository.create(document)
 
     def get_document(self, document_id: str) -> Document:
         return self._repository.get(document_id)
 
     def update_document(self, document_id: str, payload: Mapping) -> Document:
-        body, language, tags = validate_payload(payload)
-        document = Document(id=document_id, body=body, language=language, tags=tags)
+        title, body, language, tags = validate_payload(payload)
+        document = Document(id=document_id, title=title, body=body, language=language, tags=tags)
         return self._repository.update(document)
 
     def delete_document(self, document_id: str) -> None:

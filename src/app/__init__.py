@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from app!")
+"""Pacote app (CRUD, validacao, repositorio e service)."""

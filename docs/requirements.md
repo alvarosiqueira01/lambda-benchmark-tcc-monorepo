@@ -21,11 +21,12 @@ Um documento deverá possuir os seguintes atributos:
 | Campo      | Descrição                        |
 | ---------- | -------------------------------- |
 | `id`       | Identificador único do documento |
+| `title`    | Título do documento              |
 | `body`     | Conteúdo textual do documento    |
 | `language` | Idioma do documento              |
 | `tags`     | Lista de etiquetas do documento  |
 
-Os campos `body`, `language` e `tags` constituem a entrada das três análises.
+Os campos `body`, `language` e `tags` constituem a entrada das três análises. O campo `title` é apenas armazenado e retornado.
 
 ---
 
@@ -52,6 +53,7 @@ Corpo da requisição:
 
 ```json
 {
+  "title": "<título>",
   "body": "<texto>",
   "language": "<idioma>",
   "tags": ["<tag1>", "<tag2>"]
@@ -60,7 +62,7 @@ Corpo da requisição:
 
 **Processamento esperado:**
 
-1. Receber os campos `body`, `language` e `tags`.
+1. Receber os campos `title`, `body`, `language` e `tags`.
 2. Criar um novo documento.
 3. Atribuir um identificador único ao documento.
 4. Persistir o documento.
@@ -145,6 +147,7 @@ Corpo:
 
 ```json
 {
+  "title": "<novo título>",
   "body": "<novo texto>",
   "language": "<novo idioma>",
   "tags": ["<nova tag>"]
@@ -154,7 +157,7 @@ Corpo:
 **Processamento esperado:**
 
 1. Localizar o documento pelo `id`.
-2. Substituir `body`, `language` e `tags`.
+2. Substituir `title`, `body`, `language` e `tags`.
 3. Persistir os novos valores.
 4. Retornar o documento atualizado.
 
@@ -171,7 +174,7 @@ O documento atualizado.
 
 **Critério de aceitação:**
 
-Após uma atualização válida, uma chamada subsequente a `GET /documents/{id}` deverá retornar os novos valores de `body`, `language` e `tags`.
+Após uma atualização válida, uma chamada subsequente a `GET /documents/{id}` deverá retornar os novos valores de `title`, `body`, `language` e `tags`.
 
 ---
 
@@ -222,7 +225,7 @@ A API deverá permitir a execução das três análises sobre um documento exist
 **Pré-condições:**
 
 * O documento deverá existir.
-* O documento deverá possuir `body`, `language` e `tags`.
+* O documento deverá possuir `title`, `body`, `language` e `tags`.
 
 **Entrada:**
 

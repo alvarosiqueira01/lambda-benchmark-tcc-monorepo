@@ -30,6 +30,7 @@ A entidade `Document` possui exatamente os seguintes atributos de domínio:
 ```text
 Document
 ├── id
+├── title
 ├── body
 ├── language
 └── tags
@@ -77,9 +78,109 @@ Então seu id continuará sendo X.
 
 ---
 
-# 3. Regra para `body`
+# 3. Regra para `title`
 
-## RN-03 — `body` obrigatório
+## RN-03 — `title` obrigatório
+
+**Regra:**
+Todo documento deverá possuir `title`.
+
+**Comportamento:**
+
+O valor não poderá ser:
+
+* `null`;
+* ausente;
+* uma string vazia.
+
+**Teste:**
+
+```text
+Dado um documento sem title
+Quando tentar criar o documento
+Então a operação deverá ser rejeitada.
+```
+
+---
+
+## RN-04 — `title` deve ser texto
+
+**Regra:**
+`title` deverá ser uma string.
+
+**Comportamento:**
+
+Valores de outros tipos deverão ser rejeitados.
+
+Exemplos inválidos:
+
+```text
+title = 123
+title = true
+title = []
+title = {}
+```
+
+**Teste:**
+
+```text
+Dado title = 123
+Quando tentar criar o documento
+Então a operação deverá ser rejeitada.
+```
+
+---
+
+## RN-05 — Espaços não tornam `title` vazio
+
+**Regra:**
+Uma string composta exclusivamente por espaços em branco deverá ser considerada vazia.
+
+Exemplo:
+
+```text
+"     "
+```
+
+deverá ser rejeitado.
+
+**Teste:**
+
+```text
+Dado title = "   "
+Quando tentar criar o documento
+Então a operação deverá ser rejeitada.
+```
+
+Uma string contendo pelo menos um caractere não branco deverá ser considerada não vazia.
+
+---
+
+## RN-06 — Conteúdo de `title` não deve ser alterado
+
+**Regra:**
+A entidade deverá preservar o conteúdo fornecido em `title`.
+
+A aplicação não deverá:
+
+* converter automaticamente para lowercase;
+* remover espaços internos;
+* remover acentos;
+* truncar o conteúdo.
+
+**Teste:**
+
+```text
+Dado title = "Meu Documento"
+Quando o documento for persistido
+Então title deverá continuar sendo "Meu Documento".
+```
+
+---
+
+# 4. Regra para `body`
+
+## RN-07 — `body` obrigatório
 
 **Regra:**
 Todo documento deverá possuir `body`.
@@ -102,7 +203,7 @@ Então a operação deverá ser rejeitada.
 
 ---
 
-## RN-04 — `body` deve ser texto
+## RN-08 — `body` deve ser texto
 
 **Regra:**
 `body` deverá ser uma string.
@@ -130,7 +231,7 @@ Então a operação deverá ser rejeitada.
 
 ---
 
-## RN-05 — Espaços não tornam `body` vazio
+## RN-09 — Espaços não tornam `body` vazio
 
 **Regra:**
 Uma string composta exclusivamente por espaços em branco deverá ser considerada vazia.
@@ -155,7 +256,7 @@ Uma string contendo pelo menos um caractere não branco deverá ser considerada 
 
 ---
 
-## RN-06 — Conteúdo de `body` não deve ser alterado
+## RN-10 — Conteúdo de `body` não deve ser alterado
 
 **Regra:**
 A entidade deverá preservar o conteúdo fornecido em `body`.
@@ -181,9 +282,9 @@ A normalização necessária para a análise de palavras-chave deverá ocorrer *
 
 ---
 
-# 4. Regra para `language`
+# 5. Regra para `language`
 
-## RN-07 — `language` obrigatório
+## RN-11 — `language` obrigatório
 
 **Regra:**
 Todo documento deverá possuir um idioma.
@@ -206,7 +307,7 @@ Então a operação deverá ser rejeitada.
 
 ---
 
-## RN-08 — `language` deve ser texto
+## RN-12 — `language` deve ser texto
 
 **Regra:**
 `language` deverá ser uma string.
@@ -229,7 +330,7 @@ Então a operação deverá ser rejeitada.
 
 ---
 
-## RN-09 — `language` deve possuir valor determinístico
+## RN-13 — `language` deve possuir valor determinístico
 
 **Regra:**
 O domínio deverá utilizar uma representação previamente definida para o idioma.
@@ -255,9 +356,9 @@ Um código que não pertença à lista configurada deverá ser rejeitado.
 
 ---
 
-# 5. Regras para `tags`
+# 6. Regras para `tags`
 
-## RN-10 — `tags` obrigatório
+## RN-14 — `tags` obrigatório
 
 **Regra:**
 Todo documento deverá possuir o campo `tags`.
@@ -297,7 +398,7 @@ Então a criação deverá ser rejeitada.
 
 ---
 
-## RN-11 — `tags` deve ser uma lista
+## RN-15 — `tags` deve ser uma lista
 
 **Regra:**
 `tags` deverá ser representado por uma coleção/lista de strings.
@@ -332,7 +433,7 @@ Então a criação deverá ser aceita.
 
 ---
 
-## RN-12 — Cada tag deve ser texto
+## RN-16 — Cada tag deve ser texto
 
 **Regra:**
 Cada elemento de `tags` deverá ser uma string.
@@ -347,7 +448,7 @@ Então a operação deverá ser rejeitada.
 
 ---
 
-## RN-13 — Tags vazias
+## RN-17 — Tags vazias
 
 **Regra:**
 Uma tag individual não poderá ser uma string vazia ou composta exclusivamente por espaços.
@@ -374,7 +475,7 @@ Então a operação deverá ser rejeitada.
 
 ---
 
-## RN-14 — Conteúdo das tags
+## RN-18 — Conteúdo das tags
 
 **Regra:**
 As tags deverão ser armazenadas conforme fornecidas pelo cliente.
@@ -397,7 +498,7 @@ Então as tags deverão permanecer ["AWS", "Computação"].
 
 ---
 
-## RN-15 — Duplicidade de tags
+## RN-19 — Duplicidade de tags
 
 **Regra:**
 Tags duplicadas não deverão ser automaticamente removidas ou modificadas pela entidade.
@@ -422,14 +523,15 @@ Então as duas ocorrências deverão permanecer.
 
 ---
 
-# 6. Criação
+# 7. Criação
 
-## RN-16 — Documento válido para criação
+## RN-20 — Documento válido para criação
 
 Um documento será considerado válido para criação quando:
 
 ```text
 id       → gerado pelo sistema
+title    → string não vazia
 body     → string não vazia
 language → string válida e suportada
 tags     → lista de strings válidas, podendo estar vazia
@@ -441,6 +543,7 @@ O cliente não deverá precisar fornecer `id`.
 
 ```text
 Dado:
+title = "Meu Documento"
 body = "Texto de teste"
 language = "pt"
 tags = ["teste"]
@@ -450,18 +553,19 @@ Quando criar o documento
 Então:
 - a operação deverá ser aceita;
 - um id deverá ser atribuído;
-- os três campos fornecidos deverão ser preservados.
+- os quatro campos fornecidos deverão ser preservados.
 ```
 
 ---
 
-# 7. Atualização
+# 8. Atualização
 
-## RN-17 — Atualização preserva o `id`
+## RN-21 — Atualização preserva o `id`
 
 Uma atualização poderá alterar:
 
 ```text
+title
 body
 language
 tags
@@ -490,12 +594,14 @@ body = "Texto B"
 
 ---
 
-## RN-18 — Atualização deve respeitar as regras da entidade
+## RN-22 — Atualização deve respeitar as regras da entidade
 
 Os novos valores fornecidos em uma atualização deverão obedecer às mesmas regras de validade aplicadas à criação.
 
 Assim, uma atualização não poderá introduzir:
 
+* `title` nulo;
+* `title` vazio;
 * `body` nulo;
 * `body` vazio;
 * `language` inválido;
@@ -514,9 +620,9 @@ E o documento anterior deverá permanecer válido.
 
 ---
 
-# 8. Exclusão
+# 9. Exclusão
 
-## RN-19 — Exclusão remove o documento
+## RN-23 — Exclusão remove o documento
 
 Quando um documento existente for excluído, ele não deverá mais estar disponível para consulta ou análise.
 
@@ -535,7 +641,7 @@ não deverá retornar o documento.
 
 ---
 
-## RN-20 — Documento excluído não pode ser analisado
+## RN-24 — Documento excluído não pode ser analisado
 
 Após a exclusão, uma tentativa de análise utilizando seu `id` deverá ser rejeitada porque o documento não existe.
 
@@ -552,9 +658,9 @@ Então a operação deverá indicar que o documento não existe.
 
 ---
 
-# 9. Identidade e persistência
+# 10. Identidade e persistência
 
-## RN-21 — Identidade única
+## RN-25 — Identidade única
 
 Dois documentos distintos não poderão compartilhar o mesmo `id`.
 
@@ -568,11 +674,12 @@ documentoA.id != documentoB.id
 
 ---
 
-## RN-22 — Persistência dos dados
+## RN-26 — Persistência dos dados
 
 Após a criação, os valores válidos de:
 
 ```text
+title
 body
 language
 tags
@@ -584,6 +691,7 @@ deverão poder ser recuperados sem alteração.
 
 ```text
 Dado:
+title = "Meu Documento"
 body = "Texto original"
 language = "pt"
 tags = ["teste"]
@@ -597,9 +705,9 @@ Então os valores recuperados deverão ser iguais aos valores fornecidos.
 
 ---
 
-# 10. Relação com o processamento de análise
+# 11. Relação com o processamento de análise
 
-## RN-23 — A análise não modifica o documento
+## RN-27 — A análise não modifica o documento
 
 Executar:
 
@@ -611,6 +719,7 @@ não deverá modificar:
 
 ```text
 id
+title
 body
 language
 tags
@@ -633,7 +742,7 @@ Então os dados do documento deverão permanecer iguais.
 
 ---
 
-## RN-24 — Entrada das análises
+## RN-28 — Entrada das análises
 
 As três análises deverão receber como entrada lógica exatamente:
 
@@ -642,6 +751,8 @@ document.body
 document.language
 document.tags
 ```
+
+O campo `title` é um metadado da entidade e não participa das análises.
 
 A entidade `Document` não deverá armazenar resultados de análise.
 
@@ -670,9 +781,9 @@ Então:
 
 ---
 
-# 11. Regras de simplicidade do domínio
+# 12. Regras de simplicidade do domínio
 
-## RN-25 — Ausência de regras implícitas
+## RN-29 — Ausência de regras implícitas
 
 A entidade `Document` não deverá executar transformações que não estejam explicitamente especificadas neste documento.
 
@@ -693,37 +804,41 @@ A criação e atualização de um documento deverão limitar seu processamento �
 
 ---
 
-# 12. Resumo das regras
+# 13. Resumo das regras
 
 | ID    | Regra                                            |
 | ----- | ------------------------------------------------ |
 | RN-01 | Documento persistido possui `id` único           |
 | RN-02 | `id` é imutável                                  |
-| RN-03 | `body` é obrigatório                             |
-| RN-04 | `body` é string                                  |
-| RN-05 | `body` não pode ser somente whitespace           |
-| RN-06 | `body` é preservado sem transformação            |
-| RN-07 | `language` é obrigatório                         |
-| RN-08 | `language` é string                              |
-| RN-09 | `language` deve pertencer aos idiomas suportados |
-| RN-10 | `tags` é obrigatório e pode ser vazio            |
-| RN-11 | `tags` é uma lista                               |
-| RN-12 | Cada tag é uma string                            |
-| RN-13 | Tag não pode ser vazia/whitespace                |
-| RN-14 | Tags são preservadas sem normalização            |
-| RN-15 | Tags duplicadas são preservadas                  |
-| RN-16 | Documento válido pode ser criado                 |
-| RN-17 | Atualização preserva `id`                        |
-| RN-18 | Atualização respeita as regras de validade       |
-| RN-19 | Exclusão remove o documento                      |
-| RN-20 | Documento excluído não pode ser analisado        |
-| RN-21 | IDs são únicos                                   |
-| RN-22 | Dados persistidos são recuperáveis sem alteração |
-| RN-23 | Análise não modifica o documento                 |
-| RN-24 | Análises recebem `body`, `language` e `tags`     |
-| RN-25 | Domínio não possui processamento implícito       |
+| RN-03 | `title` é obrigatório                            |
+| RN-04 | `title` é string                                 |
+| RN-05 | `title` não pode ser somente whitespace          |
+| RN-06 | `title` é preservado sem transformação           |
+| RN-07 | `body` é obrigatório                             |
+| RN-08 | `body` é string                                  |
+| RN-09 | `body` não pode ser somente whitespace           |
+| RN-10 | `body` é preservado sem transformação            |
+| RN-11 | `language` é obrigatório                         |
+| RN-12 | `language` é string                              |
+| RN-13 | `language` deve pertencer aos idiomas suportados |
+| RN-14 | `tags` é obrigatório e pode ser vazio            |
+| RN-15 | `tags` é uma lista                               |
+| RN-16 | Cada tag é uma string                            |
+| RN-17 | Tag não pode ser vazia/whitespace                |
+| RN-18 | Tags são preservadas sem normalização            |
+| RN-19 | Tags duplicadas são preservadas                  |
+| RN-20 | Documento válido pode ser criado                 |
+| RN-21 | Atualização preserva `id`                        |
+| RN-22 | Atualização respeita as regras de validade       |
+| RN-23 | Exclusão remove o documento                      |
+| RN-24 | Documento excluído não pode ser analisado        |
+| RN-25 | IDs são únicos                                   |
+| RN-26 | Dados persistidos são recuperáveis sem alteração |
+| RN-27 | Análise não modifica o documento                 |
+| RN-28 | Análises recebem `body`, `language` e `tags`     |
+| RN-29 | Domínio não possui processamento implícito       |
 
-## 13. Regra fundamental do domínio
+## 14. Regra fundamental do domínio
 
 A entidade `Document` deve permanecer **passiva e mínima**:
 
@@ -731,6 +846,7 @@ A entidade `Document` deve permanecer **passiva e mínima**:
 Document
    │
    ├── id
+   ├── title
    ├── body
    ├── language
    └── tags

@@ -17,7 +17,7 @@ def repository() -> DocumentRepository:
 
 
 def _document(document_id: str = "doc-1") -> Document:
-    return Document(id=document_id, body="Olá, Mundo!", language="pt", tags=["AWS", "aws"])
+    return Document(id=document_id, title="Meu Documento", body="Olá, Mundo!", language="pt", tags=["AWS", "aws"])
 
 
 def test_create_persiste_documento(repository):
@@ -39,7 +39,7 @@ def test_get_documento_inexistente_levanta_not_found(repository):
 
 def test_update_substitui_conteudo_e_preserva_id(repository):
     repository.create(_document())
-    updated = Document(id="doc-1", body="Conteúdo atualizado.", language="pt", tags=["atualizado"])
+    updated = Document(id="doc-1", title="Novo Título", body="Conteúdo atualizado.", language="pt", tags=["atualizado"])
     assert repository.update(updated) == updated
     assert repository.get("doc-1") == updated
 
@@ -63,7 +63,7 @@ def test_delete_documento_inexistente_levanta_not_found(repository):
 
 def test_tags_armazenadas_como_lista_preservando_ordem_e_duplicatas(repository):
     fake = repository._client
-    doc = Document(id="doc-9", body="Texto", language="en", tags=["b", "a", "b"])
+    doc = Document(id="doc-9", title="Texto", body="Texto", language="en", tags=["b", "a", "b"])
     repository.create(doc)
     assert fake.data["doc-9"]["tags"] == {"L": [{"S": "b"}, {"S": "a"}, {"S": "b"}]}
     assert repository.get("doc-9").tags == ["b", "a", "b"]

@@ -7,8 +7,17 @@ info:
     Contrato com exatamente cinco endpoints.
 
     Observação: conforme a documentação anexa, a entidade Document possui
-    apenas os campos `id`, `body`, `language` e `tags`.
+    apenas os campos `id`, `title`, `body`, `language` e `tags`.
     Campos de timestamp (createdAt/updatedAt) não fazem parte deste contrato.
+  license:
+    name: MIT
+
+servers:
+  - url: /
+    description: URL relativa; a URL absoluta é definida pelo API Gateway em cada implantação.
+
+security: []
+
 tags:
   - name: Documents
     description: Operações sobre documentos
@@ -31,6 +40,7 @@ paths:
             examples:
               default:
                 value:
+                  title: "Meu Documento"
                   body: "Este é um documento de teste."
                   language: "pt"
                   tags: ["teste", "benchmark"]
@@ -45,6 +55,7 @@ paths:
                 created:
                   value:
                     id: "123e4567-e89b-12d3-a456-426614174000"
+                    title: "Meu Documento"
                     body: "Este é um documento de teste."
                     language: "pt"
                     tags: ["teste", "benchmark"]
@@ -74,6 +85,7 @@ paths:
                 found:
                   value:
                     id: "123e4567-e89b-12d3-a456-426614174000"
+                    title: "Meu Documento"
                     body: "Este é um documento de teste."
                     language: "pt"
                     tags: ["teste", "benchmark"]
@@ -97,6 +109,7 @@ paths:
             examples:
               default:
                 value:
+                  title: "Novo Título"
                   body: "Conteúdo atualizado."
                   language: "pt"
                   tags: ["atualizado", "benchmark"]
@@ -111,6 +124,7 @@ paths:
                 updated:
                   value:
                     id: "123e4567-e89b-12d3-a456-426614174000"
+                    title: "Novo Título"
                     body: "Conteúdo atualizado."
                     language: "pt"
                     tags: ["atualizado", "benchmark"]
@@ -260,10 +274,16 @@ components:
     DocumentCreate:
       type: object
       required:
+        - title
         - body
         - language
         - tags
       properties:
+        title:
+          type: string
+          description: Título do documento. Não pode ser vazio ou somente whitespace.
+          minLength: 1
+          example: "Meu Documento"
         body:
           type: string
           description: Conteúdo do documento. Não pode ser vazio ou somente whitespace.
@@ -285,10 +305,16 @@ components:
     DocumentUpdate:
       type: object
       required:
+        - title
         - body
         - language
         - tags
       properties:
+        title:
+          type: string
+          description: Título do documento. Não pode ser vazio ou somente whitespace.
+          minLength: 1
+          example: "Novo Título"
         body:
           type: string
           description: Conteúdo do documento. Não pode ser vazio ou somente whitespace.
@@ -311,6 +337,7 @@ components:
       type: object
       required:
         - id
+        - title
         - body
         - language
         - tags
@@ -320,6 +347,9 @@ components:
           format: uuid
           description: Identificador único do documento.
           example: "123e4567-e89b-12d3-a456-426614174000"
+        title:
+          type: string
+          example: "Meu Documento"
         body:
           type: string
           example: "Este é um documento de teste."

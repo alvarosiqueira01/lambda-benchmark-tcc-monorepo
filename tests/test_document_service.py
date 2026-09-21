@@ -8,7 +8,7 @@ from app.validation import ValidationError
 from common.analysis import aggregate_analysis
 
 BODY = "Este é um documento de teste. A análise é simples."
-VALID_PAYLOAD = {"body": BODY, "language": "pt", "tags": ["teste"]}
+VALID_PAYLOAD = {"title": "Meu Documento", "body": BODY, "language": "pt", "tags": ["teste"]}
 
 
 def test_create_documento_valida_e_atribui_id(repository):
@@ -21,7 +21,7 @@ def test_create_documento_valida_e_atribui_id(repository):
 def test_create_documento_invalido_levanta_validation_error(repository):
     service = DocumentService(repository)
     with pytest.raises(ValidationError):
-        service.create_document({"body": "   ", "language": "pt", "tags": []})
+        service.create_document({"title": "T", "body": "   ", "language": "pt", "tags": []})
 
 
 def test_get_documento_inexistente_levanta_not_found(repository):
@@ -33,7 +33,7 @@ def test_get_documento_inexistente_levanta_not_found(repository):
 def test_update_documento_preserva_id_e_valida(repository):
     service = DocumentService(repository)
     created = service.create_document(VALID_PAYLOAD)
-    updated = service.update_document(created.id, {"body": "Novo.", "language": "en", "tags": ["x"]})
+    updated = service.update_document(created.id, {"title": "Novo", "body": "Novo.", "language": "en", "tags": ["x"]})
     assert updated.id == created.id
     assert service.get_document(created.id) == updated
 
@@ -42,7 +42,7 @@ def test_update_documento_invalido_nao_altera_registro(repository):
     service = DocumentService(repository)
     created = service.create_document(VALID_PAYLOAD)
     with pytest.raises(ValidationError):
-        service.update_document(created.id, {"body": "", "language": "pt", "tags": []})
+        service.update_document(created.id, {"title": "T", "body": "", "language": "pt", "tags": []})
     assert service.get_document(created.id) == created
 
 

@@ -60,8 +60,9 @@ class DocumentRepository:
             self._client.update_item(
                 TableName=self.table_name,
                 Key={"id": {"S": document.id}},
-                UpdateExpression="SET body = :body, language = :language, tags = :tags",
+                UpdateExpression="SET title = :title, body = :body, language = :language, tags = :tags",
                 ExpressionAttributeValues={
+                    ":title": {"S": document.title},
                     ":body": {"S": document.body},
                     ":language": {"S": document.language},
                     ":tags": {"L": [{"S": tag} for tag in document.tags]},
@@ -90,6 +91,7 @@ class DocumentRepository:
 def _to_item(document: Document) -> dict:
     return {
         "id": {"S": document.id},
+        "title": {"S": document.title},
         "body": {"S": document.body},
         "language": {"S": document.language},
         "tags": {"L": [{"S": tag} for tag in document.tags]},
@@ -99,6 +101,7 @@ def _to_item(document: Document) -> dict:
 def _from_item(item: dict) -> Document:
     return Document(
         id=item["id"]["S"],
+        title=item["title"]["S"],
         body=item["body"]["S"],
         language=item["language"]["S"],
         tags=[tag["S"] for tag in item["tags"]["L"]],
