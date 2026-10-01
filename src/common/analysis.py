@@ -1,126 +1,245 @@
-"""Analises deterministicas da entidade Document.
+r"""Analises deterministicas da entidade Document.
 
-Baseado exclusivamente no pseudocodigo definido em docs/research-scope.md
-e docs/requirements.md:
+Especificacao normativa: docs/analysis-algorithms.md.
 
-    A(document) =
-        Lexical(document.body, document.language, document.tags)
-        Readability(document.body, document.language, document.tags)
-        Keywords(document.body, document.language, document.tags)
+Contrato comum das tres analises:
+    (body: str, language: str, tags: list[str]) -> dict
 
 Cada analise e uma funcao pura: recebe (body, language, tags), nao depende
 do resultado das outras e usa somente a biblioteca padrao do Python.
 
 Regras fixas do experimento (nao podem variar entre arquiteturas):
-- tokenizacao: sequencias de caracteres de palavra (letras/digitos/_);
-- normalizacao: lowercase;
-- stopwords: conjuntos fixos por idioma em _STOPWORDS;
-- ordenacao de keywords: frequencia decrescente, depois lexicografica;
-- formula de legibilidade fixa (ver readability_analysis).
+- tokenizacao: re.findall(r"[^\W_]+", body, re.UNICODE);
+- normalizacao: token.casefold();
+- valores decimais: arredondados como Decimal + ROUND_HALF_UP;
+- sentencas: split em [.!?]+(?:\s+|$) com remocao de partes vazias;
+- silabas: grupos consecutivos de vogais por idioma;
+- formulas FRE: 206.835 (en) ou 248.835 (pt) - 1.015*ASL - 84.6*ASW,
+  com clamp obrigatorio em [0, 100];
+- stopwords: listas oficiais do benchmark por idioma;
+- keywords: remocao de tokens numericos e TOP_K = 10.
 """
 
 from __future__ import annotations
 
 import re
 from collections import Counter
+from decimal import ROUND_HALF_UP, Decimal
 
-_TOP_KEYWORDS = 10
+TOKEN_PATTERN = r"[^\W_]+"
+SUPPORTED_LANGUAGES = frozenset({"en", "pt"})
+TOP_K = 10
+DECIMAL_PLACES = 2
+ROUNDING_MODE = ROUND_HALF_UP
 
-_WORD_RE = re.compile(r"\w+")
-_SENTENCE_RE = re.compile(r"[.!?]+")
+# Vogais para a estimativa de silabas (5.7 do documento normativo).
+ENGLISH_VOWELS = frozenset("aeiouy")
+PORTUGUESE_VOWELS = frozenset("aeiouáéíóúâêôãõàü")
 
-# Conjuntos de stopwords fixos para o experimento.
-_STOPWORDS = {
-    "pt": frozenset(
-        {
-            "a", "à", "ao", "aos", "as", "às", "até", "com", "como",
-            "da", "das", "de", "do", "dos",
-            "e", "é", "em", "na", "nas", "no", "nos", "o", "os",
-            "que", "se", "sem", "ser", "são",
-            "um", "uma", "umas", "uns",
-            "eu", "tu", "ele", "ela", "eles", "elas", "nós", "você",
-            "me", "te", "lhe", "vos",
-            "este", "esta", "estes", "estas", "esse", "essa", "esses", "essas",
-            "isso", "isto", "mesmo", "mesma",
-            "mais", "menos", "muito", "pouco",
-            "não", "já", "agora", "ainda", "também",
-            "quando", "onde", "porque", "porém",
-            "para", "por",
-            "sobre", "entre", "contra", "desde", "depois", "antes", "durante",
-            "está", "foi", "há", "tem", "ter", "têm",
-        }
-    ),
-    "en": frozenset(
-        {
-            "a", "an", "about", "and", "are", "as", "at", "be", "been", "but", "by",
-            "can", "could", "did", "do", "does", "for", "from", "had", "has",
-            "have", "he", "her", "his", "i", "if", "in", "into", "is", "it",
-            "its", "me", "my", "no", "not", "of", "on", "or", "our", "she",
-            "so", "than", "that", "the", "their", "them", "then", "there",
-            "these", "they", "this", "those", "to", "us", "was", "we", "were",
-            "what", "when", "which", "who", "will", "with", "you", "your",
-        }
-    ),
-}
+# Formula FRE: (constante, coeficiente ASL, coeficiente ASW).
+ENGLISH_READABILITY_FORMULA = (
+    Decimal("206.835"),
+    Decimal("1.015"),
+    Decimal("84.6"),
+)
+PORTUGUESE_READABILITY_FORMULA = (
+    Decimal("248.835"),
+    Decimal("1.015"),
+    Decimal("84.6"),
+)
+
+# Listas oficiais de stopwords do benchmark (6.5 do documento normativo).
+ENGLISH_STOPWORDS = frozenset(
+    {
+        "a", "about", "above", "after", "again", "against", "all", "am",
+        "an", "and", "any", "are", "as", "at",
+        "be", "because", "been", "before", "being", "below", "between",
+        "both", "but", "by",
+        "can", "could",
+        "did", "do", "does", "doing", "down", "during",
+        "each",
+        "few", "for", "from", "further",
+        "had", "has", "have", "having", "he", "her", "here", "hers",
+        "herself", "him", "himself", "his", "how",
+        "i", "if", "in", "into", "is", "it", "its", "itself",
+        "just",
+        "me", "more", "most", "my", "myself",
+        "no", "nor", "not", "now",
+        "of", "off", "on", "once", "only", "or", "other", "our", "ours",
+        "ourselves", "out", "over", "own",
+        "same", "she", "should", "so", "some", "such",
+        "than", "that", "the", "their", "theirs", "them", "themselves",
+        "then", "there", "these", "they", "this", "those", "through",
+        "to", "too",
+        "under", "until", "up",
+        "very",
+        "was", "we", "were", "what", "when", "where", "which", "while",
+        "who", "whom", "why", "will", "with",
+        "you", "your", "yours", "yourself", "yourselves",
+    }
+)
+
+PORTUGUESE_STOPWORDS = frozenset(
+    {
+        "a", "à", "às", "ao", "aos",
+        "aquela", "aquelas", "aquele", "aqueles", "aquilo",
+        "as", "até",
+        "com", "como",
+        "da", "das", "de", "dela", "delas", "dele", "deles", "depois",
+        "do", "dos",
+        "e", "é", "ela", "elas", "ele", "eles", "em", "entre",
+        "era", "eram", "essa", "essas", "esse", "esses", "esta", "estas",
+        "este", "estes", "eu",
+        "foi", "foram",
+        "há",
+        "isso", "isto",
+        "já",
+        "lhe", "lhes",
+        "mais", "mas", "me", "mesmo", "meu", "meus", "minha", "minhas",
+        "na", "nas", "não", "nem", "no", "nos", "nós", "num", "numa",
+        "o", "os", "ou", "outra", "outras", "outro", "outros",
+        "para", "pela", "pelas", "pelo", "pelos", "por",
+        "qual", "quando", "que", "quem",
+        "se", "sem", "ser", "seu", "seus", "só", "sua", "suas",
+        "também", "te", "tem", "têm", "tendo", "ter", "teu", "teus",
+        "toda", "todas", "todo", "todos", "tu",
+        "um", "uma", "umas", "uns",
+        "vai", "vão", "você", "vocês",
+    }
+)
+
+_QUANTUM = Decimal("0.01")
+_TOKEN_RE = re.compile(TOKEN_PATTERN)
+_SENTENCE_RE = re.compile(r"[.!?]+(?:\s+|$)")
+
+
+def _validate_language(language: str) -> None:
+    if language not in SUPPORTED_LANGUAGES:
+        raise ValueError(f"unsupported language: {language!r}")
 
 
 def _tokenize(text: str) -> list[str]:
-    """Tokeniza o texto e normaliza cada token para lowercase."""
-    return [token.lower() for token in _WORD_RE.findall(text)]
+    """Tokeniza com o padrao oficial (3.3), sem normalizar."""
+    return _TOKEN_RE.findall(text)
 
 
-def _average_word_length(tokens: list[str]) -> float:
-    if not tokens:
-        return 0.0
-    return round(sum(len(token) for token in tokens) / len(tokens), 2)
+def _round_half_up(value: Decimal) -> Decimal:
+    return value.quantize(_QUANTUM, rounding=ROUNDING_MODE)
+
+
+def _divide(numerator: int, denominator: int) -> Decimal:
+    if denominator <= 0:
+        return Decimal(0)
+    return Decimal(numerator) / Decimal(denominator)
+
+
+def _estimate_syllables(token: str, language: str) -> int:
+    """Estimativa deterministica de silabas por grupos de vogais (5.7)."""
+    normalized = token.casefold()
+    vowels = ENGLISH_VOWELS if language == "en" else PORTUGUESE_VOWELS
+    syllables = 0
+    in_group = False
+    for char in normalized:
+        is_vowel = char in vowels
+        if is_vowel and not in_group:
+            syllables += 1
+        in_group = is_vowel
+    syllables = max(syllables, 1)
+    if (
+        language == "en"
+        and syllables > 1
+        and normalized.endswith("e")
+        and not normalized.endswith("le")
+    ):
+        syllables -= 1
+    return syllables
 
 
 def lexical_analysis(body: str, language: str, tags: list[str]) -> dict:
     """Estatisticas lexicais: wordCount, uniqueWordCount, characterCount,
-    averageWordLength e frequencyDistribution."""
+    averageWordLength e frequencyDistribution (4.4)."""
+    _validate_language(language)
     tokens = _tokenize(body)
-    frequencies = Counter(tokens)
+    frequencies = Counter(token.casefold() for token in tokens)
+    total_characters = sum(len(token) for token in tokens)
     return {
         "wordCount": len(tokens),
         "uniqueWordCount": len(frequencies),
         "characterCount": len(body),
-        "averageWordLength": _average_word_length(tokens),
-        "frequencyDistribution": dict(sorted(frequencies.items())),
+        "averageWordLength": float(
+            _round_half_up(_divide(total_characters, len(tokens)))
+        ),
+        "frequencyDistribution": {
+            word: frequencies[word] for word in sorted(frequencies)
+        },
     }
 
 
 def readability_analysis(body: str, language: str, tags: list[str]) -> dict:
     """Metricas de legibilidade: sentenceCount, averageSentenceLength,
-    averageWordLength e readabilityIndex.
-
-    Formula fixa do experimento:
-        score = averageSentenceLength + 6.0 * averageWordLength
-        readabilityIndex = max(0, 100 - score)
-    """
-    sentences = [sentence.strip() for sentence in _SENTENCE_RE.split(body) if sentence.strip()]
-    tokens = _tokenize(body)
+    averageWordLength e readabilityIndex (5.4 a 5.10)."""
+    _validate_language(language)
+    text = body.strip()
+    sentences = [
+        part for part in _SENTENCE_RE.split(text) if part.strip()
+    ]
     sentence_count = len(sentences)
-    average_sentence_length = round(len(tokens) / max(1, sentence_count), 2)
-    average_word_length = _average_word_length(tokens)
-    score = average_sentence_length + 6.0 * average_word_length
-    readability_index = round(max(0.0, 100.0 - score), 2)
+
+    tokens = _tokenize(body)
+    word_count = len(tokens)
+    total_characters = sum(len(token) for token in tokens)
+
+    average_word_length = float(
+        _round_half_up(_divide(total_characters, word_count))
+    )
+    average_sentence_length = float(
+        _round_half_up(_divide(word_count, sentence_count))
+    )
+
+    total_syllables = sum(_estimate_syllables(token, language) for token in tokens)
+
+    if word_count > 0 and sentence_count > 0:
+        asl = _divide(word_count, sentence_count)
+        asw = _divide(total_syllables, word_count)
+        base, asl_coef, asw_coef = (
+            ENGLISH_READABILITY_FORMULA
+            if language == "en"
+            else PORTUGUESE_READABILITY_FORMULA
+        )
+        index = base - asl_coef * asl - asw_coef * asw
+        index = max(Decimal(0), min(index, Decimal(100)))
+    else:
+        index = Decimal(0)
+
     return {
         "sentenceCount": sentence_count,
         "averageSentenceLength": average_sentence_length,
         "averageWordLength": average_word_length,
-        "readabilityIndex": readability_index,
+        "readabilityIndex": float(_round_half_up(index)),
     }
 
 
 def keyword_analysis(body: str, language: str, tags: list[str]) -> dict:
     """Extracao de palavras-chave: tokenizacao, normalizacao, remocao de
-    stopwords, contagem e ordenacao deterministica (frequencia desc,
-    depois palavra asc)."""
-    stopwords = _STOPWORDS.get(language, frozenset())
-    tokens = [token for token in _tokenize(body) if token not in stopwords]
-    frequencies = Counter(tokens)
-    ranked = sorted(frequencies.items(), key=lambda item: (-item[1], item[0]))
-    top = ranked[:_TOP_KEYWORDS]
+    numeros e stopwords, contagem e selecao dos TOP_K (6.2 a 6.8)."""
+    _validate_language(language)
+    stopwords = (
+        ENGLISH_STOPWORDS if language == "en" else PORTUGUESE_STOPWORDS
+    )
+    frequencies: Counter[str] = Counter()
+    for token in _tokenize(body):
+        normalized = token.casefold()
+        if normalized.isnumeric():
+            continue
+        if normalized in stopwords:
+            continue
+        frequencies[normalized] += 1
+
+    ranked = sorted(
+        frequencies.items(),
+        key=lambda item: (-item[1], item[0]),
+    )
+    top = ranked[:TOP_K]
     return {
         "topKeywords": [word for word, _count in top],
         "keywordFrequencies": dict(top),

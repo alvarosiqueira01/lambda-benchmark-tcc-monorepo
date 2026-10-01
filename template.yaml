@@ -1,0 +1,264 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: Document API Benchmark
+
+Parameters:
+  LambdaMemoryMb:
+    Type: Number
+    Default: 512
+    AllowedValues:
+      - 128
+      - 256
+      - 512
+      - 1024
+      - 2048
+
+  LambdaArchitecture:
+    Type: String
+    Default: x86_64
+    AllowedValues:
+      - x86_64
+      - arm64
+
+Globals:
+  Function:
+    Runtime: python3.14
+    Timeout: 10
+    MemorySize: !Ref LambdaMemoryMb
+    Architectures:
+      - !Ref LambdaArchitecture
+
+Resources:
+
+  MonolithDocumentsTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+
+  DecomposedDocumentsTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+
+  MonolithApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: '$default'
+
+  DecomposedApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: '$default'
+
+  MonolithFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: monolith.handler.handler
+      Environment:
+        Variables:
+          DOCUMENTS_TABLE: !Ref MonolithDocumentsTable
+
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+                - dynamodb:DeleteItem
+              Resource: !GetAtt MonolithDocumentsTable.Arn
+
+      Events:
+        CreateDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref MonolithApi
+            Method: POST
+            Path: /documents
+
+        GetDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref MonolithApi
+            Method: GET
+            Path: /documents/{id}
+
+        UpdateDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref MonolithApi
+            Method: PUT
+            Path: /documents/{id}
+
+        DeleteDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref MonolithApi
+            Method: DELETE
+            Path: /documents/{id}
+
+        AnalyzeDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref MonolithApi
+            Method: GET
+            Path: /documents/{id}/analysis
+
+  DecomposedCrudFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: decomposed.crud_handler.handler
+      Environment:
+        Variables:
+          DOCUMENTS_TABLE: !Ref DecomposedDocumentsTable
+
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+                - dynamodb:DeleteItem
+              Resource: !GetAtt DecomposedDocumentsTable.Arn
+
+      Events:
+        CreateDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref DecomposedApi
+            Method: POST
+            Path: /documents
+
+        GetDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref DecomposedApi
+            Method: GET
+            Path: /documents/{id}
+
+        UpdateDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref DecomposedApi
+            Method: PUT
+            Path: /documents/{id}
+
+        DeleteDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref DecomposedApi
+            Method: DELETE
+            Path: /documents/{id}
+
+  DecomposedOrchestratorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: decomposed.orchestrator.handler
+
+      Environment:
+        Variables:
+          DOCUMENTS_TABLE: !Ref DecomposedDocumentsTable
+          LEXICAL_FUNCTION_NAME: !Ref LexicalFunction
+          READABILITY_FUNCTION_NAME: !Ref ReadabilityFunction
+          KEYWORDS_FUNCTION_NAME: !Ref KeywordsFunction
+
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+              Resource: !GetAtt DecomposedDocumentsTable.Arn
+
+            - Effect: Allow
+              Action:
+                - lambda:InvokeFunction
+              Resource:
+                - !GetAtt LexicalFunction.Arn
+                - !GetAtt ReadabilityFunction.Arn
+                - !GetAtt KeywordsFunction.Arn
+
+      Events:
+        AnalyzeDocument:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref DecomposedApi
+            Method: GET
+            Path: /documents/{id}/analysis
+
+  LexicalFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: decomposed.analyses.lexical.handler
+
+  ReadabilityFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: decomposed.analyses.readability.handler
+
+  KeywordsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: decomposed.analyses.keywords.handler
+
+Outputs:
+
+  MonolithApiUrl:
+    Value: !Sub
+      - https://${ApiId}.execute-api.${AWS::Region}.${AWS::URLSuffix}
+      - ApiId: !Ref MonolithApi
+
+  DecomposedApiUrl:
+    Value: !Sub
+      - https://${ApiId}.execute-api.${AWS::Region}.${AWS::URLSuffix}
+      - ApiId: !Ref DecomposedApi
+
+  MonolithTableName:
+    Value: !Ref MonolithDocumentsTable
+
+  DecomposedTableName:
+    Value: !Ref DecomposedDocumentsTable
+
+  MonolithFunctionName:
+    Value: !Ref MonolithFunction
+
+  DecomposedCrudFunctionName:
+    Value: !Ref DecomposedCrudFunction
+
+  DecomposedOrchestratorFunctionName:
+    Value: !Ref DecomposedOrchestratorFunction
+
+  LexicalFunctionName:
+    Value: !Ref LexicalFunction
+
+  ReadabilityFunctionName:
+    Value: !Ref ReadabilityFunction
+
+  KeywordsFunctionName:
+    Value: !Ref KeywordsFunction

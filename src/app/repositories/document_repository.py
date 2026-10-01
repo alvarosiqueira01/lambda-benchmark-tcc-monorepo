@@ -60,7 +60,15 @@ class DocumentRepository:
             self._client.update_item(
                 TableName=self.table_name,
                 Key={"id": {"S": document.id}},
-                UpdateExpression="SET title = :title, body = :body, language = :language, tags = :tags",
+                UpdateExpression=(
+                    "SET title = :title, "
+                    "body = :body, "
+                    "#language = :language, "
+                    "tags = :tags"
+                ),
+                ExpressionAttributeNames={
+                    "#language": "language",
+                },
                 ExpressionAttributeValues={
                     ":title": {"S": document.title},
                     ":body": {"S": document.body},

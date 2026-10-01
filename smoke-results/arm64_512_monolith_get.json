@@ -1,0 +1,11 @@
+{
+  "body": "O experimento registra latência, duração e quantidade de invocações. O tema desempenho aparece no experimento. Uma API simples reduz variáveis desnecessárias no experimento. O tema documento aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema custo aparece no experimento. Documentos maiores aumentam o trabalho real de processamento. O tema custo aparece no experimento. Resultados determinísticos facilitam a comparação entre execuções. O tema documento aparece no experimento. A orquestração combina as respostas das análises independentes. O tema memoria aparece no experimento. O armazenamento mantém o conteúdo original do documento. O tema analise aparece no experimento. A análise textual mede propriedades do conteúdo de um documento. O tema memoria aparece no experimento. Sistemas distribuídos processam tarefas de forma eficiente. O tema custo aparece no experimento. A orquestração combina as respostas das análises independentes. O tema serverless ap",
+  "id": "43fe47b6-52fb-5a4c-857f-47f94310d3d5",
+  "language": "pt",
+  "tags": [
+    "latency",
+    "cost",
+    "memory"
+  ],
+  "title": "Documento de benchmark 0000"
+}

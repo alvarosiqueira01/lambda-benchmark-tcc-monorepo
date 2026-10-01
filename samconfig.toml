@@ -1,0 +1,13 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "document-api-benchmark"
+resolve_s3 = true
+s3_prefix = "document-api-benchmark"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "LambdaMemoryMb=\"512\" LambdaArchitecture=\"x86_64\""
+image_repositories = []
+
+[default.global.parameters]
+region = "us-east-1"

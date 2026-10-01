@@ -1,0 +1,126 @@
+[
+    {
+        "OutputKey": "DecomposedApiUrl",
+        "OutputValue": "https://mtgmeeba0d.execute-api.us-east-1.amazonaws.com"
+    },
+    {
+        "OutputKey": "MonolithApiUrl",
+        "OutputValue": "https://djrqxs8hl6.execute-api.us-east-1.amazonaws.com"
+    },
+    {
+        "OutputKey": "DecomposedTableName",
+        "OutputValue": "document-api-benchmark-DecomposedDocumentsTable-UJSIF0RKCU8V"
+    },
+    {
+        "OutputKey": "LexicalFunctionName",
+        "OutputValue": "document-api-benchmark-LexicalFunction-0GmIGBUUV6kk"
+    },
+    {
+        "OutputKey": "MonolithTableName",
+        "OutputValue": "document-api-benchmark-MonolithDocumentsTable-1QFBJRL18UJDV"
+    },
+    {
+        "OutputKey": "DecomposedCrudFunctionName",
+        "OutputValue": "document-api-benchmark-DecomposedCrudFunction-0UObZnfz5i6z"
+    },
+    {
+        "OutputKey": "ReadabilityFunctionName",
+        "OutputValue": "document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y"
+    },
+    {
+        "OutputKey": "DecomposedOrchestratorFunctionName",
+        "OutputValue": "document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x"
+    },
+    {
+        "OutputKey": "KeywordsFunctionName",
+        "OutputValue": "document-api-benchmark-KeywordsFunction-2smOwpw0tU1c"
+    },
+    {
+        "OutputKey": "MonolithFunctionName",
+        "OutputValue": "document-api-benchmark-MonolithFunction-kqArHeVcvmJJ"
+    }
+]
+[
+    {
+        "OutputKey": "DecomposedApiUrl",
+        "OutputValue": "https://mtgmeeba0d.execute-api.us-east-1.amazonaws.com"
+    },
+    {
+        "OutputKey": "MonolithApiUrl",
+        "OutputValue": "https://djrqxs8hl6.execute-api.us-east-1.amazonaws.com"
+    },
+    {
+        "OutputKey": "DecomposedTableName",
+        "OutputValue": "document-api-benchmark-DecomposedDocumentsTable-UJSIF0RKCU8V"
+    },
+    {
+        "OutputKey": "LexicalFunctionName",
+        "OutputValue": "document-api-benchmark-LexicalFunction-0GmIGBUUV6kk"
+    },
+    {
+        "OutputKey": "MonolithTableName",
+        "OutputValue": "document-api-benchmark-MonolithDocumentsTable-1QFBJRL18UJDV"
+    },
+    {
+        "OutputKey": "DecomposedCrudFunctionName",
+        "OutputValue": "document-api-benchmark-DecomposedCrudFunction-0UObZnfz5i6z"
+    },
+    {
+        "OutputKey": "ReadabilityFunctionName",
+        "OutputValue": "document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y"
+    },
+    {
+        "OutputKey": "DecomposedOrchestratorFunctionName",
+        "OutputValue": "document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x"
+    },
+    {
+        "OutputKey": "KeywordsFunctionName",
+        "OutputValue": "document-api-benchmark-KeywordsFunction-2smOwpw0tU1c"
+    },
+    {
+        "OutputKey": "MonolithFunctionName",
+        "OutputValue": "document-api-benchmark-MonolithFunction-kqArHeVcvmJJ"
+    }
+]
+[
+    {
+        "OutputKey": "DecomposedApiUrl",
+        "OutputValue": "https://mtgmeeba0d.execute-api.us-east-1.amazonaws.com"
+    },
+    {
+        "OutputKey": "MonolithApiUrl",
+        "OutputValue": "https://djrqxs8hl6.execute-api.us-east-1.amazonaws.com"
+    },
+    {
+        "OutputKey": "DecomposedTableName",
+        "OutputValue": "document-api-benchmark-DecomposedDocumentsTable-UJSIF0RKCU8V"
+    },
+    {
+        "OutputKey": "LexicalFunctionName",
+        "OutputValue": "document-api-benchmark-LexicalFunction-0GmIGBUUV6kk"
+    },
+    {
+        "OutputKey": "MonolithTableName",
+        "OutputValue": "document-api-benchmark-MonolithDocumentsTable-1QFBJRL18UJDV"
+    },
+    {
+        "OutputKey": "DecomposedCrudFunctionName",
+        "OutputValue": "document-api-benchmark-DecomposedCrudFunction-0UObZnfz5i6z"
+    },
+    {
+        "OutputKey": "ReadabilityFunctionName",
+        "OutputValue": "document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y"
+    },
+    {
+        "OutputKey": "DecomposedOrchestratorFunctionName",
+        "OutputValue": "document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x"
+    },
+    {
+        "OutputKey": "KeywordsFunctionName",
+        "OutputValue": "document-api-benchmark-KeywordsFunction-2smOwpw0tU1c"
+    },
+    {
+        "OutputKey": "MonolithFunctionName",
+        "OutputValue": "document-api-benchmark-MonolithFunction-kqArHeVcvmJJ"
+    }
+]

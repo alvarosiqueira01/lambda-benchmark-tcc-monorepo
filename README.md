@@ -64,3 +64,7 @@ python -m pytest tests/
 ```
 
 Os testes usam clientes fake para DynamoDB e Lambda; não tocam em AWS.
+
+## Equivalência entre versões monolítica e decomposta
+
+Duas configurações são ditas equivalentes se, para todo documento do dataset, a resposta HTTP de GET /documents/{id}/analysis é byte-a-byte idêntica (status + body), exceto pelo ANALYSIS_ERROR documentado no contrato.
