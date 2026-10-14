@@ -1,0 +1,204 @@
+
+================================================================
+Probe: label=low memory=128MB architecture=x86_64
+================================================================
+[17:55:58] sam deploy (mem=128 arch=x86_64)
+
+	Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-dispxq0rukvw
+	Auto resolution of buckets can be turned off by setting resolve_s3=False
+	To use a specific S3 bucket, set --s3-bucket=<bucket_name>
+	Above settings can be stored in samconfig.toml
+
+	File with same data already exists at document-api-benchmark/a81af191a752a55a0cae53d570d7a154, skipping upload
+
+	File with same data already exists at document-api-benchmark/a81af191a752a55a0cae53d570d7a154, skipping upload
+
+	File with same data already exists at document-api-benchmark/a81af191a752a55a0cae53d570d7a154, skipping upload
+
+	File with same data already exists at document-api-benchmark/a81af191a752a55a0cae53d570d7a154, skipping upload
+
+	File with same data already exists at document-api-benchmark/a81af191a752a55a0cae53d570d7a154, skipping upload
+
+	File with same data already exists at document-api-benchmark/a81af191a752a55a0cae53d570d7a154, skipping upload
+
+	Deploying with following values
+	===============================
+	Stack name                   : document-api-benchmark
+	Region                       : us-east-1
+	Confirm changeset            : False
+	Disable rollback             : False
+	Deployment s3 bucket         : aws-sam-cli-managed-default-samclisourcebucket-dispxq0rukvw
+	Capabilities                 : ["CAPABILITY_IAM"]
+	Parameter overrides          : {"LambdaMemoryMb": "128", "LambdaArchitecture": "x86_64"}
+	Signing Profiles             : {}
+
+Initiating deployment
+=====================
+
+
+	File with same data already exists at document-api-benchmark/78728b6be113195ad159322d67d72b94.template, skipping upload
+
+
+Waiting for changeset to be created..
+
+CloudFormation stack changeset
+-------------------------------------------------------------------------------------------------
+Operation                LogicalResourceId        ResourceType             Replacement            
+-------------------------------------------------------------------------------------------------
+* Modify                 DecomposedApi            AWS::ApiGatewayV2::Api   False                  
+* Modify                 DecomposedCrudFunction   AWS::Lambda::Function    False                  
+* Modify                 DecomposedOrchestrator   AWS::IAM::Role           False                  
+                         FunctionRole                                                             
+* Modify                 DecomposedOrchestrator   AWS::Lambda::Function    False                  
+                         Function                                                                 
+* Modify                 KeywordsFunction         AWS::Lambda::Function    False                  
+* Modify                 LexicalFunction          AWS::Lambda::Function    False                  
+* Modify                 MonolithApi              AWS::ApiGatewayV2::Api   False                  
+* Modify                 MonolithFunction         AWS::Lambda::Function    False                  
+* Modify                 ReadabilityFunction      AWS::Lambda::Function    False                  
+-------------------------------------------------------------------------------------------------
+
+
+Changeset created successfully. arn:aws:cloudformation:us-east-1:013461378967:changeSet/samcli-deploy1791665763/477cee88-3c34-4d70-be55-9f3b92efb2dc
+
+
+2026-10-10 17:56:17 - Waiting for stack create/update to complete
+
+CloudFormation events from stack operations (refresh every 5.0 seconds)
+-------------------------------------------------------------------------------------------------
+ResourceStatus           ResourceType             LogicalResourceId        ResourceStatusReason   
+-------------------------------------------------------------------------------------------------
+UPDATE_IN_PROGRESS       AWS::CloudFormation::S   document-api-benchmark   User Initiated         
+                         tack                                                                     
+UPDATE_IN_PROGRESS       AWS::Lambda::Function    LexicalFunction          -                      
+UPDATE_IN_PROGRESS       AWS::Lambda::Function    DecomposedCrudFunction   -                      
+UPDATE_IN_PROGRESS       AWS::Lambda::Function    ReadabilityFunction      -                      
+UPDATE_IN_PROGRESS       AWS::Lambda::Function    KeywordsFunction         -                      
+UPDATE_IN_PROGRESS       AWS::Lambda::Function    MonolithFunction         -                      
+UPDATE_COMPLETE          AWS::Lambda::Function    LexicalFunction          -                      
+UPDATE_COMPLETE          AWS::Lambda::Function    DecomposedCrudFunction   -                      
+UPDATE_COMPLETE          AWS::Lambda::Function    ReadabilityFunction      -                      
+UPDATE_COMPLETE          AWS::Lambda::Function    KeywordsFunction         -                      
+UPDATE_COMPLETE          AWS::Lambda::Function    MonolithFunction         -                      
+UPDATE_IN_PROGRESS       AWS::Lambda::Function    DecomposedOrchestrator   -                      
+                                                  Function                                        
+UPDATE_COMPLETE          AWS::Lambda::Function    DecomposedOrchestrator   -                      
+                                                  Function                                        
+UPDATE_COMPLETE_CLEANU   AWS::CloudFormation::S   document-api-benchmark   -                      
+P_IN_PROGRESS            tack                                                                     
+UPDATE_COMPLETE          AWS::CloudFormation::S   document-api-benchmark   -                      
+                         tack                                                                     
+-------------------------------------------------------------------------------------------------
+
+CloudFormation outputs from deployed stack
+-------------------------------------------------------------------------------------------------
+Outputs                                                                                         
+-------------------------------------------------------------------------------------------------
+Key                 DecomposedApiUrl                                                            
+Description         -                                                                           
+Value               https://mtgmeeba0d.execute-api.us-east-1.amazonaws.com                      
+
+Key                 MonolithApiUrl                                                              
+Description         -                                                                           
+Value               https://djrqxs8hl6.execute-api.us-east-1.amazonaws.com                      
+
+Key                 DecomposedTableName                                                         
+Description         -                                                                           
+Value               document-api-benchmark-DecomposedDocumentsTable-UJSIF0RKCU8V                
+
+Key                 LexicalFunctionName                                                         
+Description         -                                                                           
+Value               document-api-benchmark-LexicalFunction-0GmIGBUUV6kk                         
+
+Key                 MonolithTableName                                                           
+Description         -                                                                           
+Value               document-api-benchmark-MonolithDocumentsTable-1QFBJRL18UJDV                 
+
+Key                 DecomposedCrudFunctionName                                                  
+Description         -                                                                           
+Value               document-api-benchmark-DecomposedCrudFunction-0UObZnfz5i6z                  
+
+Key                 ReadabilityFunctionName                                                     
+Description         -                                                                           
+Value               document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y                     
+
+Key                 DecomposedOrchestratorFunctionName                                          
+Description         -                                                                           
+Value               document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x             
+
+Key                 KeywordsFunctionName                                                        
+Description         -                                                                           
+Value               document-api-benchmark-KeywordsFunction-2smOwpw0tU1c                        
+
+Key                 MonolithFunctionName                                                        
+Description         -                                                                           
+Value               document-api-benchmark-MonolithFunction-kqArHeVcvmJJ                        
+-------------------------------------------------------------------------------------------------
+
+
+Successfully created/updated stack - document-api-benchmark in us-east-1
+
+MONO_URL=https://djrqxs8hl6.execute-api.us-east-1.amazonaws.com
+MONOLITH_TABLE=document-api-benchmark-MonolithDocumentsTable-1QFBJRL18UJDV
+MONOLITH_FUNCTION=document-api-benchmark-MonolithFunction-kqArHeVcvmJJ
+{
+    "Runtime": "python3.14",
+    "Architectures": [
+        "x86_64"
+    ],
+    "MemorySize": 128,
+    "Timeout": 10
+}
+[17:56:56] Seed DynamoDB (v1)
+[17:56:56] Seed monolith: table=document-api-benchmark-MonolithDocumentsTable-1QFBJRL18UJDV dataset=dataset/generated/v1/documents.json
+Seeded 100 documents into document-api-benchmark-MonolithDocumentsTable-1QFBJRL18UJDV
+Dataset document ID: 43fe47b6-52fb-5a4c-857f-47f94310d3d5
+Probe URL: https://djrqxs8hl6.execute-api.us-east-1.amazonaws.com/documents/43fe47b6-52fb-5a4c-857f-47f94310d3d5/analysis
+[17:56:58] Warm-up: 3 invocations
+[17:57:01] Post-warm-up buffer: 10s
+[17:57:11] Measurement: 20 invocations (start_ms=1791665831000)
+[17:57:34] Measurement end (end_ms=1791665854000, elapsed=23000ms)
+[17:57:34] Waiting 45s for log ingestion
+[17:58:19] Collecting CloudWatch REPORT events for document-api-benchmark-MonolithFunction-kqArHeVcvmJJ
+[17:58:19]   window: 1791665829000 .. 1791665859000
+[17:58:21] Parsing 20 events
+{
+  "count": 20,
+  "warm_count": 20,
+  "cold_count": 0,
+  "cold_start_rate": 0.0,
+  "cold_start_fraction_of_total": 0.0,
+  "duration_ms": {
+    "min": 14.48,
+    "p50": 31.345,
+    "p90": 38.392,
+    "p95": 39.8555,
+    "p99": 39.9391,
+    "max": 39.96,
+    "mean": 31.181,
+    "stdev": 6.369324061468375
+  },
+  "billed_duration_ms": {
+    "mean": 31.7,
+    "max": 40.0
+  },
+  "max_memory_used_mb": {
+    "max": 97,
+    "mean": 97.0
+  },
+  "init_duration_ms": {
+    "count": 0,
+    "mean": 0.0,
+    "max": 0.0
+  },
+  "duration_ms_warm_only": {
+    "min": 14.48,
+    "p50": 31.345,
+    "p90": 38.392,
+    "p95": 39.8555,
+    "p99": 39.9391,
+    "max": 39.96,
+    "mean": 31.181,
+    "stdev": 6.369324061468375
+  }
+}

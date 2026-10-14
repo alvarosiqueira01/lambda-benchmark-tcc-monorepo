@@ -1,0 +1,4 @@
+label	memory	architecture	status	detail
+low	128	x86_64	PASS	-
+mid	512	x86_64	PASS	-
+high	2048	x86_64	PASS	-

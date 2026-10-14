@@ -1,0 +1,13 @@
+{
+  "datasetVersion": "v2",
+  "seed": 42,
+  "documentCount": 100,
+  "bodySize": 75000,
+  "timestamps": {
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z"
+  },
+  "generator": "generate_dataset.py",
+  "format": "json",
+  "deterministic": true
+}

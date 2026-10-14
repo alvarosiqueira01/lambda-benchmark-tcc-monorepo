@@ -1,0 +1,33 @@
+{
+  "verdict": "FAIL",
+  "criteria": [
+    {
+      "num": 1,
+      "description": "p50_warm @ 512 MB in [20.0, 300.0] ms",
+      "expected": "[20.0, 300.0]",
+      "observed": "6.52",
+      "pass": false
+    },
+    {
+      "num": 2,
+      "description": "p50_warm(128)/p50_warm(2048) >= 2.0",
+      "expected": ">= 2.0",
+      "observed": "4.40",
+      "pass": true
+    },
+    {
+      "num": 3,
+      "description": "MaxMemUsed @ 128 MB <= 110.0 MB",
+      "expected": "<= 110.0",
+      "observed": "97",
+      "pass": true
+    },
+    {
+      "num": 4,
+      "description": "cold_rate <= 0.1 AND init_frac <= 0.2",
+      "expected": "cold<=0.1, init<=0.2",
+      "observed": "cold=0.000, init_frac=0.000",
+      "pass": true
+    }
+  ]
+}

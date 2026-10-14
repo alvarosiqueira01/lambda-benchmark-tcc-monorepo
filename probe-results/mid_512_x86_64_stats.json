@@ -1,0 +1,40 @@
+{
+  "count": 20,
+  "warm_count": 20,
+  "cold_count": 0,
+  "cold_start_rate": 0.0,
+  "cold_start_fraction_of_total": 0.0,
+  "duration_ms": {
+    "min": 5.68,
+    "p50": 6.515000000000001,
+    "p90": 7.751000000000003,
+    "p95": 9.760000000000007,
+    "p99": 15.53599999999999,
+    "max": 16.98,
+    "mean": 7.167,
+    "stdev": 2.3819552892529283
+  },
+  "billed_duration_ms": {
+    "mean": 7.75,
+    "max": 17.0
+  },
+  "max_memory_used_mb": {
+    "max": 97,
+    "mean": 97.0
+  },
+  "init_duration_ms": {
+    "count": 0,
+    "mean": 0.0,
+    "max": 0.0
+  },
+  "duration_ms_warm_only": {
+    "min": 5.68,
+    "p50": 6.515000000000001,
+    "p90": 7.751000000000003,
+    "p95": 9.760000000000007,
+    "p99": 15.53599999999999,
+    "max": 16.98,
+    "mean": 7.167,
+    "stdev": 2.3819552892529283
+  }
+}
