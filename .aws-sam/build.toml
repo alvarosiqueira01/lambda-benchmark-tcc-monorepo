@@ -7,6 +7,6 @@ architecture = "x86_64"
 handler = "monolith.handler.handler"
 manifest_hash = ""
 packagetype = "Zip"
-functions = ["MonolithFunction", "DecomposedCrudFunction", "DecomposedOrchestratorFunction", "LexicalFunction", "ReadabilityFunction", "KeywordsFunction"]
+functions = ["MonolithFunction", "DecomposedCrudFunction", "LexicalFunction", "ReadabilityFunction", "KeywordsFunction", "DecomposedOrchestratorFunction"]
 
 [layer_build_definitions]

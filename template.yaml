@@ -7,19 +7,12 @@ Parameters:
   LambdaMemoryMb:
     Type: Number
     Default: 512
-    AllowedValues:
-      - 128
-      - 256
-      - 512
-      - 1024
-      - 2048
+    AllowedValues: [128, 256, 512, 1024, 2048]
 
   LambdaArchitecture:
     Type: String
     Default: x86_64
-    AllowedValues:
-      - x86_64
-      - arm64
+    AllowedValues: [x86_64, arm64]
 
 Globals:
   Function:
@@ -67,6 +60,8 @@ Resources:
     Properties:
       StageName: '$default'
 
+  # ---------------- Monolith ----------------
+
   MonolithFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -75,7 +70,6 @@ Resources:
       Environment:
         Variables:
           DOCUMENTS_TABLE: !Ref MonolithDocumentsTable
-
       Policies:
         - Version: '2012-10-17'
           Statement:
@@ -86,7 +80,6 @@ Resources:
                 - dynamodb:UpdateItem
                 - dynamodb:DeleteItem
               Resource: !GetAtt MonolithDocumentsTable.Arn
-
       Events:
         CreateDocument:
           Type: HttpApi
@@ -94,21 +87,18 @@ Resources:
             ApiId: !Ref MonolithApi
             Method: POST
             Path: /documents
-
         GetDocument:
           Type: HttpApi
           Properties:
             ApiId: !Ref MonolithApi
             Method: GET
             Path: /documents/{id}
-
         UpdateDocument:
           Type: HttpApi
           Properties:
             ApiId: !Ref MonolithApi
             Method: PUT
             Path: /documents/{id}
-
         DeleteDocument:
           Type: HttpApi
           Properties:
@@ -116,12 +106,44 @@ Resources:
             Method: DELETE
             Path: /documents/{id}
 
-        AnalyzeDocument:
-          Type: HttpApi
-          Properties:
-            ApiId: !Ref MonolithApi
-            Method: GET
-            Path: /documents/{id}/analysis
+  MonolithFunctionVersion:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref MonolithFunction
+
+  MonolithFunctionAlias:
+    Type: AWS::Lambda::Alias
+    Properties:
+      Name: benchmark
+      FunctionName: !Ref MonolithFunction
+      FunctionVersion: !GetAtt MonolithFunctionVersion.Version
+
+  MonolithAnalysisIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    DependsOn: MonolithFunctionAlias
+    Properties:
+      ApiId: !Ref MonolithApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MonolithFunction.Arn}:benchmark/invocations"
+      PayloadFormatVersion: "2.0"
+
+  MonolithAnalysisRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref MonolithApi
+      RouteKey: "GET /documents/{id}/analysis"
+      Target: !Sub "integrations/${MonolithAnalysisIntegration}"
+
+  MonolithAnalysisPermission:
+    Type: AWS::Lambda::Permission
+    DependsOn: MonolithFunctionAlias
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Sub "${MonolithFunction.Arn}:benchmark"
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${MonolithApi}/*/GET/documents/*/analysis"
+
+  # ---------------- Decomposed ----------------
 
   DecomposedCrudFunction:
     Type: AWS::Serverless::Function
@@ -131,7 +153,6 @@ Resources:
       Environment:
         Variables:
           DOCUMENTS_TABLE: !Ref DecomposedDocumentsTable
-
       Policies:
         - Version: '2012-10-17'
           Statement:
@@ -142,7 +163,6 @@ Resources:
                 - dynamodb:UpdateItem
                 - dynamodb:DeleteItem
               Resource: !GetAtt DecomposedDocumentsTable.Arn
-
       Events:
         CreateDocument:
           Type: HttpApi
@@ -150,21 +170,18 @@ Resources:
             ApiId: !Ref DecomposedApi
             Method: POST
             Path: /documents
-
         GetDocument:
           Type: HttpApi
           Properties:
             ApiId: !Ref DecomposedApi
             Method: GET
             Path: /documents/{id}
-
         UpdateDocument:
           Type: HttpApi
           Properties:
             ApiId: !Ref DecomposedApi
             Method: PUT
             Path: /documents/{id}
-
         DeleteDocument:
           Type: HttpApi
           Properties:
@@ -172,42 +189,7 @@ Resources:
             Method: DELETE
             Path: /documents/{id}
 
-  DecomposedOrchestratorFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: src/
-      Handler: decomposed.orchestrator.handler
-
-      Environment:
-        Variables:
-          DOCUMENTS_TABLE: !Ref DecomposedDocumentsTable
-          LEXICAL_FUNCTION_NAME: !Ref LexicalFunction
-          READABILITY_FUNCTION_NAME: !Ref ReadabilityFunction
-          KEYWORDS_FUNCTION_NAME: !Ref KeywordsFunction
-
-      Policies:
-        - Version: '2012-10-17'
-          Statement:
-            - Effect: Allow
-              Action:
-                - dynamodb:GetItem
-              Resource: !GetAtt DecomposedDocumentsTable.Arn
-
-            - Effect: Allow
-              Action:
-                - lambda:InvokeFunction
-              Resource:
-                - !GetAtt LexicalFunction.Arn
-                - !GetAtt ReadabilityFunction.Arn
-                - !GetAtt KeywordsFunction.Arn
-
-      Events:
-        AnalyzeDocument:
-          Type: HttpApi
-          Properties:
-            ApiId: !Ref DecomposedApi
-            Method: GET
-            Path: /documents/{id}/analysis
+  # Workers (precisam dos aliases antes do orquestrador, pois ele os referencia em env vars)
 
   LexicalFunction:
     Type: AWS::Serverless::Function
@@ -215,11 +197,35 @@ Resources:
       CodeUri: src/
       Handler: decomposed.analyses.lexical.handler
 
+  LexicalFunctionVersion:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref LexicalFunction
+
+  LexicalFunctionAlias:
+    Type: AWS::Lambda::Alias
+    Properties:
+      Name: benchmark
+      FunctionName: !Ref LexicalFunction
+      FunctionVersion: !GetAtt LexicalFunctionVersion.Version
+
   ReadabilityFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: src/
       Handler: decomposed.analyses.readability.handler
+
+  ReadabilityFunctionVersion:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref ReadabilityFunction
+
+  ReadabilityFunctionAlias:
+    Type: AWS::Lambda::Alias
+    Properties:
+      Name: benchmark
+      FunctionName: !Ref ReadabilityFunction
+      FunctionVersion: !GetAtt ReadabilityFunctionVersion.Version
 
   KeywordsFunction:
     Type: AWS::Serverless::Function
@@ -227,38 +233,104 @@ Resources:
       CodeUri: src/
       Handler: decomposed.analyses.keywords.handler
 
+  KeywordsFunctionVersion:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref KeywordsFunction
+
+  KeywordsFunctionAlias:
+    Type: AWS::Lambda::Alias
+    Properties:
+      Name: benchmark
+      FunctionName: !Ref KeywordsFunction
+      FunctionVersion: !GetAtt KeywordsFunctionVersion.Version
+
+  DecomposedOrchestratorFunction:
+    Type: AWS::Serverless::Function
+    DependsOn:
+      - LexicalFunctionAlias
+      - ReadabilityFunctionAlias
+      - KeywordsFunctionAlias
+    Properties:
+      CodeUri: src/
+      Handler: decomposed.orchestrator.handler
+      Environment:
+        Variables:
+          DOCUMENTS_TABLE: !Ref DecomposedDocumentsTable
+          LEXICAL_FUNCTION_NAME:     !Sub "${LexicalFunction.Arn}:benchmark"
+          READABILITY_FUNCTION_NAME: !Sub "${ReadabilityFunction.Arn}:benchmark"
+          KEYWORDS_FUNCTION_NAME:    !Sub "${KeywordsFunction.Arn}:benchmark"
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action: dynamodb:GetItem
+              Resource: !GetAtt DecomposedDocumentsTable.Arn
+            - Effect: Allow
+              Action: lambda:InvokeFunction
+              Resource:
+                - !GetAtt LexicalFunction.Arn
+                - !Sub "${LexicalFunction.Arn}:benchmark"
+                - !GetAtt ReadabilityFunction.Arn
+                - !Sub "${ReadabilityFunction.Arn}:benchmark"
+                - !GetAtt KeywordsFunction.Arn
+                - !Sub "${KeywordsFunction.Arn}:benchmark"
+
+  DecomposedOrchestratorFunctionVersion:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref DecomposedOrchestratorFunction
+
+  DecomposedOrchestratorFunctionAlias:
+    Type: AWS::Lambda::Alias
+    Properties:
+      Name: benchmark
+      FunctionName: !Ref DecomposedOrchestratorFunction
+      FunctionVersion: !GetAtt DecomposedOrchestratorFunctionVersion.Version
+
+  DecomposedAnalysisIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    DependsOn: DecomposedOrchestratorFunctionAlias
+    Properties:
+      ApiId: !Ref DecomposedApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${DecomposedOrchestratorFunction.Arn}:benchmark/invocations"
+      PayloadFormatVersion: "2.0"
+
+  DecomposedAnalysisRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref DecomposedApi
+      RouteKey: "GET /documents/{id}/analysis"
+      Target: !Sub "integrations/${DecomposedAnalysisIntegration}"
+
+  DecomposedAnalysisPermission:
+    Type: AWS::Lambda::Permission
+    DependsOn: DecomposedOrchestratorFunctionAlias
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Sub "${DecomposedOrchestratorFunction.Arn}:benchmark"
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${DecomposedApi}/*/GET/documents/*/analysis"
+
 Outputs:
-
   MonolithApiUrl:
-    Value: !Sub
-      - https://${ApiId}.execute-api.${AWS::Region}.${AWS::URLSuffix}
-      - ApiId: !Ref MonolithApi
-
+    Value: !Sub "https://${MonolithApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}"
   DecomposedApiUrl:
-    Value: !Sub
-      - https://${ApiId}.execute-api.${AWS::Region}.${AWS::URLSuffix}
-      - ApiId: !Ref DecomposedApi
-
+    Value: !Sub "https://${DecomposedApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}"
   MonolithTableName:
     Value: !Ref MonolithDocumentsTable
-
   DecomposedTableName:
     Value: !Ref DecomposedDocumentsTable
-
   MonolithFunctionName:
     Value: !Ref MonolithFunction
-
   DecomposedCrudFunctionName:
     Value: !Ref DecomposedCrudFunction
-
   DecomposedOrchestratorFunctionName:
     Value: !Ref DecomposedOrchestratorFunction
-
   LexicalFunctionName:
     Value: !Ref LexicalFunction
-
   ReadabilityFunctionName:
     Value: !Ref ReadabilityFunction
-
   KeywordsFunctionName:
     Value: !Ref KeywordsFunction

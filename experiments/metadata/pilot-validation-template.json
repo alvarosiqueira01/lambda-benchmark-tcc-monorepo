@@ -1,0 +1,27 @@
+{
+  "campaign_id": "tcc-2026-10",
+  "pilot_status": "NOT_RUN",
+  "approved_by": null,
+  "approved_at_utc": null,
+  "runs_reviewed": [],
+  "checks": {
+    "aliases_verified": false,
+    "api_mono_route_integration_qualified": false,
+    "api_decomp_route_integration_qualified": false,
+    "api_mono_target_verified_per_run": false,
+    "api_decomp_target_verified_per_run": false,
+    "no_invocation_after_reset_before_T0": false,
+    "constant_arrival_schedule_verified": false,
+    "burst_schedule_verified": false,
+    "sparse_miniburst_schedule_verified": false,
+    "generator_capacity_verified": false,
+    "request_level_csv_verified": false,
+    "lambda_START_REPORT_pairing_verified": false,
+    "decomposed_workers_show_init_duration_on_first_invocation": false,
+    "measurement_window_verified": false,
+    "cost_calculation_verified": false,
+    "raw_artifacts_uploaded": false
+  },
+  "issues": [],
+  "decision": "DO_NOT_START_MAIN_CAMPAIGN_UNTIL_ALL_REQUIRED_CHECKS_PASS"
+}

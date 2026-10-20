@@ -1,0 +1,65 @@
+{
+  "checked_at_utc": "2026-10-20T17:49:13.644475+00:00",
+  "stack_name": "document-api-benchmark",
+  "functions": [
+    {
+      "function": "document-api-benchmark-MonolithFunction-kqArHeVcvmJJ",
+      "state": "Active",
+      "alias": "benchmark",
+      "alias_version": "1",
+      "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-MonolithFunction-kqArHeVcvmJJ:benchmark",
+      "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
+    },
+    {
+      "function": "document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x",
+      "state": "Active",
+      "alias": "benchmark",
+      "alias_version": "1",
+      "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x:benchmark",
+      "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
+    },
+    {
+      "function": "document-api-benchmark-LexicalFunction-0GmIGBUUV6kk",
+      "state": "Active",
+      "alias": "benchmark",
+      "alias_version": "1",
+      "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-LexicalFunction-0GmIGBUUV6kk:benchmark",
+      "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
+    },
+    {
+      "function": "document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y",
+      "state": "Active",
+      "alias": "benchmark",
+      "alias_version": "1",
+      "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y:benchmark",
+      "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
+    },
+    {
+      "function": "document-api-benchmark-KeywordsFunction-2smOwpw0tU1c",
+      "state": "Active",
+      "alias": "benchmark",
+      "alias_version": "1",
+      "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-KeywordsFunction-2smOwpw0tU1c:benchmark",
+      "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
+    }
+  ],
+  "routes": [
+    {
+      "api_id": "djrqxs8hl6",
+      "route_key": "GET /documents/{id}/analysis",
+      "integration_id": "rfjyqxk",
+      "integration_uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-MonolithFunction-kqArHeVcvmJJ:benchmark/invocations",
+      "function_in_uri": "document-api-benchmark-MonolithFunction-kqArHeVcvmJJ",
+      "qualifier_in_uri": "benchmark"
+    },
+    {
+      "api_id": "mtgmeeba0d",
+      "route_key": "GET /documents/{id}/analysis",
+      "integration_id": "b6ktn1j",
+      "integration_uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x:benchmark/invocations",
+      "function_in_uri": "document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x",
+      "qualifier_in_uri": "benchmark"
+    }
+  ],
+  "note": "Ambas as rotas devem referenciar o alias benchmark; verify_target.py re-checa por run."
+}

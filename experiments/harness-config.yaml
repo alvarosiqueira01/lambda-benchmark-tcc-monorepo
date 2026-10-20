@@ -1,0 +1,81 @@
+# Complete all values based on deployed stack outputs. Do not guess resource names.
+aws:
+  region: us-east-1
+  profile: null
+  stack_name: document-api-benchmark
+  s3_bucket: lambda-benchmark-tcc-bucket
+  s3_prefix: lambda-benchmark-tcc
+  log_wait_seconds: 180
+  log_poll_seconds: 10
+
+dataset:
+  path: dataset/generated/v2/documents.json
+  version: v2
+  document_id: 8bd40c8d-2064-57f9-bfec-87ebc0caffbb
+
+api:
+  kind: http_api
+  stage: $default
+  route_method: GET
+  routes:
+    monolithic:
+      api_id: djrqxs8hl6
+      base_url: https://djrqxs8hl6.execute-api.us-east-1.amazonaws.com
+      route_path_template: /documents/{id}/analysis
+      expected_function_key: monolithic
+    decomposed:
+      api_id: mtgmeeba0d
+      base_url: https://mtgmeeba0d.execute-api.us-east-1.amazonaws.com
+      route_path_template: /documents/{id}/analysis
+      expected_function_key: orchestrator
+
+functions:
+  monolithic:
+    name: document-api-benchmark-MonolithFunction-kqArHeVcvmJJ
+    alias: benchmark
+  orchestrator:
+    name: document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x
+    alias: benchmark
+  workers:
+    - name: document-api-benchmark-LexicalFunction-0GmIGBUUV6kk
+      alias: benchmark
+    - name: document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y
+      alias: benchmark
+    - name: document-api-benchmark-KeywordsFunction-2smOwpw0tU1c
+      alias: benchmark
+
+dynamodb:
+  table_class: STANDARD
+  billing_mode: PAY_PER_REQUEST
+  read_consistency: EVENTUALLY_CONSISTENT  
+  document_item_size_bytes: 75141
+  tables:
+    monolithic:
+      table_name: document-api-benchmark-MonolithDocumentsTable-1QFBJRL18UJDV 
+    decomposed:
+      table_name: document-api-benchmark-DecomposedDocumentsTable-UJSIF0RKCU8V 
+
+generator:
+  instance_id: i-004f8c0b297e79700
+  remote_workdir: /opt/lambda-benchmark
+  remote_k6_script: /opt/lambda-benchmark/k6/benchmark.js
+  remote_output_dir: /opt/lambda-benchmark/results
+  # The remote host needs the project harness's k6 script and AWS CLI.
+  ssm_timeout_seconds: 900
+  max_vus: 500
+  pre_allocated_vus: 100
+
+cost:
+  lambda_request_usd_per_million: 0.20
+  lambda_gb_second_usd_x86_64: 0.0000166667
+  lambda_gb_second_usd_arm64: 0.0000133334
+  http_api_usd_per_million_requests: 1.00
+  dynamodb_standard_usd_per_million_rru: 0.125
+  dynamodb_standard_usd_per_million_wru: 0.625
+    # 1 GetItem por requisição externa. Item ~75 KB, leitura eventual → 9.5 RRU.
+  # Medido com aws dynamodb get-item --return-consumed-capacity TOTAL no id real
+  ddb_rru_per_external_request: 9.5
+  ddb_wru_per_external_request: 0.0
+
+timeouts:
+  function_timeout_seconds_expected: 10
