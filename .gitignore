@@ -9,3 +9,19 @@ dev/
 
 # Virtual environments
 .venv
+.venv-*/
+.venv-*
+
+# Experiment runtime outputs
+experiments/.campaign.lock
+experiments/pilot-conditions.csv
+experiments/pilot-validation.json
+experiments/pilot-validation.md
+experiments/runs/*
+!experiments/runs/.gitkeep
+experiments/aggregate/*
+!experiments/aggregate/.gitkeep
+experiments/metadata/*.json
+!experiments/metadata/deploy-validation.json
+!experiments/metadata/pilot-validation-template.json
+experiments/metadata/plan/

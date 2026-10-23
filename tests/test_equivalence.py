@@ -24,7 +24,9 @@ from decomposed import orchestrator
 from decomposed.analyses import keywords, lexical, readability
 from decomposed.invoker import AnalysisInvoker
 
-DATASET_DIR = Path(__file__).resolve().parent.parent / "src" / "dataset" / "generated"
+DATASET_DIR = Path(__file__).resolve().parent.parent / "dataset" / "generated"
+if not DATASET_DIR.exists():
+    DATASET_DIR = Path(__file__).resolve().parent.parent / "src" / "dataset" / "generated"
 
 # Casos curados de borda, independentes do dataset gerado.
 # tags sempre validas segundo o dominio (RN-17: tag nao pode ser vazia/whitespace).

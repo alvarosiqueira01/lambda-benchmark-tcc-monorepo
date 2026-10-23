@@ -12,7 +12,7 @@ def main() -> None:
     parser.add_argument("--table", required=True)
     parser.add_argument(
         "--dataset",
-        default="./dataset/generated/v1/documents.json",
+        default="./dataset/generated/v2/documents.json",
     )
     args = parser.parse_args()
 

@@ -4,10 +4,17 @@
 Does not invoke the application. Fails if the integration URI is unqualified (would
 bypass the cold-reset alias) or points at the wrong function/alias/version.
 """
-import argparse, json, re
+import argparse
+import json
+import re
+import sys
 from pathlib import Path
+
 import boto3
-from common import load_yaml, write_json, utc_now
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from common import load_yaml, utc_now, write_json
 
 INTEGRATION_ARN_RE = re.compile(
     r"functions/(arn:aws:lambda:(?P<region>[^:]+):(?P<account>\d+):"
@@ -69,6 +76,55 @@ def main():
         (f["version"] for f in reset["functions"] if f["function_name"] == expected_fn), None)
     checks["alias_points_to_reset_version"] = expected_version == alias_version
 
+    env_checks = {}
+    if expected_version and a.composition == "decomposed":
+        qualified = lam.get_function_configuration(
+            FunctionName=expected_fn, Qualifier=str(expected_version)
+        )
+        checks["orchestrator_version_active"] = qualified.get("State") == "Active"
+        env = (qualified.get("Environment") or {}).get("Variables") or {}
+        expected_workers = cfg["functions"].get("workers", [])
+        expected_env = {
+            "LEXICAL_FUNCTION_NAME": expected_workers[0] if len(expected_workers) > 0 else None,
+            "READABILITY_FUNCTION_NAME": expected_workers[1] if len(expected_workers) > 1 else None,
+            "KEYWORDS_FUNCTION_NAME": expected_workers[2] if len(expected_workers) > 2 else None,
+        }
+        for key, worker in expected_env.items():
+            if worker is None:
+                env_checks[key] = False
+                continue
+            worker_alias = worker.get("alias", "benchmark")
+            worker_arn = lam.get_alias(
+                FunctionName=worker["name"], Name=worker_alias
+            ).get("AliasArn")
+            env_checks[key] = env.get(key) == worker_arn
+            checks[f"orchestrator_env_{key}"] = env_checks[key]
+            env_checks[f"{key}_expected"] = worker_arn
+    elif a.composition == "decomposed":
+        checks["orchestrator_version_active"] = False
+
+    reset_checks = {}
+    for record in reset.get("functions", []):
+        name = record.get("function_name")
+        version = str(record.get("version"))
+        alias_name = record.get("alias", "benchmark")
+        try:
+            config = lam.get_function_configuration(FunctionName=name, Qualifier=version)
+            current_alias = lam.get_alias(FunctionName=name, Name=alias_name)
+            reset_checks[name] = {
+                "active": config.get("State") == "Active",
+                "alias_version": current_alias.get("FunctionVersion"),
+                "alias_ok": current_alias.get("FunctionVersion") == version,
+            }
+        except Exception as exc:  # noqa: BLE001
+            reset_checks[name] = {"error": str(exc), "active": False, "alias_ok": False}
+    checks["all_reset_versions_active"] = bool(reset_checks) and all(
+        item.get("active") is True for item in reset_checks.values()
+    )
+    checks["all_reset_aliases_current"] = bool(reset_checks) and all(
+        item.get("alias_ok") is True for item in reset_checks.values()
+    )
+
     result = {
         "created_at_utc": utc_now(), "composition": a.composition,
         "api_id": api_id, "route_method": route_method,
@@ -78,7 +134,9 @@ def main():
         "expected_version_from_cold_reset": expected_version,
         "actual_function_name_in_uri": actual_fn, "actual_qualifier_in_uri": actual_qual,
         "alias_function_version": alias_version,
-        "checks": checks, "ok": all(checks.values()) and checks.get("uri_has_lambda_arn", False),
+        "checks": checks, "environment_checks": env_checks,
+        "reset_function_checks": reset_checks,
+        "ok": all(checks.values()) and checks.get("uri_has_lambda_arn", False),
     }
     write_json(Path(a.out), result)
     if not result["ok"]:

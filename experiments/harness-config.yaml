@@ -3,10 +3,13 @@ aws:
   region: us-east-1
   profile: null
   stack_name: document-api-benchmark
-  s3_bucket: lambda-benchmark-tcc-bucket
+  template_path: template.yaml
+  s3_bucket: lambda-benchmark-tcc
   s3_prefix: lambda-benchmark-tcc
   log_wait_seconds: 180
   log_poll_seconds: 10
+  log_query_margin_seconds: 120
+  log_retention_days: 90
 
 dataset:
   path: dataset/generated/v2/documents.json
@@ -36,6 +39,9 @@ functions:
   orchestrator:
     name: document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x
     alias: benchmark
+  decomposed_crud:
+    name: document-api-benchmark-DecomposedCrudFunction-0UObZnfz5i6z
+    alias: null
   workers:
     - name: document-api-benchmark-LexicalFunction-0GmIGBUUV6kk
       alias: benchmark
@@ -57,13 +63,38 @@ dynamodb:
 
 generator:
   instance_id: i-004f8c0b297e79700
+  instance_type: t8i.small
+  cpu_credits: standard
+  k6_expected_version: "k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64)"
+  max_clock_offset_ms: 50
+  require_chrony: true
   remote_workdir: /opt/lambda-benchmark
   remote_k6_script: /opt/lambda-benchmark/k6/benchmark.js
+  local_k6_script: k6/benchmark.js
   remote_output_dir: /opt/lambda-benchmark/results
+  local_sampler_script: k6/generator_sampler.sh
+  telemetry_interval_seconds: 1
+  # The pilot must prove the generator did not saturate; these are diagnostic
+  # thresholds reported with the run, not automatic SUT failures.
+  max_cpu_utilization_pct: 85
+  max_memory_used_pct: 85
+  max_network_dropped_packets: 0
   # The remote host needs the project harness's k6 script and AWS CLI.
   ssm_timeout_seconds: 900
-  max_vus: 500
-  pre_allocated_vus: 100
+  # Raw k6 output is uploaded to S3 before the per-run staging directory is
+  # removed from the generator. Keep enough free space for the largest run
+  # (around 55 MB) plus headroom for artifacts and concurrent OS writes.
+  cleanup_remote_after_upload: true
+  min_free_disk_mb: 1024
+  # 200 preallocated VUs cover a 100 req/s burst with up to ~1 s of latency;
+  # 1000 max VUs allow headroom without changing the open-loop arrival rate.
+  # The pilot must still prove dropped_iterations == 0 before the campaign.
+  max_vus: 1000
+  pre_allocated_vus: 200
+
+campaign:
+  # Number of substitute runs for each invalid-apparatus pilot/campaign run.
+  max_retries: 2
 
 cost:
   lambda_request_usd_per_million: 0.20
@@ -72,8 +103,9 @@ cost:
   http_api_usd_per_million_requests: 1.00
   dynamodb_standard_usd_per_million_rru: 0.125
   dynamodb_standard_usd_per_million_wru: 0.625
-    # 1 GetItem por requisição externa. Item ~75 KB, leitura eventual → 9.5 RRU.
-  # Medido com aws dynamodb get-item --return-consumed-capacity TOTAL no id real
+  # 1 GetItem por requisição externa. Item ~75 KB, leitura eventual -> 9.5 RRU.
+  # Medido com aws dynamodb get-item --return-consumed-capacity TOTAL no id real.
+  # Preco publico us-east-1 desde nov/2024: 0.125/M RRU e 0.625/M WRU.
   ddb_rru_per_external_request: 9.5
   ddb_wru_per_external_request: 0.0
 

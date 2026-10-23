@@ -8,6 +8,24 @@ total_duration_seconds: 240
 repetitions_per_condition: 10
 blocks: 10
 
+# Twelve pilot runs selected before the campaign. Each composition/architecture
+# pair covers all three load patterns and both memory extremes (plus a midpoint).
+pilot:
+  runs: 12
+  conditions:
+    - {composition: monolithic, architecture: x86_64, memory_mb: 128, load_pattern: burst}
+    - {composition: monolithic, architecture: x86_64, memory_mb: 2048, load_pattern: sparse_miniburst}
+    - {composition: monolithic, architecture: x86_64, memory_mb: 512, load_pattern: constant}
+    - {composition: monolithic, architecture: arm64, memory_mb: 128, load_pattern: burst}
+    - {composition: monolithic, architecture: arm64, memory_mb: 2048, load_pattern: sparse_miniburst}
+    - {composition: monolithic, architecture: arm64, memory_mb: 512, load_pattern: constant}
+    - {composition: decomposed, architecture: x86_64, memory_mb: 128, load_pattern: burst}
+    - {composition: decomposed, architecture: x86_64, memory_mb: 2048, load_pattern: sparse_miniburst}
+    - {composition: decomposed, architecture: x86_64, memory_mb: 512, load_pattern: constant}
+    - {composition: decomposed, architecture: arm64, memory_mb: 128, load_pattern: burst}
+    - {composition: decomposed, architecture: arm64, memory_mb: 2048, load_pattern: sparse_miniburst}
+    - {composition: decomposed, architecture: arm64, memory_mb: 512, load_pattern: constant}
+
 latency_constraint:
   primary_lmax_ms: 500
   sensitivity_lmax_ms: [300, 800]
@@ -35,6 +53,7 @@ load_patterns:
     total_cycles: 48
     expected_requests_total: 4800
     expected_requests_measurement: 2400
+    expected_requests_per_cycle: 100
   sparse_miniburst:
     model: "scheduled-arrival-windows"
     cycle_period_seconds: 10
@@ -49,7 +68,10 @@ load_patterns:
 arrival_schedule:
   constant_tolerance_fraction: 0.05
   burst_per_window_tolerance_fraction: 0.05
+  # Also used as the jitter allowance at the burst active-window boundary.
   sparse_timing_jitter_ms: 50
+  # Exact five requests per active window; any deviation is an apparatus failure.
+  sparse_count_tolerance_fraction: 0.0
   maximum_dropped_iterations: 0
 
 validity:

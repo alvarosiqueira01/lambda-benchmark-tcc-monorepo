@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 """Validate existing infrastructure; optionally perform initial SAM deploy."""
-import argparse, json, re, subprocess, sys
+import argparse
+import json
+import re
+import subprocess
+import sys
 from pathlib import Path
-from common import load_yaml, is_placeholder, write_json, utc_now
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from log_retention import ensure as ensure_log_retention
+
+from common import is_placeholder, load_yaml, utc_now, write_json
 
 INTEGRATION_ARN_RE = re.compile(
     r"functions/(arn:aws:lambda:(?P<region>[^:]+):(?P<account>\d+):"
@@ -13,7 +22,7 @@ def run(cmd, check=True):
     print("+", " ".join(cmd))
     return subprocess.run(cmd, check=check, text=True, capture_output=True)
 
-def validate_route(apigw, api_id, route_method, route_path_template, expected_fn_name, expected_alias):
+def validate_route(apigw, api_id, route_method, route_path_template, expected_fn_name, expected_alias, composition=None):
     route_key = f"{route_method} {route_path_template}"
     routes = apigw.get_routes(ApiId=api_id).get("Items", [])
     matches = [r for r in routes if r.get("RouteKey") == route_key]
@@ -38,6 +47,7 @@ def validate_route(apigw, api_id, route_method, route_path_template, expected_fn
     if m.group("qual") != expected_alias:
         raise SystemExit(f"IntegrationUri de {route_key!r} qualifica por {m.group('qual')!r}, esperado {expected_alias!r}")
     return {
+        "composition": composition,
         "api_id": api_id, "route_key": route_key, "integration_id": integration_id,
         "integration_uri": uri, "function_in_uri": m.group("name"),
         "qualifier_in_uri": m.group("qual"),
@@ -50,6 +60,7 @@ def main():
     ap.add_argument("--validate-only", action="store_true")
     ap.add_argument("--deploy", action="store_true")
     ap.add_argument("--guided", action="store_true")
+    ap.add_argument("--configure-logs", action="store_true")
     a = ap.parse_args(); cfg = load_yaml(a.config)
 
     required = [
@@ -126,13 +137,52 @@ def main():
                 f"(esperado: {expected_base}). api_id e base_url de APIs diferentes."
             )
         route_results.append(validate_route(
-            apigw, api_id, method, rc["route_path_template"], fn_name, alias_name))
+            apigw, api_id, method, rc["route_path_template"], fn_name, alias_name, comp))
+
+    environment_checks = {}
+    orchestrator = cfg["functions"]["orchestrator"]["name"]
+    orchestrator_config = lam.get_function_configuration(FunctionName=orchestrator)
+    orchestrator_env = (orchestrator_config.get("Environment") or {}).get("Variables") or {}
+    workers = cfg["functions"].get("workers", [])
+    expected_env = {
+        "LEXICAL_FUNCTION_NAME": workers[0] if len(workers) > 0 else None,
+        "READABILITY_FUNCTION_NAME": workers[1] if len(workers) > 1 else None,
+        "KEYWORDS_FUNCTION_NAME": workers[2] if len(workers) > 2 else None,
+    }
+    for key, worker in expected_env.items():
+        expected = None
+        if worker:
+            expected = lam.get_alias(
+                FunctionName=worker["name"],
+                Name=worker.get("alias", "benchmark"),
+            ).get("AliasArn")
+        environment_checks[key] = {
+            "expected": expected,
+            "actual": orchestrator_env.get(key),
+            "ok": expected is not None and orchestrator_env.get(key) == expected,
+        }
+    if not all(item["ok"] for item in environment_checks.values()):
+        raise SystemExit(
+            "As variáveis do orquestrador não apontam para os workers/aliases "
+            "esperados: " + json.dumps(environment_checks, indent=2)
+        )
+
+    retention = None
+    if a.deploy or a.configure_logs:
+        retention = ensure_log_retention(session, cfg)
+        if not retention.get("ok"):
+            raise SystemExit(
+                "A retenção de logs não foi aplicada a todos os grupos: "
+                + json.dumps(retention, indent=2)
+            )
 
     result = {
         "checked_at_utc": utc_now(),
         "stack_name": cfg["aws"]["stack_name"],
         "functions": checks,
         "routes": route_results,
+        "environment_checks": environment_checks,
+        "log_retention": retention,
         "note": "Ambas as rotas devem referenciar o alias benchmark; verify_target.py re-checa por run.",
     }
     Path("experiments/metadata").mkdir(parents=True, exist_ok=True)

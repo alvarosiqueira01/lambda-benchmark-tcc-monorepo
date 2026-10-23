@@ -1,15 +1,22 @@
 from __future__ import annotations
-import csv, hashlib, json, os, subprocess, time, uuid
-from datetime import datetime, timezone
+
+import csv
+import hashlib
+import json
+import subprocess
+import uuid
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
 import yaml
 
+
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 def parse_utc(value: str) -> datetime:
-    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return datetime.fromisoformat(value)
 
 def load_yaml(path: str | Path) -> dict:
     with open(path, encoding="utf-8") as f:
@@ -27,10 +34,23 @@ def sha256_file(path: str | Path) -> str:
 
 def git_value(args: list[str], cwd: str | Path = ".") -> str | None:
     try: return subprocess.check_output(["git",*args],cwd=cwd,text=True,stderr=subprocess.DEVNULL).strip()
-    except Exception: return None
+    except Exception:  # noqa: BLE001 - git metadata is optional
+        return None
+
+PHASES = ("pilot", "campaign")
+
+def runs_root(phase: str) -> Path:
+    if phase not in PHASES:
+        raise ValueError(f"unknown phase: {phase}")
+    return Path("experiments") / "runs" / phase
+
+def s3_phase_prefix(cfg: dict, phase: str) -> str:
+    if phase not in PHASES:
+        raise ValueError(f"unknown phase: {phase}")
+    return f'{cfg["aws"]["s3_prefix"].rstrip("/")}/{phase}/runs'
 
 def new_run_id(condition_id: str, block_id: int, replication: int) -> str:
-    stamp=datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    stamp=datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     return f"{condition_id}-b{block_id:02d}-r{replication:02d}-{stamp}-{uuid.uuid4().hex[:6]}"
 
 def csv_read(path):

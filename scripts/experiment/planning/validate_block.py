@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
-import argparse, csv, collections
+import argparse
+import sys
 from pathlib import Path
-from common import load_yaml, csv_read
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from common import csv_read, load_yaml
+
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument("--plan",default="experiments/experiment-plan.yaml")

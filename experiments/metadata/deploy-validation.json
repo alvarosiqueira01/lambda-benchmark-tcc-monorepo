@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-10-20T17:49:13.644475+00:00",
+  "checked_at_utc": "2026-10-23T13:29:44.037712+00:00",
   "stack_name": "document-api-benchmark",
   "functions": [
     {
@@ -45,6 +45,7 @@
   ],
   "routes": [
     {
+      "composition": "monolithic",
       "api_id": "djrqxs8hl6",
       "route_key": "GET /documents/{id}/analysis",
       "integration_id": "rfjyqxk",
@@ -53,6 +54,7 @@
       "qualifier_in_uri": "benchmark"
     },
     {
+      "composition": "decomposed",
       "api_id": "mtgmeeba0d",
       "route_key": "GET /documents/{id}/analysis",
       "integration_id": "b6ktn1j",
@@ -61,5 +63,23 @@
       "qualifier_in_uri": "benchmark"
     }
   ],
+  "environment_checks": {
+    "LEXICAL_FUNCTION_NAME": {
+      "expected": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-LexicalFunction-0GmIGBUUV6kk:benchmark",
+      "actual": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-LexicalFunction-0GmIGBUUV6kk:benchmark",
+      "ok": true
+    },
+    "READABILITY_FUNCTION_NAME": {
+      "expected": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y:benchmark",
+      "actual": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y:benchmark",
+      "ok": true
+    },
+    "KEYWORDS_FUNCTION_NAME": {
+      "expected": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-KeywordsFunction-2smOwpw0tU1c:benchmark",
+      "actual": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-KeywordsFunction-2smOwpw0tU1c:benchmark",
+      "ok": true
+    }
+  },
+  "log_retention": null,
   "note": "Ambas as rotas devem referenciar o alias benchmark; verify_target.py re-checa por run."
 }

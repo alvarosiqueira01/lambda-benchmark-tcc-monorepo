@@ -1,0 +1,19 @@
+{
+  "region": "us-east-1",
+  "captured_at_utc": "2026-10-22T14:30:00Z",
+  "source_urls": {
+    "lambda": "https://aws.amazon.com/lambda/pricing/",
+    "api_gateway": "https://aws.amazon.com/api-gateway/pricing/",
+    "dynamodb": "https://aws.amazon.com/dynamodb/pricing/"
+  },
+  "currency": "USD",
+  "lambda_request_usd_per_million": 0.2,
+  "lambda_gb_second_usd_x86_64": 1.66667e-05,
+  "lambda_gb_second_usd_arm64": 1.33334e-05,
+  "http_api_usd_per_million_requests_first_tier": 1.0,
+  "dynamodb_standard_usd_per_million_rru": 0.125,
+  "dynamodb_standard_usd_per_million_wru": 0.625,
+  "pricing_model": "public_list_price_before_free_tier_credits_and_account_discounts",
+  "note": "Validate prices, tier, region and current AWS pricing before campaign.",
+  "validation_note": "DynamoDB on-demand standard prices in us-east-1 are US$0.125 per million RRU and US$0.625 per million WRU after the November 2024 reduction; US$0.25/M RRU is outdated. Lambda request and GB-second prices match the public us-east-1 list."
+}

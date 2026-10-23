@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 LABEL_RE = re.compile(r"^(?P<label>[a-z]+)_(?P<mem>\d+)_(?P<arch>[a-z0-9_]+)_stats$")
@@ -103,7 +103,7 @@ def evaluate(probes: dict[str, dict], args: argparse.Namespace) -> list[dict]:
 
 
 def render_report(probes: dict[str, dict], criteria: list[dict], dataset_version: str) -> str:
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    now = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     lines: list[str] = []
     lines.append("# Dataset Size Probe Report")
     lines.append("")

@@ -14,5 +14,6 @@
   "dynamodb_standard_usd_per_million_rru": 0.125,
   "dynamodb_standard_usd_per_million_wru": 0.625,
   "pricing_model": "public_list_price_before_free_tier_credits_and_account_discounts",
-  "note": "Validate prices, tier, region and current AWS pricing before campaign."
+  "note": "Validate prices, tier, region and current AWS pricing before campaign.",
+  "validation_note": "DynamoDB on-demand standard prices in us-east-1 are US$0.125 per million RRU and US$0.625 per million WRU after the November 2024 reduction; US$0.25/M RRU is outdated. Lambda request and GB-second prices match the public us-east-1 list."
 }
