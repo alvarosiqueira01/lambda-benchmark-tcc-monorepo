@@ -48,15 +48,23 @@ def is_runtime_artifact(path):
     return normalized.startswith(("experiments/pilot-", "experiments/.campaign"))
 
 
-def git_dirty():
-    output = git_value(["status", "--porcelain", "--untracked-files=all"]) or ""
+def dirty_from_status(output):
     for line in output.splitlines():
-        path = line[3:].strip()
+        if not line:
+            continue
+        path = line[3:]
         if " -> " in path:
             path = path.split(" -> ", 1)[1]
         if not is_runtime_artifact(path):
             return True
     return False
+
+
+def git_dirty():
+    output = git_value(
+        ["status", "--porcelain", "--untracked-files=all"], strip=False
+    ) or ""
+    return dirty_from_status(output)
 
 
 def tool_version(command):

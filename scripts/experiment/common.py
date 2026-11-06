@@ -32,8 +32,12 @@ def sha256_file(path: str | Path) -> str:
         for chunk in iter(lambda:f.read(1024*1024), b""): h.update(chunk)
     return h.hexdigest()
 
-def git_value(args: list[str], cwd: str | Path = ".") -> str | None:
-    try: return subprocess.check_output(["git",*args],cwd=cwd,text=True,stderr=subprocess.DEVNULL).strip()
+def git_value(args: list[str], cwd: str | Path = ".", strip: bool = True) -> str | None:
+    try:
+        output = subprocess.check_output(
+            ["git", *args], cwd=cwd, text=True, stderr=subprocess.DEVNULL
+        )
+        return output.strip() if strip else output
     except Exception:  # noqa: BLE001 - git metadata is optional
         return None
 

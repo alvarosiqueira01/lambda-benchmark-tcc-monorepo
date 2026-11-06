@@ -202,13 +202,13 @@ python scripts/experiment/planning/manifest.py \
   --phase pilot --force
 
 # 4. Run controlado (piloto)
+#    Executa as 12 condições do piloto; use --limit 1 apenas como smoke test.
 python scripts/experiment/controller.py \
   --plan experiments/experiment-plan.yaml \
   --config experiments/harness-config.yaml \
   --pricing experiments/pricing/pricing-YYYY-MM-DD.json \
   --phase pilot \
-  --condition-file experiments/pilot-conditions.csv \
-  --limit 1
+  --condition-file experiments/pilot-conditions.csv
 
 # 5. Depois do piloto aprovado, congelar a campanha com worktree limpo
 python scripts/experiment/planning/manifest.py \
@@ -220,13 +220,13 @@ python scripts/experiment/planning/manifest.py \
   --phase campaign --require-clean
 
 # 6. Run controlado (campanha)
+#    Executa as 60 condições do bloco; não use --limit aqui.
 python scripts/experiment/controller.py \
   --plan experiments/experiment-plan.yaml \
   --config experiments/harness-config.yaml \
   --pricing experiments/pricing/pricing-YYYY-MM-DD.json \
   --phase campaign \
-  --condition-file experiments/metadata/plan/conditions_block_01.csv \
-  --limit 1
+  --condition-file experiments/metadata/plan/conditions_block_01.csv
 ```
 
 `controller.py` exige `--pricing`, verifica a stack antes de cada run, arquiva

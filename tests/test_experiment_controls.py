@@ -12,6 +12,7 @@ for directory in (EXPERIMENT, EXPERIMENT / "prepare", EXPERIMENT / "planning"):
 
 MODULE_PATHS = {
     "controller": "controller.py",
+    "manifest": "planning/manifest.py",
     "preflight": "prepare/preflight.py",
     "log_retention": "prepare/log_retention.py",
     "load_test": "run/load_test.py",
@@ -43,6 +44,30 @@ def load_module(name):
         else:
             sys.modules.pop("common", None)
     return module
+
+
+def test_git_dirty_ignores_modified_runtime_metadata():
+    manifest = load_module("manifest")
+    assert manifest.dirty_from_status(
+        " M experiments/metadata/deploy-validation.json\n"
+    ) is False
+    assert manifest.dirty_from_status(
+        "M  experiments/metadata/deploy-validation.json\n"
+    ) is False
+    assert manifest.dirty_from_status(
+        "?? experiments/runs/campaign/run-1/\n"
+    ) is False
+
+
+def test_git_dirty_detects_source_changes():
+    manifest = load_module("manifest")
+    assert manifest.dirty_from_status(
+        " M scripts/experiment/planning/manifest.py\n"
+    ) is True
+    assert manifest.dirty_from_status("?? src/new_module.py\n") is True
+    assert manifest.dirty_from_status(
+        " M experiments/metadata/pilot-validation-template.json\n"
+    ) is True
 
 
 def test_preflight_normalizes_tags_and_estimates_item_size():
