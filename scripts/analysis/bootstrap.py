@@ -62,6 +62,8 @@ def main():
         row = dict(zip(factors, key))
         row["n_runs"] = len(group)
         for metric in ["p95_ms", "c_req_lambda_usd", "c_req_app_usd",
+                       "c_req_lambda_usd_per_million",
+                       "c_req_app_usd_per_million",
                        "error_rate", "cold_start_rate", "dropped_iterations"]:
             if metric not in group:
                 continue

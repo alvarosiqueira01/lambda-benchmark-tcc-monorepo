@@ -796,7 +796,7 @@ def main():
         if composition == "decomposed":
             env = target.get("environment_checks") or {}
             ok = bool(env) and all(
-                item.get("ok") is True
+                (item.get("ok") if isinstance(item, dict) else item) is True
                 for key, item in env.items()
                 if not key.endswith("_expected")
             )

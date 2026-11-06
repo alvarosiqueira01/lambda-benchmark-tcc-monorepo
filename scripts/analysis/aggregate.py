@@ -89,6 +89,8 @@ def main():
             ).sum()
         n_started = len(started)
         n_errors = int((errors | timeout_mask).sum()) if n_started else 0
+        c_req_lambda = cost_measurement.get("c_req_lambda_usd")
+        c_req_app = cost_measurement.get("c_req_app_usd")
         rows.append({
             "run_id": directory.name,
             "phase": args.phase if args.runs_dir is None else directory.parent.name,
@@ -130,8 +132,14 @@ def main():
             "init_duration_ms_total": init_total,
             "dropped_iterations": loadgen.get("dropped_iterations"),
             "t0_source": manifest.get("t0_source"),
-            "c_req_lambda_usd": cost_measurement.get("c_req_lambda_usd"),
-            "c_req_app_usd": cost_measurement.get("c_req_app_usd"),
+            "c_req_lambda_usd": c_req_lambda,
+            "c_req_app_usd": c_req_app,
+            "c_req_lambda_usd_per_million": (
+                c_req_lambda * 1e6 if c_req_lambda is not None else None
+            ),
+            "c_req_app_usd_per_million": (
+                c_req_app * 1e6 if c_req_app is not None else None
+            ),
             "lambda_total_usd": cost_measurement.get("lambda_total_usd"),
         })
         if not lambdas.empty:

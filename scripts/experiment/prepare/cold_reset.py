@@ -171,6 +171,7 @@ def reset_function(client, spec, arch, memory, run_id):
         "function_name": name,
         "alias": alias_name,
         "version": str(v),
+        "alias_version": alias["FunctionVersion"],
         "previous_version": previous_version,
         "version_is_new": v > previous_version,
         "qualified_arn": alias["AliasArn"],

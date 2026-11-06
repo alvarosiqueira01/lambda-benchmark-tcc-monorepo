@@ -89,7 +89,7 @@ C_{req,\lambda} = \frac{C_{Lambda}}{N_{req,externas}}
 C_{req,app} = \frac{C_{Lambda}+C_{HTTPAPI}+C_{DynamoDB,leituras}}{N_{req,externas}}
 \]
 
-`Creq,lambda` é a métrica principal de comparação das configurações Lambda. `Creq,app` acrescenta os custos marginais dos serviços diretamente usados no caminho de requisição. O seed, as escritas preparatórias e o armazenamento estático da tabela são registrados separadamente, não misturados ao custo marginal por requisição. O custo da EC2 geradora, do controlador, do S3 e da observabilidade também é reportado à parte como custo do aparato experimental.
+`Creq,lambda` é a métrica principal de comparação das configurações Lambda. `Creq,app` acrescenta os custos marginais dos serviços diretamente usados no caminho de requisição. Para apresentação, ambos podem ser expressos em USD por milhão de requisições: `Creq [USD/req] × 10^6 = Creq [USD/milhão]`. Os arquivos de dados mantêm o valor canônico em USD por requisição e também as colunas derivadas por milhão. O seed, as escritas preparatórias e o armazenamento estático da tabela são registrados separadamente, não misturados ao custo marginal por requisição. O custo da EC2 geradora, do controlador, do S3 e da observabilidade também é reportado à parte como custo do aparato experimental.
 
 Serão calculados tanto `Creq,measurement`, com invocações iniciadas na janela `[T0+120, T0+240)`, quanto `Creq,run`, para o run completo. A primeira é a métrica primária comparável ao p95 da janela de medição; a segunda é uma análise suplementar que inclui o período de aquecimento. O relatório sempre identificará qual definição está sendo usada.
 
@@ -167,7 +167,7 @@ Não usar `dataset/documents.json` sem confirmar que esse arquivo existe.
 O plano deve ser a fonte de verdade para parâmetros de campanha. Uma especificação de referência é:
 
 ```yaml
-campaign_id: "tcc-2026-10"
+campaign_id: "tcc-2026-11"
 random_seed: 42
 region: "us-east-1"
 runtime: "python3.14"

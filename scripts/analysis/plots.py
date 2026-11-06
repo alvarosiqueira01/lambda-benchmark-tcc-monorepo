@@ -37,10 +37,10 @@ def main():
                 plt.close()
 
                 plt.figure()
-                plt.plot(frame["memory_mb"], frame["c_req_lambda_usd_median"], marker="o")
+                plt.plot(frame["memory_mb"], frame["c_req_lambda_usd_per_million_median"], marker="o")
                 plt.xlabel("Memória Lambda (MB)")
-                plt.ylabel("Custo Lambda por requisição (USD)")
-                plt.title(f"Custo por memória — {load_pattern}, {architecture}, {composition}")
+                plt.ylabel("Custo Lambda por milhão de requisições (USD)")
+                plt.title(f"Custo por milhão de requisições — {load_pattern}, {architecture}, {composition}")
                 plt.tight_layout()
                 plt.savefig(out / f"cost-{load_pattern}-{architecture}-{composition}.png", dpi=160)
                 plt.close()
@@ -53,24 +53,24 @@ def main():
             for composition, frame in architecture_group.groupby("composition"):
                 eligible = frame[frame["p95_ms_ci95_high"] <= primary]
                 plt.scatter(
-                    frame["c_req_lambda_usd_median"], frame["p95_ms_median"],
+                    frame["c_req_lambda_usd_per_million_median"], frame["p95_ms_median"],
                     label=f"{composition} (todas)", alpha=0.55,
                 )
                 if not eligible.empty:
                     plt.scatter(
-                        eligible["c_req_lambda_usd_median"], eligible["p95_ms_median"],
+                        eligible["c_req_lambda_usd_per_million_median"], eligible["p95_ms_median"],
                         marker="*", s=160, label=f"{composition} (elegível)",
                     )
                 for _, row in frame.iterrows():
                     plt.annotate(
                         f"{int(row['memory_mb'])}", (
-                            row["c_req_lambda_usd_median"], row["p95_ms_median"]
+                            row["c_req_lambda_usd_per_million_median"], row["p95_ms_median"]
                         ),
                         fontsize=7, xytext=(3, 3), textcoords="offset points",
                     )
             plt.axhline(primary, color="black", linestyle="--", linewidth=1,
                         label=f"Lmax={primary:g} ms")
-            plt.xlabel("Custo Lambda por requisição (USD)")
+            plt.xlabel("Custo Lambda por milhão de requisições (USD)")
             plt.ylabel("p95 fim a fim (ms)")
             plt.title(f"Custo x latência — {load_pattern}, {architecture}")
             plt.legend(fontsize=7)
@@ -88,17 +88,17 @@ def main():
                 eligible = frame[frame["p95_ms_ci95_high"] <= lmax]
                 label = f"{composition}/{architecture}"
                 plt.scatter(
-                    frame["c_req_lambda_usd_median"], frame["p95_ms_median"],
+                    frame["c_req_lambda_usd_per_million_median"], frame["p95_ms_median"],
                     label=f"{label} (todas)", alpha=0.45,
                 )
                 if not eligible.empty:
                     plt.scatter(
-                        eligible["c_req_lambda_usd_median"], eligible["p95_ms_median"],
+                        eligible["c_req_lambda_usd_per_million_median"], eligible["p95_ms_median"],
                         marker="*", s=180, label=f"{label} (elegível)",
                     )
             plt.axhline(lmax, color="black", linestyle="--", linewidth=1,
                         label=f"Lmax={lmax:g} ms")
-            plt.xlabel("Custo Lambda por requisição (USD)")
+            plt.xlabel("Custo Lambda por milhão de requisições (USD)")
             plt.ylabel("p95 fim a fim (ms)")
             plt.title(f"Fronteira custo-latência — {load_pattern}, Lmax={lmax:g} ms")
             plt.legend(fontsize=7)

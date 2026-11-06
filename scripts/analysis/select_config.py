@@ -18,7 +18,8 @@ def select_for_limit(data, lmax):
     if eligible.empty:
         return None, eligible
     eligible = eligible.sort_values(
-        ["c_req_lambda_usd_median", "p95_ms_ci95_high"], ascending=[True, True]
+        ["c_req_lambda_usd_per_million_median", "p95_ms_ci95_high"],
+        ascending=[True, True],
     )
     return eligible.iloc[0], eligible
 
@@ -34,6 +35,7 @@ def main():
     required = [
         "composition", "architecture", "memory_mb", "load_pattern",
         "p95_ms_ci95_high", "c_req_lambda_usd_median",
+        "c_req_lambda_usd_per_million_median",
     ]
     missing = [column for column in required if column not in data]
     if missing:
@@ -64,6 +66,16 @@ def main():
                 else float(best.get("c_req_lambda_usd_ci95_low", float("nan"))),
                 "selected_c_req_lambda_ci95_high": None if best is None
                 else float(best.get("c_req_lambda_usd_ci95_high", float("nan"))),
+                "selected_c_req_lambda_usd_per_million_median": None if best is None
+                else float(best["c_req_lambda_usd_per_million_median"]),
+                "selected_c_req_lambda_usd_per_million_ci95_low": None
+                if best is None else float(best.get(
+                    "c_req_lambda_usd_per_million_ci95_low", float("nan")
+                )),
+                "selected_c_req_lambda_usd_per_million_ci95_high": None
+                if best is None else float(best.get(
+                    "c_req_lambda_usd_per_million_ci95_high", float("nan")
+                )),
                 "n_runs": None if best is None else int(best.get("n_runs", 0)),
             }
             rows.append(row)
@@ -76,6 +88,9 @@ def main():
                     "memory_mb": int(item["memory_mb"]),
                     "p95_upper_ci_ms": float(item["p95_ms_ci95_high"]),
                     "c_req_lambda_median": float(item["c_req_lambda_usd_median"]),
+                    "c_req_lambda_usd_per_million_median": float(
+                        item["c_req_lambda_usd_per_million_median"]
+                    ),
                 })
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -86,7 +101,11 @@ def main():
         "primary_lmax_ms": primary,
         "sensitivity_lmax_ms": [float(x) for x in plan["latency_constraint"].get(
             "sensitivity_lmax_ms", [])],
-        "rule": "upper 95% CI of run-level p95 <= Lmax; minimum median Creq among eligible",
+        "rule": (
+            "upper 95% CI of run-level p95 <= Lmax; minimum median Creq among "
+            "eligible; selected_c_req_lambda_usd_per_million_* fields are the "
+            "presentation unit (USD per million requests)"
+        ),
         "selection": rows,
         "empty_sets": [row for row in rows if row["empty_set"]],
         "note": (

@@ -152,9 +152,12 @@ def main():
         check(f"reset_architecture_matches:{name}",
               function.get("architecture") == condition_architecture,
               f"reset={function.get('architecture')}, condition={condition_architecture}")
+        alias_version = function.get("alias_version") or \
+            (function.get("drift", {}).get("after") or {}).get("alias_version")
         check(f"reset_alias_matches:{name}",
-              str(function.get("version")) == str(function.get("alias_version")),
-              f"version={function.get('version')}, alias={function.get('alias_version')}")
+              alias_version is not None
+              and str(function.get("version")) == str(alias_version),
+              f"version={function.get('version')}, alias={alias_version}")
 
     collection_status = json.loads((d / "lambda-collection-status.json").read_text()) \
         if (d / "lambda-collection-status.json").exists() else {}

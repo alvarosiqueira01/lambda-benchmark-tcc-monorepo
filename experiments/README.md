@@ -312,7 +312,7 @@ Gere a evidência estruturada:
 python scripts/experiment/report/pilot_report.py \
   --runs-dir experiments/runs/pilot \
   --pilot-conditions experiments/pilot-conditions.csv \
-  --campaign-id tcc-2026-10 \
+  --campaign-id tcc-2026-11 \
   --template experiments/metadata/pilot-validation-template.json \
   --deploy-validation experiments/metadata/deploy-validation.json \
   --out experiments/pilot-validation.json
@@ -340,6 +340,13 @@ python scripts/analysis/hypotheses.py
 python scripts/analysis/select_config.py
 python scripts/analysis/plots.py
 ```
+
+Os CSVs mantêm o custo canônico em USD por requisição (`c_req_lambda_usd`,
+`c_req_app_usd`) e também gravam as colunas derivadas
+`c_req_lambda_usd_per_million` e `c_req_app_usd_per_million`. A conversão é
+exata: `USD/requisição × 10^6 = USD por milhão de requisições`. Tabelas e
+gráficos de apresentação usam a unidade por milhão; os valores brutos permanecem
+para rastreabilidade com `cost.json` e o snapshot de preços.
 
 Hipóteses:
 

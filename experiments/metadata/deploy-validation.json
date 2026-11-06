@@ -1,12 +1,12 @@
 {
-  "checked_at_utc": "2026-10-23T13:29:44.037712+00:00",
+  "checked_at_utc": "2026-11-05T17:20:29.785839+00:00",
   "stack_name": "document-api-benchmark",
   "functions": [
     {
       "function": "document-api-benchmark-MonolithFunction-kqArHeVcvmJJ",
       "state": "Active",
       "alias": "benchmark",
-      "alias_version": "1",
+      "alias_version": "14",
       "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-MonolithFunction-kqArHeVcvmJJ:benchmark",
       "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
     },
@@ -14,7 +14,7 @@
       "function": "document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x",
       "state": "Active",
       "alias": "benchmark",
-      "alias_version": "1",
+      "alias_version": "6",
       "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x:benchmark",
       "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
     },
@@ -22,7 +22,7 @@
       "function": "document-api-benchmark-LexicalFunction-0GmIGBUUV6kk",
       "state": "Active",
       "alias": "benchmark",
-      "alias_version": "1",
+      "alias_version": "6",
       "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-LexicalFunction-0GmIGBUUV6kk:benchmark",
       "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
     },
@@ -30,7 +30,7 @@
       "function": "document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y",
       "state": "Active",
       "alias": "benchmark",
-      "alias_version": "1",
+      "alias_version": "6",
       "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y:benchmark",
       "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
     },
@@ -38,7 +38,7 @@
       "function": "document-api-benchmark-KeywordsFunction-2smOwpw0tU1c",
       "state": "Active",
       "alias": "benchmark",
-      "alias_version": "1",
+      "alias_version": "6",
       "qualified_arn": "arn:aws:lambda:us-east-1:013461378967:function:document-api-benchmark-KeywordsFunction-2smOwpw0tU1c:benchmark",
       "code_sha256": "JB/R4nqdWaEZ/bSBWWrstPDVTguvTated4yUzcIV6yY="
     }

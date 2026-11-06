@@ -61,7 +61,7 @@ def h2(rows, data, lmax, n_boot, seed):
                 "memory_mb": memory,
                 "p95_median": frame["p95_ms"].median(),
                 "p95_upper_ci95": high,
-                "cost_median": frame["c_req_lambda_usd"].median(),
+                "cost_median": frame["c_req_lambda_usd_per_million"].median(),
                 "n_runs": len(frame),
             })
         summary = pd.DataFrame(memory_rows).dropna(
@@ -71,18 +71,18 @@ def h2(rows, data, lmax, n_boot, seed):
             continue
         eligible = summary[summary["p95_upper_ci95"] <= lmax]
         if eligible.empty:
-            emit(rows, "H2", str(keys), "min median Creq among feasible memories",
+            emit(rows, "H2", str(keys), "min median Creq (USD/million) among feasible memories",
                  None, note=f"empty feasible set at Lmax={lmax} ms")
             continue
         best = eligible.sort_values("cost_median").iloc[0]
         emit(
             rows, "H2", str(keys),
-            "min median Creq among memories with upper 95% p95 <= Lmax",
+            "min median Creq (USD/million) among memories with upper 95% p95 <= Lmax",
             int(best["memory_mb"]),
             note=(
                 f"Lmax={lmax} ms; p95_median={best['p95_median']:.3f}; "
                 f"p95_upper_ci95={best['p95_upper_ci95']:.3f}; "
-                f"cost_median={best['cost_median']:.3e}"
+                f"cost_median={best['cost_median']:.3f} USD/million"
             ),
         )
         # Bootstrap selection frequency over blocks (run-level resampling).
@@ -105,7 +105,7 @@ def h2(rows, data, lmax, n_boot, seed):
                     continue
                 frame_sample = frame.loc[available]
                 p95 = frame_sample["p95_ms"].median()
-                cost = frame_sample["c_req_lambda_usd"].median()
+                cost = frame_sample["c_req_lambda_usd_per_million"].median()
                 if pd.notna(p95) and pd.notna(cost) and p95 <= lmax:
                     candidates.append((cost, int(memory)))
             if candidates:
@@ -127,7 +127,7 @@ def h2(rows, data, lmax, n_boot, seed):
 
 def h3(rows, data, n_boot, seed):
     for keys, group in data.groupby(["composition", "memory_mb", "load_pattern"]):
-        pivot = block_pivot(group, "block_id", "architecture", "c_req_lambda_usd")
+        pivot = block_pivot(group, "block_id", "architecture", "c_req_lambda_usd_per_million")
         if "arm64" not in pivot or "x86_64" not in pivot:
             continue
         low, high, n = paired_bootstrap_ratio(
@@ -150,7 +150,7 @@ def h4(rows, data, n_boot, seed):
         pivot_duration = block_pivot(
             group, "block_id", "architecture", "billed_duration_ms_total"
         )
-        pivot_cost = block_pivot(group, "block_id", "architecture", "c_req_lambda_usd")
+        pivot_cost = block_pivot(group, "block_id", "architecture", "c_req_lambda_usd_per_million")
         if all(column in pivot_duration for column in ("arm64", "x86_64")):
             low, high, n = paired_bootstrap_ratio(
                 pivot_duration["x86_64"], pivot_duration["arm64"],
@@ -171,14 +171,14 @@ def h4(rows, data, n_boot, seed):
 
 def h5_h6(rows, data, n_boot, seed):
     for keys, group in data.groupby(["architecture", "memory_mb", "load_pattern"]):
-        pivot_cost = block_pivot(group, "block_id", "composition", "c_req_lambda_usd")
+        pivot_cost = block_pivot(group, "block_id", "composition", "c_req_lambda_usd_per_million")
         pivot_p95 = block_pivot(group, "block_id", "composition", "p95_ms")
         if all(column in pivot_cost for column in ("decomposed", "monolithic")):
             low, high, n = paired_bootstrap_contrast(
                 pivot_cost["decomposed"], pivot_cost["monolithic"],
                 n_boot=n_boot, seed=seed,
             )
-            emit(rows, "H5", str(keys), "paired delta Creq decomposed-monolithic",
+            emit(rows, "H5", str(keys), "paired delta Creq decomposed-monolithic (USD/million)",
                  float(pivot_cost["decomposed"].median()
                        - pivot_cost["monolithic"].median()), low, high, n)
         if all(column in pivot_p95 for column in ("decomposed", "monolithic")):
@@ -204,7 +204,7 @@ def main():
 
     plan = yaml.safe_load(Path(args.plan).read_text(encoding="utf-8"))
     lmax = float(plan["latency_constraint"]["primary_lmax_ms"])
-    data = data.dropna(subset=["p95_ms", "c_req_lambda_usd"])
+    data = data.dropna(subset=["p95_ms", "c_req_lambda_usd_per_million"])
     rows = []
     h1(rows, data, args.n_boot, args.seed)
     h2(rows, data, lmax, args.n_boot, args.seed)
