@@ -462,7 +462,7 @@ A especificação funcional obrigatória é uma agenda aberta com 48 janelas de 
 
 O piloto deverá demonstrar: 100 chegadas programadas em cada janela ativa, nenhuma chegada planejada nas janelas ociosas, 4.800 requisições em 240 s e 2.400 na janela de medição. Também deverá demonstrar que o k6 não descarta iterações devido à alocação insuficiente de VUs.
 
-#### Implementação da mini-rajada esparsa (Opção B)
+#### Implementação da mini-rajada esparsa 
 
 Usar a mesma técnica de agenda aberta: escalonar cinco iterações por segundo durante todo o teste, mas enviar requisições HTTP somente quando o instante agendado estiver nos primeiros 1.000 ms de cada ciclo de dez segundos. As cinco chegadas devem ter offsets aproximados de 0, 200, 400, 600 e 800 ms a partir do início do ciclo. Não enviar requisições nos nove segundos seguintes.
 
