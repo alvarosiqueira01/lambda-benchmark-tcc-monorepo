@@ -1,0 +1,20 @@
+{
+  "block": 4,
+  "stamp_utc": "20261112T105232Z",
+  "clock_offset_ms": 42.8,
+  "head": "6d3c9f162c6cc4772f3fd499ae28ad3e2106e474",
+  "missing_before": 32,
+  "missing_after": 0,
+  "controller_rc": 0,
+  "stash_used": true,
+  "stashed_paths": [
+    ".gitignore",
+    "README.md",
+    "experiments/README.md",
+    "scripts/experiment/planning/manifest.py",
+    "tests/test_experiment_controls.py",
+    "scripts/experiment/report/archive_campaign.py",
+    "tests/test_archive_campaign.py"
+  ],
+  "log": "/home/alvaro/UFC_2026-2/TCC/App/experiments/runs/_resume/resume-block-04-20261112T105232Z.log"
+}

@@ -1,0 +1,379 @@
+{
+  "finished_at_utc": "2026-11-20T06:48:59.888246+00:00",
+  "results": [
+    {
+      "condition_id": "C018",
+      "run_id": "C018-b10-r10-20261120T011213Z-f35ef0",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C013",
+      "run_id": "C013-b10-r10-20261120T011713Z-a067f5",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C009",
+      "run_id": "C009-b10-r10-20261120T012225Z-17dcc3",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C023",
+      "run_id": "C023-b10-r10-20261120T012717Z-725ba3",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C041",
+      "run_id": "C041-b10-r10-20261120T013235Z-8b3e43",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C034",
+      "run_id": "C034-b10-r10-20261120T013831Z-72e93c",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C060",
+      "run_id": "C060-b10-r10-20261120T014410Z-ea023a",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C056",
+      "run_id": "C056-b10-r10-20261120T014940Z-917a60",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C054",
+      "run_id": "C054-b10-r10-20261120T015543Z-a8b0b9",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C049",
+      "run_id": "C049-b10-r10-20261120T020055Z-69de83",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C024",
+      "run_id": "C024-b10-r10-20261120T020655Z-34674b",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C004",
+      "run_id": "C004-b10-r10-20261120T021151Z-d4179a",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C052",
+      "run_id": "C052-b10-r10-20261120T021724Z-897a13",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C035",
+      "run_id": "C035-b10-r10-20261120T022314Z-0a82ca",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C017",
+      "run_id": "C017-b10-r10-20261120T022944Z-bdd7d3",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C045",
+      "run_id": "C045-b10-r10-20261120T023458Z-78b2a6",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C015",
+      "run_id": "C015-b10-r10-20261120T024015Z-60cf34",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C051",
+      "run_id": "C051-b10-r10-20261120T024511Z-d72601",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C016",
+      "run_id": "C016-b10-r10-20261120T025046Z-b482e2",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C058",
+      "run_id": "C058-b10-r10-20261120T025608Z-7f0dea",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C002",
+      "run_id": "C002-b10-r10-20261120T030208Z-413bc6",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C050",
+      "run_id": "C050-b10-r10-20261120T030724Z-f0e239",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C005",
+      "run_id": "C005-b10-r10-20261120T031305Z-f201cb",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C007",
+      "run_id": "C007-b10-r10-20261120T031815Z-c42c57",
+      "attempt": 0,
+      "status": "invalid-apparatus"
+    },
+    {
+      "condition_id": "C046",
+      "run_id": "C046-b10-r10-20261120T032634Z-c99d47",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C010",
+      "run_id": "C010-b10-r10-20261120T033209Z-568fa3",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C032",
+      "run_id": "C032-b10-r10-20261120T033717Z-f8706a",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C008",
+      "run_id": "C008-b10-r10-20261120T034322Z-db7209",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C059",
+      "run_id": "C059-b10-r10-20261120T034841Z-5d6c90",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C027",
+      "run_id": "C027-b10-r10-20261120T035447Z-bb87ae",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C003",
+      "run_id": "C003-b10-r10-20261120T035949Z-e6e544",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C022",
+      "run_id": "C022-b10-r10-20261120T040445Z-006896",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C057",
+      "run_id": "C057-b10-r10-20261120T041022Z-ab3edc",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C006",
+      "run_id": "C006-b10-r10-20261120T041532Z-ba2582",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C011",
+      "run_id": "C011-b10-r10-20261120T042028Z-7d99e4",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C031",
+      "run_id": "C031-b10-r10-20261120T042538Z-640071",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C033",
+      "run_id": "C033-b10-r10-20261120T043129Z-bb2b68",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C047",
+      "run_id": "C047-b10-r10-20261120T043642Z-61de68",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C055",
+      "run_id": "C055-b10-r10-20261120T044340Z-b0b27b",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C029",
+      "run_id": "C029-b10-r10-20261120T044919Z-5661eb",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C030",
+      "run_id": "C030-b10-r10-20261120T045430Z-af07e8",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C021",
+      "run_id": "C021-b10-r10-20261120T045919Z-17aa32",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C042",
+      "run_id": "C042-b10-r10-20261120T050418Z-0d5c0b",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C039",
+      "run_id": "C039-b10-r10-20261120T050950Z-194198",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C038",
+      "run_id": "C038-b10-r10-20261120T051512Z-ec14a4",
+      "attempt": 0,
+      "status": "valid-system-anomaly"
+    },
+    {
+      "condition_id": "C028",
+      "run_id": "C028-b10-r10-20261120T052059Z-fe6bff",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C014",
+      "run_id": "C014-b10-r10-20261120T052612Z-77813e",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C019",
+      "run_id": "C019-b10-r10-20261120T053133Z-486339",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C053",
+      "run_id": "C053-b10-r10-20261120T053643Z-13051c",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C001",
+      "run_id": "C001-b10-r10-20261120T054242Z-b8e379",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C036",
+      "run_id": "C036-b10-r10-20261120T054757Z-8ce5ba",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C026",
+      "run_id": "C026-b10-r10-20261120T055329Z-d6c7a6",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C020",
+      "run_id": "C020-b10-r10-20261120T055856Z-c1ae86",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C037",
+      "run_id": "C037-b10-r10-20261120T060416Z-136f6b",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C040",
+      "run_id": "C040-b10-r10-20261120T061011Z-b574e9",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C012",
+      "run_id": "C012-b10-r10-20261120T061552Z-7ac78a",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C048",
+      "run_id": "C048-b10-r10-20261120T062046Z-3aaa1b",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C044",
+      "run_id": "C044-b10-r10-20261120T062616Z-3ee896",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C025",
+      "run_id": "C025-b10-r10-20261120T063237Z-664492",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C043",
+      "run_id": "C043-b10-r10-20261120T063807Z-826694",
+      "attempt": 0,
+      "status": "valid"
+    },
+    {
+      "condition_id": "C007",
+      "run_id": "C007-b10-r10-20261120T064345Z-0e0265",
+      "attempt": 1,
+      "status": "valid"
+    }
+  ],
+  "invalid_after_retries": [
+    {
+      "condition_id": "C007",
+      "run_id": "C007-b10-r10-20261120T031815Z-c42c57",
+      "attempt": 0,
+      "status": "invalid-apparatus"
+    }
+  ]
+}

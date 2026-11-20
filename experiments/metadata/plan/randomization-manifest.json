@@ -1,0 +1,79 @@
+{
+  "campaign_id": "tcc-2026-11",
+  "seed": 42,
+  "algorithm": "Python random.Random(seed), shuffle each complete condition list independently in sequence",
+  "conditions": 60,
+  "block_count": 10,
+  "runs_planned": 600,
+  "condition_matrix_sha256": "79a0d87872b280f0193e4908f8bb575ad6be632cf80a3e47db183fd50093158b",
+  "blocks": [
+    {
+      "block_id": 1,
+      "rows": 60,
+      "sha256": "6a33cc3d7d35cb1b1b94f4a64b86ff9e1fb623c042248ca07c6090283c56498b"
+    },
+    {
+      "block_id": 2,
+      "rows": 60,
+      "sha256": "fff14d450670bcf49cc7ae0a28ef37015a572c52d2e24fc3f18a4d735e049695"
+    },
+    {
+      "block_id": 3,
+      "rows": 60,
+      "sha256": "97ac3a4c87a8241e89dfaf8d3ad8e052106353b7e55e662fe327bc59923b29f2"
+    },
+    {
+      "block_id": 4,
+      "rows": 60,
+      "sha256": "afbaaddd2fc535817145d94817cea33fcf23fc9ff39c024978c7e6538cbb010d"
+    },
+    {
+      "block_id": 5,
+      "rows": 60,
+      "sha256": "46a1ab946116efc0c554bdc90b8f37b29c1cf2d9dbe092cae1ac8e4c3ff445e1"
+    },
+    {
+      "block_id": 6,
+      "rows": 60,
+      "sha256": "ebf7c887f0784e403556b2ad417b4055f6155e34c7d2d2de271c9cbdc227e39a"
+    },
+    {
+      "block_id": 7,
+      "rows": 60,
+      "sha256": "d53a1a5db3136e2eea69803c835f9d836b4a3d194638b922e14a67156b597fae"
+    },
+    {
+      "block_id": 8,
+      "rows": 60,
+      "sha256": "df7fbfb146eab4fdc715f1ff8bf6855d9fe621a833fcb600be1cd9fc2bb5b6d8"
+    },
+    {
+      "block_id": 9,
+      "rows": 60,
+      "sha256": "aa9855d656a9609cf4ee0aecdd57e81b9abf8e2f63c1f7ba141428bae6fa6c38"
+    },
+    {
+      "block_id": 10,
+      "rows": 60,
+      "sha256": "4054ef723131a2cbe117e8a78455b47a8efbce367d4adeb113eadd7938560186"
+    }
+  ],
+  "pilot": {
+    "runs": 12,
+    "sha256": "aa3b542b5a28848c037787867577d7bcd0bc7e5df7df2bee0da860d90787b09c",
+    "condition_ids": [
+      "C002",
+      "C015",
+      "C007",
+      "C017",
+      "C030",
+      "C022",
+      "C032",
+      "C045",
+      "C037",
+      "C047",
+      "C060",
+      "C052"
+    ]
+  }
+}

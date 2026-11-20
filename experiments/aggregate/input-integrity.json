@@ -1,0 +1,78 @@
+{
+  "generated_at_utc": "2026-11-20T13:55:05.273363+00:00",
+  "campaign_id": "tcc-2026-11",
+  "campaign_manifest_git_commit": "6d3c9f162c6cc4772f3fd499ae28ad3e2106e474",
+  "campaign_manifest_git_dirty": false,
+  "input_hashes": [
+    {
+      "name": "dataset",
+      "path": "dataset/generated/v2/documents.json",
+      "expected_sha256": "a816ab509555a4311133d0b2f22084e5cf6227a19d4f2134cd0e29125d1bb945",
+      "actual_sha256": "a816ab509555a4311133d0b2f22084e5cf6227a19d4f2134cd0e29125d1bb945",
+      "match": true
+    },
+    {
+      "name": "plan",
+      "path": "experiments/experiment-plan.yaml",
+      "expected_sha256": "2b8f21acbd93a3f92a950c9f704d50160af749c4a7d8d2826857e15056ad6b24",
+      "actual_sha256": "2b8f21acbd93a3f92a950c9f704d50160af749c4a7d8d2826857e15056ad6b24",
+      "match": true
+    },
+    {
+      "name": "config",
+      "path": "experiments/harness-config.yaml",
+      "expected_sha256": "0e06588962d03cfa7276c75ccae19adf7c87e1eede8e49310c359c51ebc732bc",
+      "actual_sha256": "0e06588962d03cfa7276c75ccae19adf7c87e1eede8e49310c359c51ebc732bc",
+      "match": true
+    },
+    {
+      "name": "template",
+      "path": "template.yaml",
+      "expected_sha256": "0f06292a65a69da992659bb1ad332e9c2a25123782242c5cb187b3306e30ac44",
+      "actual_sha256": "0f06292a65a69da992659bb1ad332e9c2a25123782242c5cb187b3306e30ac44",
+      "match": true
+    },
+    {
+      "name": "pricing",
+      "path": "experiments/pricing/pricing-2026-10-22.json",
+      "expected_sha256": "c01fa0313a57c42bee9b84eae1e39888d3c391449c41dbded5edf41c224ff01c",
+      "actual_sha256": "c01fa0313a57c42bee9b84eae1e39888d3c391449c41dbded5edf41c224ff01c",
+      "match": true
+    }
+  ],
+  "campaign_runs_total": 639,
+  "campaign_statuses": {
+    "invalid-apparatus": 39,
+    "valid": 596,
+    "valid-system-anomaly": 4
+  },
+  "usable_runs": 600,
+  "usable_by_block": {
+    "1": 60,
+    "2": 60,
+    "3": 60,
+    "4": 60,
+    "5": 60,
+    "6": 60,
+    "7": 60,
+    "8": 60,
+    "9": 60,
+    "10": 60
+  },
+  "duplicate_block_condition_cells": {},
+  "missing_block_condition_cells": [],
+  "plan_run_factor_mismatches": [],
+  "run_manifest_git_commits": {
+    "6d3c9f162c6cc4772f3fd499ae28ad3e2106e474": 639
+  },
+  "run_manifest_git_dirty": {
+    "False": 639
+  },
+  "runs_with_s3_uploads": 639,
+  "usable_runs_missing_artifacts": [],
+  "pilot_runs_total": 12,
+  "pilot_statuses": {
+    "valid": 12
+  },
+  "ok": true
+}

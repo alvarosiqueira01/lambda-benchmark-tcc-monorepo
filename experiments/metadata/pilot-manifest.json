@@ -1,0 +1,146 @@
+{
+  "manifest_version": 2,
+  "campaign_id": "tcc-2026-11",
+  "phase": "pilot",
+  "captured_at_utc": "2026-11-05T16:23:32.468837+00:00",
+  "account_id": "013461378967",
+  "region": "us-east-1",
+  "runtime": "python3.14",
+  "git_commit": "2b020e9084134c5c28e888759e76c4dbc44da0d8",
+  "git_dirty": true,
+  "dataset": {
+    "path": "dataset/generated/v2/documents.json",
+    "version": "v2",
+    "document_id": "8bd40c8d-2064-57f9-bfec-87ebc0caffbb",
+    "sha256": "a816ab509555a4311133d0b2f22084e5cf6227a19d4f2134cd0e29125d1bb945",
+    "exists": true,
+    "size_bytes": 7628467
+  },
+  "plan": {
+    "path": "experiments/experiment-plan.yaml",
+    "sha256": "2b8f21acbd93a3f92a950c9f704d50160af749c4a7d8d2826857e15056ad6b24"
+  },
+  "config": {
+    "path": "experiments/harness-config.yaml",
+    "sha256": "0e06588962d03cfa7276c75ccae19adf7c87e1eede8e49310c359c51ebc732bc"
+  },
+  "template": {
+    "path": "template.yaml",
+    "sha256": "0f06292a65a69da992659bb1ad332e9c2a25123782242c5cb187b3306e30ac44",
+    "exists": true
+  },
+  "seed": 42,
+  "pricing": {
+    "path": "experiments/pricing/pricing-2026-10-22.json",
+    "sha256": "c01fa0313a57c42bee9b84eae1e39888d3c391449c41dbded5edf41c224ff01c",
+    "region": "us-east-1",
+    "captured_at_utc": "2026-10-22T14:30:00Z",
+    "source_urls": {
+      "lambda": "https://aws.amazon.com/lambda/pricing/",
+      "api_gateway": "https://aws.amazon.com/api-gateway/pricing/",
+      "dynamodb": "https://aws.amazon.com/dynamodb/pricing/"
+    },
+    "pricing_model": "public_list_price_before_free_tier_credits_and_account_discounts",
+    "lambda_request_usd_per_million": 0.2,
+    "lambda_gb_second_usd_x86_64": 1.66667e-05,
+    "lambda_gb_second_usd_arm64": 1.33334e-05,
+    "http_api_usd_per_million_requests_first_tier": 1.0,
+    "dynamodb_standard_usd_per_million_rru": 0.125,
+    "dynamodb_standard_usd_per_million_wru": 0.625
+  },
+  "stack": {
+    "available": true,
+    "stack_name": "document-api-benchmark",
+    "stack_id": "arn:aws:cloudformation:us-east-1:013461378967:stack/document-api-benchmark/02d67050-b9f5-11f1-ab03-0afffc95e0cd",
+    "stack_status": "UPDATE_COMPLETE",
+    "creation_time": "2026-09-26 21:55:39.196000+00:00",
+    "last_updated_time": "2026-10-20 16:10:15.972000+00:00"
+  },
+  "generator": {
+    "available": true,
+    "instance_id": "i-004f8c0b297e79700",
+    "instance_type": "t8i.small",
+    "availability_zone": "us-east-1b",
+    "state": "running",
+    "image_id": "ami-0567589d25e06853e",
+    "cpu_credits": "standard",
+    "credit_specification": null,
+    "expected_instance_type": "t8i.small",
+    "expected_cpu_credits": "standard",
+    "expected_k6_version": "k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64)",
+    "require_chrony": true,
+    "max_clock_offset_ms": 50
+  },
+  "log_retention": {
+    "/aws/lambda/document-api-benchmark-MonolithFunction-kqArHeVcvmJJ": {
+      "exists": true,
+      "retention_in_days": 90,
+      "stored_bytes": 188099
+    },
+    "/aws/lambda/document-api-benchmark-DecomposedOrchestratorFunct-U6nd1jQKKU6x": {
+      "exists": true,
+      "retention_in_days": 90,
+      "stored_bytes": 45511
+    },
+    "/aws/lambda/document-api-benchmark-LexicalFunction-0GmIGBUUV6kk": {
+      "exists": true,
+      "retention_in_days": 90,
+      "stored_bytes": 42649
+    },
+    "/aws/lambda/document-api-benchmark-ReadabilityFunction-CSZGoMjoou7Y": {
+      "exists": true,
+      "retention_in_days": 90,
+      "stored_bytes": 42492
+    },
+    "/aws/lambda/document-api-benchmark-KeywordsFunction-2smOwpw0tU1c": {
+      "exists": true,
+      "retention_in_days": 90,
+      "stored_bytes": 43782
+    },
+    "/aws/lambda/document-api-benchmark-DecomposedCrudFunction-0UObZnfz5i6z": {
+      "exists": true,
+      "retention_in_days": 90,
+      "stored_bytes": 76324
+    }
+  },
+  "log_retention_policy": {
+    "expected_days": 90,
+    "managed_outside_cloudformation": true
+  },
+  "tools": {
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:27:36) [GCC 11.2.0]",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "aws_cli": "aws-cli/2.37.4 Python/3.14.6 Linux/6.8.0-138-generic exe/x86_64.ubuntu.22",
+    "sam_cli": "SAM CLI, version 1.166.2",
+    "k6_local": "k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64)",
+    "git": "git version 2.34.1"
+  },
+  "protocol": {
+    "random_seed": 42,
+    "warmup_seconds": 120,
+    "measurement_seconds": 120,
+    "total_duration_seconds": 240,
+    "repetitions_per_condition": 10,
+    "blocks": 10,
+    "primary_lmax_ms": 500,
+    "sensitivity_lmax_ms": [
+      300,
+      800
+    ],
+    "conservative_feasibility_rule": "upper_95ci_p95 <= primary_lmax_ms"
+  },
+  "arrival_schedule": {
+    "constant_tolerance_fraction": 0.05,
+    "burst_per_window_tolerance_fraction": 0.05,
+    "sparse_timing_jitter_ms": 50,
+    "sparse_count_tolerance_fraction": 0.0,
+    "maximum_dropped_iterations": 0
+  },
+  "validity": {
+    "no_concurrent_runs": true,
+    "require_alias_target_verified": true,
+    "require_all_raw_data": true,
+    "require_configuration_match": true,
+    "require_generator_capacity": true
+  }
+}
