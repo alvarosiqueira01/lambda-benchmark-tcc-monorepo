@@ -57,6 +57,9 @@ def test_git_dirty_ignores_modified_runtime_metadata():
     assert manifest.dirty_from_status(
         "?? experiments/runs/campaign/run-1/\n"
     ) is False
+    assert manifest.dirty_from_status(
+        "?? experiments/archive/tcc-2026-11/derived-block-01.tar.xz\n"
+    ) is False
 
 
 def test_git_dirty_detects_source_changes():

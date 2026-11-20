@@ -27,6 +27,7 @@ RUNTIME_ARTIFACT_PATHS = (
     "experiments/pilot-validation.md",
     "experiments/runs/",
     "experiments/aggregate/",
+    "experiments/archive/",
     "experiments/metadata/plan/",
 )
 
@@ -40,6 +41,8 @@ def is_runtime_artifact(path):
     if normalized.startswith("experiments/runs/"):
         return True
     if normalized.startswith("experiments/aggregate/"):
+        return True
+    if normalized.startswith("experiments/archive/"):
         return True
     if normalized.startswith("experiments/metadata/plan/"):
         return True

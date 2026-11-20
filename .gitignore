@@ -19,9 +19,28 @@ experiments/pilot-validation.json
 experiments/pilot-validation.md
 experiments/runs/*
 !experiments/runs/.gitkeep
+
+# Analysis outputs: commit tables and figures, ignore scratch files
 experiments/aggregate/*
 !experiments/aggregate/.gitkeep
+!experiments/aggregate/*.csv
+!experiments/aggregate/*.json
+!experiments/aggregate/*.md
+!experiments/aggregate/figures/
+!experiments/aggregate/figures/**
+
+# Metadata: commit frozen manifests and the block plan, ignore runtime files
 experiments/metadata/*.json
 !experiments/metadata/deploy-validation.json
 !experiments/metadata/pilot-validation-template.json
-experiments/metadata/plan/
+!experiments/metadata/pilot-manifest.json
+!experiments/metadata/campaign-manifest.json
+!experiments/metadata/pilot-controller-results.json
+!experiments/metadata/campaign-controller-results.json
+experiments/metadata/plan/*
+!experiments/metadata/plan/*.csv
+!experiments/metadata/plan/*.json
+
+# Derived archives are committed; full raw archives go to a GitHub Release
+experiments/archive/**/full/
+experiments/archive/*-full/

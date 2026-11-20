@@ -68,3 +68,20 @@ Os testes usam clientes fake para DynamoDB e Lambda; não tocam em AWS.
 ## Equivalência entre versões monolítica e decomposta
 
 Duas configurações são ditas equivalentes se, para todo documento do dataset, a resposta HTTP de GET /documents/{id}/analysis é byte-a-byte idêntica (status + body), exceto pelo ANALYSIS_ERROR documentado no contrato.
+
+## Dados experimentais
+
+Os runs brutos ficam fora do Git. O repositório versiona os artefatos derivados
+por run (sem `k6-raw.json`), os agregados e os metadados congelados; o pacote
+completo, com o k6 bruto, é publicado como asset de um GitHub Release.
+
+- `experiments/archive/tcc-2026-11/` — um arquivo por bloco (e um do piloto),
+  `SHA256SUMS`, `archive-manifest.json`, `per-run-index.csv` e `README.md`.
+- `experiments/aggregate/` — `runs.csv`, `function_runs.csv`, intervalos de
+  confiança, testes de hipóteses, seleção e figuras.
+- `experiments/metadata/` — manifestos congelados e plano dos blocos.
+- `experiments/runs/` e `experiments/archive/**/full/` — ignorados pelo Git; o
+  segundo é o insumo do release.
+
+O procedimento completo de geração, validação, commit e publicação está em
+[experiments/README.md](experiments/README.md#9-arquivamento-e-publicação).

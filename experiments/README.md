@@ -56,7 +56,8 @@ experiments/
 ├── runs/
 │   ├── pilot/                    # um diretório por run do piloto
 │   └── campaign/                 # um diretório por run da campanha
-└── aggregate/                    # runs.csv, testes, seleção e figuras
+├── aggregate/                    # runs.csv, testes, seleção e figuras
+└── archive/                      # pacotes derivados e pacote bruto do release
 
 k6/benchmark.js                   # gerador open-loop e T0 reportado pelo k6
 scripts/experiment/
@@ -67,7 +68,7 @@ scripts/experiment/
 ├── run/                          # carga k6 e artefatos do gerador
 ├── collect/                      # Lambda, CloudWatch e custos
 ├── validate/                     # classificação do run
-└── report/                       # evidência e relatório do piloto
+└── report/                       # evidência, relatório e arquivamento
 scripts/analysis/                 # agregação, bootstrap, hipóteses e seleção
 tests/                            # testes unitários do instrumento
 ```
@@ -90,6 +91,7 @@ tests/                            # testes unitários do instrumento
 | `manifest.py` | Congela campanha e registra hashes, ferramentas, stack e gerador. |
 | `controller.py` | Executa runs sequencialmente, com preflight, checagem de concorrência e fila de substituição. |
 | `pilot_report.py` | Produz a evidência estruturada e o Markdown do piloto a partir dos runs arquivados. |
+| `archive_campaign.py` | Gera pacotes determinísticos derivados (Git) e completos (release). |
 | `aggregate.py` | Consolida runs válidos em `runs.csv` e `function_runs.csv`. |
 | `bootstrap.py` | Intervalos de confiança por condição e contrastes pareados por bloco. |
 | `hypotheses.py` | Contrastes exploratórios H1–H6 com IC bootstrap. |
@@ -369,7 +371,145 @@ entre as configurações elegíveis, o menor `Creq` mediano. Se o conjunto for
 vazio, o relatório registra o vazio e não relaxa o limite após ver os resultados.
 As sensibilidades 300 ms e 800 ms são relatadas separadamente.
 
-## 9. Limitações
+## 9. Arquivamento e publicação
+
+Os runs em `experiments/runs/` não são versionados. Depois que o bloco 10
+terminar, gere dois conjuntos:
+
+| Destino | Escopo | Conteúdo | Git |
+|---|---|---|---|
+| `experiments/archive/tcc-2026-11/` | `derived` | artefatos por run, sem `k6-raw.json` | commitado |
+| `experiments/archive/tcc-2026-11/full/` | `full` | pacote com `k6-raw.json` | ignorado; GitHub Release |
+
+O escopo derivado é suficiente para `aggregate.py` e para a análise. A
+revalidação completa com `validate_run.py` exige o pacote `full`.
+
+### 9.1 Gerar
+
+O `archive-manifest.json` registra `git_dirty`. Faça o commit do ferramental e
+da documentação antes da geração final; os diretórios de runtime
+(`experiments/runs/`, `experiments/aggregate/`, `experiments/archive/` e
+`experiments/metadata/plan/`) não contam como sujeira.
+
+Confira o plano sem escrever nada:
+
+```bash
+python scripts/experiment/report/archive_campaign.py \
+  --phase all --scope derived --group block \
+  --out experiments/archive/tcc-2026-11 \
+  --campaign-id tcc-2026-11 \
+  --campaign-manifest experiments/metadata/campaign-manifest.json \
+  --compression xz --dry-run
+```
+
+Gere os arquivos derivados que serão commitados:
+
+```bash
+python scripts/experiment/report/archive_campaign.py \
+  --phase all --scope derived --group block \
+  --out experiments/archive/tcc-2026-11 \
+  --campaign-id tcc-2026-11 \
+  --campaign-manifest experiments/metadata/campaign-manifest.json \
+  --compression xz --force
+```
+
+Gere o pacote completo, que fica fora do Git:
+
+```bash
+python scripts/experiment/report/archive_campaign.py \
+  --phase all --scope full --group single \
+  --out experiments/archive/tcc-2026-11/full \
+  --campaign-id tcc-2026-11 \
+  --campaign-manifest experiments/metadata/campaign-manifest.json \
+  --compression gzip --force
+```
+
+O agrupamento `block` cria um arquivo por bloco (o piloto vira o grupo
+`pilot`); `single` cria um único `tcc-2026-11-full-raw.tar.gz`. O escopo
+derivado produz `tcc-2026-11-derived-pilot.tar.xz` e
+`tcc-2026-11-derived-block-01.tar.xz` … `block-10`. Os arquivos são
+determinísticos (ordem fixa, `mtime`/`uid`/`gid` zerados e compressão sem
+timestamp), então repetir o comando sobre os mesmos runs produz os mesmos
+SHA256. Use `--allow-incomplete` apenas para auditorias parciais; não o use no
+pacote final.
+
+Medição local em 2026-11-11 (blocos 1–3, 181 runs de campanha mais 12 do
+piloto): o derivado do bloco 1 ficou em 30 MB com gzip e 21 MB com xz; a
+projeção para 10 blocos mais o piloto é de aproximadamente 315 MB (gzip) ou
+215 MB (xz). O pacote completo do bloco 1 ficou em 104 MB; a projeção total é
+de aproximadamente 1,1 GB, abaixo do limite de 2 GB por asset do GitHub
+Release. Use `--compression gzip` no derivado se precisar de compatibilidade
+máxima; o custo é cerca de 45% mais espaço.
+
+### 9.2 Validar
+
+```bash
+cd experiments/archive/tcc-2026-11
+sha256sum -c SHA256SUMS
+tar -tf tcc-2026-11-derived-pilot.tar.xz | head
+
+# o pacote derivado não deve conter k6-raw.json
+! tar -tf tcc-2026-11-derived-pilot.tar.xz | grep -q k6-raw.json
+
+cd full
+sha256sum -c SHA256SUMS
+tar -tf tcc-2026-11-full-raw.tar.gz | head
+```
+
+O `archive_campaign.py` já confere a lista de membros depois de escrever cada
+arquivo; o `sha256sum -c` confere os bytes depois de copiar ou clonar o
+repositório.
+
+### 9.3 Commit dos derivados
+
+Depois da análise, confira o que será versionado e faça o commit:
+
+```bash
+git add experiments/archive/tcc-2026-11 \
+  experiments/aggregate \
+  experiments/metadata/plan \
+  experiments/metadata/pilot-manifest.json \
+  experiments/metadata/campaign-manifest.json \
+  experiments/metadata/pilot-controller-results.json \
+  experiments/metadata/campaign-controller-results.json
+git status --short
+git commit -m "data: archive campaign artifacts"
+git push
+```
+
+Não adicione `experiments/archive/tcc-2026-11/full/`: ele é ignorado e deve ser
+publicado apenas no release. Confirme com:
+
+```bash
+git check-ignore -v \
+  experiments/archive/tcc-2026-11/full/tcc-2026-11-full-raw.tar.gz
+```
+
+### 9.4 Publicar o pacote bruto
+
+Com o GitHub CLI autenticado, crie o release e envie o pacote e o checksum:
+
+```bash
+gh release create tcc-2026-11-data \
+  experiments/archive/tcc-2026-11/full/tcc-2026-11-full-raw.tar.gz \
+  experiments/archive/tcc-2026-11/full/SHA256SUMS \
+  --title "Dados brutos — campanha tcc-2026-11" \
+  --notes "Pacote completo dos runs do piloto e da campanha, incluindo k6-raw.json. Confira o SHA256SUMS anexado."
+```
+
+Se quiser registrar a URL no manifesto derivado, repita a geração derivada com
+`--release-url https://github.com/<org>/<repo>/releases/tag/tcc-2026-11-data`
+e refaça o commit; os arquivos compactados não mudam, apenas o README e o
+`archive-manifest.json` do diretório derivado.
+
+### 9.5 Limpeza opcional
+
+Só remova `experiments/runs/` ou `experiments/archive/tcc-2026-11/full/` depois
+de confirmar o download e o `sha256sum -c` do release. O `awscliv2.zip` (71 MB)
+continua versionado; removê-lo do índice reduz o clone, mas não libera espaço
+no histórico sem uma reescrita, então isso é uma decisão separada.
+
+## 10. Limitações
 
 - `cold_reset.py` altera recursos fora do CloudFormation; um `sam deploy`
   posterior sobrescreve a configuração do benchmark.
